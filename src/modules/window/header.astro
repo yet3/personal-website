@@ -1,10 +1,7 @@
 ---
-import CloseBtn from "./closeBtn";
 import Nav from "./nav";
-import {
-  WINDOW_IN_DURATION,
-  BEFORE_WINDOW_DELAY,
-} from "@constants";
+import { WINDOW_IN_DURATION, BEFORE_WINDOW_DELAY } from "@constants";
+import Anchor from "@common/anchor.astro";
 ---
 
 <header
@@ -13,7 +10,7 @@ import {
 >
   <Nav client:idle />
   <div class="ml-auto text-white flex items-center">
-    <CloseBtn client:idle />
+    <Anchor href="maksymilian_kasperowicz_resume.pdf">Resume</Anchor>
   </div>
 </header>
 
