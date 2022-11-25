@@ -1,0 +1,62 @@
+---
+import Window from "@modules/window/window.astro";
+import { WEBSITE_TITLE, WEBSITE_DESCRIPTION } from "@constants";
+
+const img = "/cover.jpg";
+---
+
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{WEBSITE_TITLE}</title>
+    <meta name="title" content={WEBSITE_TITLE} />
+    <meta name="description" content={WEBSITE_DESCRIPTION} />
+    <meta property="og:title" content={WEBSITE_TITLE} />
+    <meta property="og:description" content={WEBSITE_DESCRIPTION} />
+    <meta property="twitter:title" content={WEBSITE_TITLE} />
+    <meta property="twitter:description" content={WEBSITE_DESCRIPTION} />
+
+    <meta property="og:image" content={new URL(img, Astro.url)} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content={new URL(img, Astro.url)} />
+
+    <meta property="og:url" content={Astro.url} />
+    <meta property="twitter:url" content={Astro.url} />
+
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <Window>
+      <slot />
+    </Window>
+    <style>
+      body {
+        @apply bg-accent overflow-hidden;
+      }
+    </style>
+
+    <style is:global>
+      html {
+        @apply text-dark-text;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .md-content ul {
+        @apply list-disc ml-5;
+      }
+      .md-content li {
+        @apply marker:text-accent marker:text-xl;
+      }
+
+      .md-content li ul {
+        @apply ml-4;
+      }
+    </style>
+  </body>
+</html>

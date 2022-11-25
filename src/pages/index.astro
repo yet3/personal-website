@@ -1,0 +1,62 @@
+---
+import "../global.css";
+import MainLayout from "@layouts/mainLayout.astro";
+import Hero from "@modules/sections/hero/hero.astro";
+import Experience from "@modules/sections/experience/experience.astro";
+import Projects from "@modules/sections/projects/projects.astro";
+import Contact from "@modules/sections/contact/contact.astro";
+import { GITHUB_HREF, LINKEDIN_HREF, PROJECT_REPO_HREF } from "@constants";
+import LinkedInIcon from "@common/icons/linkedInIcon";
+import GithubIcon from "@common/icons/githubIcon";
+import Anchor from "@common/anchor.astro";
+---
+
+<MainLayout>
+  <main class="grid gap-32 content-start items-start">
+    <Hero />
+    <Experience />
+    <Projects />
+    <Contact />
+  </main>
+
+  <footer class="grid grid-cols-[5rem,1fr,5rem]">
+    <div class="flex flex-col gap-4">
+      <Anchor
+        href={GITHUB_HREF}
+        class="fill-dark-text hover:fill-accent cursor-pointer transition-colors"
+        aria-label='Github link'
+      >
+        <GithubIcon className="w-6 h-6 sm:w-8 sm:h-8 fill-inherit" />
+      </Anchor>
+      <Anchor
+        href={LINKEDIN_HREF}
+        aria-label='Linkedin link'
+        class="fill-dark-text hover:fill-accent cursor-pointer transition-colors"
+      >
+        <LinkedInIcon className="w-6 h-6 sm:w-8 sm:h-8 fill-inherit" />
+      </Anchor>
+    </div>
+
+    <p class="text-sm mt-auto mx-auto text-center flex">
+      <span>Built with&nbsp;</span>
+      <Anchor
+        class="underline hover:text-accent font-medium cursor-pointer"
+        content="Astro"
+        href="https://astro.build/"
+      />
+      <span>. Deployed on&nbsp;</span>
+      <Anchor
+        class="underline hover:text-accent font-medium cursor-pointer"
+        content="Vercel"
+        href="https://vercel.com/"
+      />
+      <span>. See on&nbsp;</span>
+      <Anchor
+        class="underline hover:text-accent font-medium cursor-pointer"
+        content="Github"
+        href={PROJECT_REPO_HREF}
+      />
+      .
+    </p>
+  </footer>
+</MainLayout>

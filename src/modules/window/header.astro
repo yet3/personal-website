@@ -1,0 +1,54 @@
+---
+import CloseBtn from "./closeBtn";
+import Nav from "./nav";
+import {
+  WINDOW_IN_DURATION,
+  BEFORE_WINDOW_DELAY,
+} from "@constants";
+---
+
+<header
+  class="duration-header-in bg-dark h-full px-4 flex items-center origin-top z-10"
+  style={`animation-delay: ${WINDOW_IN_DURATION + BEFORE_WINDOW_DELAY}ms;`}
+>
+  <Nav client:idle />
+  <div class="ml-auto text-white flex items-center">
+    <CloseBtn client:idle />
+  </div>
+</header>
+
+<style>
+  header {
+    transform: scaleY(0);
+    animation: window-header-in ease 1;
+    animation-timing-function: cubic-bezier(0.21, 0.65, 0.43, 1.15);
+    animation-fill-mode: forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .header {
+      animation: none;
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes window-header-in {
+    0% {
+      transform: scaleY(0);
+    }
+
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes window-header-item-in {
+    0% {
+      transform: translateY(-3rem);
+    }
+
+    100% {
+      transform: translateY(0%);
+    }
+  }
+</style>

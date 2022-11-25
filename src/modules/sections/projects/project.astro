@@ -1,0 +1,131 @@
+---
+import { Image } from "@astrojs/image/components";
+import GithubIcon from "@common/icons/githubIcon";
+import Button from "@common/button.astro";
+import clsx from "clsx";
+import { GITHUB_HREF } from "@constants";
+import type { MarkdownInstance } from "astro";
+
+interface Props {
+  project: MarkdownInstance<{
+    title: string;
+    githubRepo: string;
+    appHref: string;
+    imgName: string;
+    technologies: string[];
+  }>;
+  imgPos?: "left" | "right";
+}
+
+const { project, imgPos = "left" } = Astro.props;
+const { frontmatter, compiledContent } = project;
+const { title, githubRepo, appHref, imgName, technologies } = frontmatter;
+console.log(frontmatter)
+
+const img = import(/* @vite-ignore */ `../../../assets/projects/${imgName}.png`)
+---
+
+<li
+  class:list={[
+    "wrapper",
+    "mx-auto w-full grid gap-4 md:gap-y-0 content-start items-start p-4 rounded-sm w-full",
+    "grid-cols-[1fr] md:grid-rows-[auto,auto]",
+    imgPos === "left"
+      ? "md:grid-cols-[minmax(100px,325px),1fr]"
+      : "md:grid-cols-[1fr,minmax(100px,325px)]",
+  ]}
+>
+  <h3
+    class:list={[
+      "fluid-text-xl-2xl font-medium motion-safe:opacity-0 text-center md:text-left md:self-end",
+      imgPos === "left" && "md:col-start-2 md:col-end-3",
+    ]}
+  >
+    {title}
+  </h3>
+  <div
+    class:list={[
+      "mx-auto grid grid-cols-2 gap-4 place-content-center place-items-center max-w-[350px] md:max-w-none md:row-start-1 md:row-span-full",
+      imgPos === "right" && "md:col-start-2 md:col-end-3",
+    ]}
+  >
+    <Button
+      href={GITHUB_HREF + "/" + githubRepo}
+      ariaLabel={`Link to ${title} project's github repo`}
+      class={clsx(
+        "flex items-center justify-self-end text-sm link-btn motion-safe:opacity-0",
+        imgPos === "left" ? "md:justify-self-end" : "md:justify-self-start"
+      )}
+    >
+      <span>See on</span>
+      <GithubIcon className="w-5 h-5 fill-dark-text ml-1" />
+    </Button>
+    <a
+      href={appHref}
+      class:list={[
+        "justify-self-start link-btn motion-safe:opacity-0",
+        imgPos === "left"
+          ? "md:justify-self-start"
+          : "md:justify-self-end md:col-start-1 md:row-start-1",
+      ]}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <Button class={"text-sm"}>Give it a try!</Button>
+    </a>
+
+    <Image
+      src={img}
+      alt="J.A.T screenshot"
+      fit="cover"
+      class="img motion-safe:opacity-0 col-span-full w-full z-[5] row-start-1 md:row-auto"
+    />
+  </div>
+
+  <div class="grid content-start gap-8 md:gap-4 mt-4 md:mt-0">
+    <div
+      class="mb-auto desc motion-safe:opacity-0 text-base md:fluid-text-sm-base-[900px,1100px] text-center md:text-left"
+      set:html={compiledContent()}
+    >
+    </div>
+
+    <ul class="flex flex-wrap text-sm justify-center gap-2 md:justify-start">
+      {
+        technologies.map((tech, i) => (
+          <li
+            class="tech-li py-2 px-4 rounded bg-dark text-white text-center motion-safe:opacity-0 grid place-items-center"
+            style={`animation-delay: ${
+              200 + i * 25
+            }ms; transition: all 1s ease;`}
+          >
+            {tech}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</li>
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    .wrapper.show h3 {
+      @apply animate-fade-in-top-m delay-200;
+    }
+
+    .wrapper.show .link-btn {
+      @apply animate-fade-in-top-m delay-200;
+    }
+
+    .wrapper.show .desc {
+      @apply animate-fade-in-top-m;
+    }
+
+    .wrapper.show .tech-li {
+      @apply animate-fade-in-bottom-m;
+    }
+
+    .wrapper.show .img {
+      @apply animate-fade-in-bottom-s delay-300;
+    }
+  }
+</style>

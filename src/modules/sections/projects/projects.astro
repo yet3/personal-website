@@ -1,0 +1,39 @@
+---
+import Project from "./project.astro";
+import { GITHUB_HREF } from "@constants";
+import ProjectsList from "./projectsList";
+import Section from "@modules/section/section";
+import Button from "@common/button.astro";
+
+const projects = await Astro.glob('./content/*.md');
+
+---
+
+<Section
+  id="projects"
+  title="Projects"
+  description="Some of my projects"
+  className="wrapper grid gap-2 justify-center justify-items-center"
+  client:load
+>
+  <ProjectsList client:load>
+    {
+      projects.map((p, i) => (
+        <Project project={p as any} imgPos={i % 2 === 0 ? "left" : "right"} />
+      ))
+    }
+  </ProjectsList>
+
+  <Button
+    href={GITHUB_HREF + "?tab=repositories"}
+    class="github-link mt-12 opacity-0">Find more on github</Button
+  >
+</Section>
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    .wrapper.show .github-link {
+      @apply animate-fade-in-bottom-m;
+    }
+  }
+</style>

@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+  content?: string;
+}
+
+const { content, ...props } = Astro.props;
+---
+
+<a rel="noopener noreferrer" target="_blank" {...props}>
+  {content == null ? <slot /> : content}
+</a>

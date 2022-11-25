@@ -1,0 +1,30 @@
+---
+import Section from "@modules/section/section";
+import Button from "@common/button.astro";
+---
+
+<Section
+  title="Contact"
+  description="I do my best to check my email regularly, so feel free to write me at <b>kasperowicz.maksymilian@gmail.com</b> if you want to get in touch."
+  id="contact"
+  className="wrapper pb-48"
+  observerThreshold={0.3}
+  client:load
+>
+  <a
+    href="mailto:kasperowicz.maksymilian@gmail.com"
+    rel="noopener noreferrer"
+    target="_blank"
+    class="email-btn motion-safe:opacity-0"
+  >
+    <Button>Send me an email</Button>
+  </a>
+</Section>
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    .wrapper.show .email-btn {
+      @apply animate-fade-in-bottom-m;
+    }
+  }
+</style>

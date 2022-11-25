@@ -1,0 +1,119 @@
+---
+import Section from "@modules/section/section";
+import clsx from "clsx";
+
+const content = await Astro.glob("./content/*.md");
+content.reverse();
+
+const LINE_IN_DUR = 350;
+const LINE_POINT_IN_DUR = 150;
+---
+
+<Section
+  id="experience"
+  title="Experience"
+  className="wrapper"
+  observerThreshold={0.3}
+  client:load
+>
+  <ol class="grid content-start sm:max-w-2xl w-[95%] mob-l:w-[90%] sm:w-auto">
+    {
+      content.map((md, i) => {
+        const { frontmatter, compiledContent } = md;
+        return (
+          <li class="grid grid-cols-[0.4rem,1fr] min-h-[2rem] gap-4">
+            <div class="relative w-full h-full">
+              <div
+                class={clsx(
+                  "line w-full h-full bg-accent origin-top",
+                  i === 0 && "rounded-t-full",
+                  i === content.length - 1 && "rounded-b-full"
+                )}
+                style={`
+                  animation-duration: ${LINE_IN_DUR}ms; 
+                  animation-delay: ${i * LINE_IN_DUR}ms;`}
+              />
+              <div class="line-point w-5 h-5 border-4 border-white absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full bg-accent origin-left"
+                style={`
+                  animation-duration: ${LINE_POINT_IN_DUR}ms; 
+                  animation-delay: ${i * LINE_IN_DUR + LINE_IN_DUR/2}ms;`}
+                />
+            </div>
+            <div>
+              {frontmatter.title && (
+                <h3 class="text-lg font-medium experience-content-heading">
+                  <span>{frontmatter.title}</span>
+                  <span class="text-accent">at</span>
+                  {frontmatter.employer ? (
+                    frontmatter.employer.href ? (
+                      <a
+                        href={frontmatter.employer.href}
+                        rel="noreferrer noopener"
+                        target="_blank"
+                      >
+                        {frontmatter.employer.name}
+                      </a>
+                    ) : (
+                      <span>{frontmatter.employer.name}</span>
+                    )
+                  ) : null}
+                </h3>
+              )}
+              <div
+                class="experience-content md-content"
+                set:html={compiledContent()}
+              />
+            </div>
+          </li>
+        );
+      })
+    }
+  </ol>
+</Section>
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    .experience-content,
+    .experience-content-heading {
+      opacity: 0;
+    }
+    .wrapper.show .experience-content {
+      @apply animate-fade-in-bottom-s;
+    }
+
+    .wrapper.show .experience-content-heading {
+      @apply animate-fade-in-bottom-full;
+    }
+
+    .line {
+      transform: scaleY(0);
+    }
+    .line-point {
+      transform: scale(0);
+    }
+    .wrapper.show .line {
+      @apply animate-[experience-line-in_500ms_linear_forwards];
+    }
+    .wrapper.show .line-point {
+      @apply animate-[experience-line-point-in_150ms_250ms_linear_forwards];
+    }
+
+    @keyframes experience-line-in {
+      0% {
+        transform: scaleY(0);
+      }
+      100% {
+        transform: scaleY(1);
+      }
+    }
+
+    @keyframes experience-line-point-in {
+      0% {
+        transform: scale(0) translate(-50%, -50%);
+      }
+      100% {
+        transform: scale(1) translate(-50%, -50%);
+      }
+    }
+  }
+</style>

@@ -1,0 +1,37 @@
+{
+  "name": "@yet3/personal-website",
+  "author": "Maksymilian Kasperowicz <kasperowicz.maksymilian@gmail.com>",
+  "url": "https://www.maxkasperowicz.com",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/image": "^0.9.3",
+    "@astrojs/react": "^1.2.0",
+    "@astrojs/tailwind": "^2.0.2",
+    "astro": "^1.4.7",
+    "clsx": "^1.2.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "sharp": "^0.31.1",
+    "tailwindcss": "^3.0.24"
+  },
+  "devDependencies": {
+    "@originjs/vite-plugin-commonjs": "^1.0.3",
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@types/marked": "^4.0.7",
+    "@types/react": "^18.0.21",
+    "tailwindcss-animate": "^1.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yet3/personal-website.git"
+  }
+}
