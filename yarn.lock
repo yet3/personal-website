@@ -674,6 +674,11 @@
     vscode-nls "^5.0.0"
     vscode-uri "^2.1.2"
 
+"@yet3/tailwindcss-fluid-text@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@yet3/tailwindcss-fluid-text/-/tailwindcss-fluid-text-1.0.4.tgz#e38fd207ce2c769d68634640292f56311a238a60"
+  integrity sha512-8WXV4QHivQYLBaNEgY391NysFoXVS1LN2IXz/bXSGkQ4J8IizS45dEExm483QrxdAwzNnPs7gIMDve2wkaD/7g==
+
 acorn-jsx@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
