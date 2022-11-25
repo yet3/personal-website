@@ -41,7 +41,7 @@ const LINE_POINT_IN_DUR = 150;
             </div>
             <div>
               {frontmatter.title && (
-                <h3 class="text-lg font-medium experience-content-heading">
+                <h3 class="fluid-text-base-lg font-medium experience-content-heading">
                   <span>{frontmatter.title}</span>
                   <span class="text-accent">at</span>
                   {frontmatter.employer ? (
@@ -60,7 +60,7 @@ const LINE_POINT_IN_DUR = 150;
                 </h3>
               )}
               <div
-                class="experience-content md-content"
+                class="experience-content md-content fluid-text-sm-base"
                 set:html={compiledContent()}
               />
             </div>
