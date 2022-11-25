@@ -4,7 +4,18 @@
   </a>
 </h1>
 <p align="center">
-  My personal website made in [Astro](https://astro.build/), styled using [TailwindCss](https://tailwindcss.com/) and deployed on [Vercel](https://vercel.com/).
+  First iteration of my personal website made in 
+  <a href='https://astro.build' rel='noreferrer noopener' target="_blank">
+    Astro
+  </a>
+  styled using
+  <a href='https://tailwindcss.com/' rel='noreferrer noopener' target="_blank">
+    TailwindCss
+  </a>
+  and deployed on 
+  <a href='https://vercel.com/' rel='noreferrer noopener' target="_blank">
+    Vercel
+  </a>
 </p>
 
 ![maxkasperowicz.com cover image](./public/cover.png)
