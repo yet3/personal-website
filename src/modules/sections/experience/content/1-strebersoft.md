@@ -13,7 +13,7 @@ employer:
   - Expanded already existing Express.js REST API
   - Worked with PostgreSQL database
 - Worked on a SaaS app for scheduling doctor appointments:
-  - Developed a web app using Next.js Typescript, TailwindCss containg:
+  - Developed a web app using Next.js Typescript, TailwindCss containing:
     - Control panel for a doctor to specify when they work, breaks, and categories that patients may choose from during scheduling 
     - Real-time view for a doctor of all planned visits with options to preview visit information, cancel or re-schedule a visit
     - Panel for patients to schedule visits 
