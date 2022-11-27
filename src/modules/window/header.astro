@@ -1,6 +1,6 @@
 ---
 import Nav from "./nav";
-import { WINDOW_IN_DURATION, BEFORE_WINDOW_DELAY } from "@constants";
+import { WINDOW_CONTENT_DELAY,WINDOW_IN_DURATION, BEFORE_WINDOW_DELAY } from "@constants";
 import Anchor from "@common/anchor.astro";
 ---
 
@@ -10,7 +10,13 @@ import Anchor from "@common/anchor.astro";
 >
   <Nav client:idle />
   <div class="ml-auto text-white flex items-center">
-    <Anchor href="maksymilian_kasperowicz_resume.pdf">Resume</Anchor>
+    <Anchor
+      href="maksymilian_kasperowicz_resume.pdf"
+      class='motion-safe:opacity-0 motion-safe:animate-fade-in-top-full'
+      style={`animation-delay: ${WINDOW_CONTENT_DELAY}ms;`}
+      >
+      Resume</Anchor
+    >
   </div>
 </header>
 
@@ -23,7 +29,7 @@ import Anchor from "@common/anchor.astro";
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .header {
+    header {
       animation: none;
       transform: scaleY(1);
     }

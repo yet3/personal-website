@@ -10,7 +10,7 @@ export const WINDOW_CONTENT_DELAY = T.WINDOW_CONTENT_DELAY;
 
 export const GITHUB_HREF = "https://github.com/yet3/";
 export const PROJECT_REPO_HREF = GITHUB_HREF + 'personal-website';
-export const LINKEDIN_HREF = "https://www.linkedin.com/";
+export const LINKEDIN_HREF = "https://www.linkedin.com/in/maxkasperowicz";
 
 export const WEBSITE_TITLE = "Maksymilian Kasperowicz";
 export const WEBSITE_DESCRIPTION =
