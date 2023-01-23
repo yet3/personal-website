@@ -9,9 +9,8 @@ technologies:
   - Typescript
   - i18next
   - TailwindCSS
-  - '@dnd-kit'
+  - "@dnd-kit"
   - Vercel
 ---
 
-J.A.T is my attempt at creating a timer. The timer is made of sequentially running steps. Aside from the duration, each step contains two optional fields: title (text) and description (markdown). The timer's state is saved between browser sessions. It is also possible to share it through a link or save it manually to the browser’s localStorage. The app also includes a simple stopwatch.
-
+J.A.T is my take on a timer app where each timer is made up of a series of steps that are completed in a specified order. Each step can have a title (text) and/or a description (markdown). The state of the timer is preserved even when the browser is closed and can be shared through a link or saved to the browser's local storage. The app also includes a basic stopwatch.

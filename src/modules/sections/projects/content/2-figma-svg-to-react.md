@@ -14,4 +14,4 @@ technologies:
   - Vercel
 ---
 
-I made the SVG to React Figma plugin because I wanted a way to transform multiple svgs to react components at once. The plugin uses SVGR for transformation and @svgr/plugin-svgo for SVG optimization. The conversion happens on a serverless function that's deployed to vercel. The plugin lets you preview the code of each converted svg, set its name, and copy each individually or download them as files.
+SVG to React Figma plugin is an easy way to convert multiple SVG files to React components at once. The plugin utilises SVGR for the transformation process and SVGO for optimising the SVG files. The conversion takes place on a serverless function hosted on Vercel. The plugin allows users to preview the code for each converted SVG, set a custom name for it, individually copy or download the file/files.
