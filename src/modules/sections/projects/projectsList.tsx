@@ -16,7 +16,6 @@ export default function ProjectsList({ children }: Props) {
             observer.unobserve(e.target);
             const el = e.target as HTMLElement;
             el.classList.add("show");
-            console.log(el);
           }
         });
       },

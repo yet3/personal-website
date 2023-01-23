@@ -20,7 +20,6 @@ interface Props {
 const { project, imgPos = "left" } = Astro.props;
 const { frontmatter, compiledContent } = project;
 const { title, githubRepo, appHref, imgName, technologies } = frontmatter;
-console.log(frontmatter)
 
 const img = import(/* @vite-ignore */ `../../../assets/projects/${imgName}.png`)
 ---

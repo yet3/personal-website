@@ -58,11 +58,9 @@ export default function Nav() {
         setIsMenuOpen(false);
       }
     };
-    console.log("added");
     window.addEventListener("mousedown", handleMouseDown);
 
     return () => {
-      console.log("removed");
       window.removeEventListener("mousedown", handleMouseDown);
     };
   }, [isMenuOpen]);
