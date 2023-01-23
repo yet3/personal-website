@@ -4,9 +4,10 @@ import { GITHUB_HREF } from "@constants";
 import ProjectsList from "./projectsList";
 import Section from "@modules/section/section";
 import Button from "@common/button.astro";
+import clsx from "clsx";
+import GithubIcon from "@common/icons/githubIcon";
 
-const projects = await Astro.glob('./content/*.md');
-
+const projects = await Astro.glob("./content/*.md");
 ---
 
 <Section
@@ -24,10 +25,19 @@ const projects = await Astro.glob('./content/*.md');
     }
   </ProjectsList>
 
+  <!-- <Button -->
+  <!--   href={GITHUB_HREF + "?tab=repositories"} -->
+  <!--   class="github-link mt-12 opacity-0"></Button -->
+  <!-- > -->
+
   <Button
-    href={GITHUB_HREF + "?tab=repositories"}
-    class="github-link mt-12 opacity-0">Find more on github</Button
+    href={GITHUB_HREF}
+    ariaLabel={`Link to my github`}
+    class={"github-link mt-12 opacity-0 flex items-center"}
   >
+    <span>Find more on github</span>
+    <GithubIcon className="w-5 h-5 fill-dark-text ml-1" />
+  </Button>
 </Section>
 
 <style>
