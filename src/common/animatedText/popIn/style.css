@@ -1,0 +1,21 @@
+@keyframes anim-text-pop-in {
+  0% {
+    transform: translateY(35%) rotateZ(0deg) scale(1);
+    opacity: 0;
+  }
+  50% {
+    @apply text-accent;
+  }
+  60% {
+    @apply text-accent;
+    transform: translateY(-20%) rotateZ(-8deg) scale(1.1);
+    opacity: 1;
+  }
+  70% {
+    @apply text-accent;
+  }
+  100% {
+    transform: translateY(0%) rotateZ(0deg) scale(1);
+    opacity: 1;
+  }
+}

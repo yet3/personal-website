@@ -1,0 +1,51 @@
+---
+import { ProjectWindow } from "./window";
+import type { ProjectSkill } from "./skillBtn";
+
+interface MdProject {
+  name: string;
+  repo: string;
+  href: string;
+  imgName: string;
+  skills: ProjectSkill[];
+}
+
+const projects = await Astro.glob<MdProject>("../../assets/projects/*.md");
+---
+
+<section id="projects" class="grid gap-y-12 justify-center bg-shark-700 py-12">
+  {
+    projects.map((p) => (
+      <ProjectWindow
+        client:load
+        name={p.frontmatter.name}
+        content={p.compiledContent()}
+        skills={p.frontmatter.skills}
+      />
+    ))
+  }
+</section>
+
+<script>
+  const obs = new IntersectionObserver(
+    (e) => {
+      e.forEach((int) => {
+        if (int.isIntersecting) {
+          int.target.classList.add("in-viewport");
+          obs.unobserve(int.target);
+        }
+      });
+    },
+    { threshold: 0.55 }
+  );
+  const section = document.getElementById("projects");
+  if (section) {
+    section.childNodes.forEach((n) => {
+      if (n.nodeName === "ASTRO-ISLAND") {
+        obs.observe(n.childNodes[0] as Element);
+      } else if (n.nodeType === 1) {
+        obs.observe(n as Element);
+      }
+    });
+  }
+</script>

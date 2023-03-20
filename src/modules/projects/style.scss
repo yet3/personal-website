@@ -1,0 +1,106 @@
+$window-in-dur: 600ms;
+$header-in-dur: 400ms;
+
+$header-btn-in-dur: 300ms;
+$header-btn-stagger: 100ms;
+
+$content-delay: $window-in-dur + $header-in-dur;
+
+$img-in-dur: 600ms;
+$img-delay: -250ms;
+
+$title-in-dur: 400ms;
+$desc-in-dur: 400ms;
+$desc-delay: 200ms;
+
+.project-content {
+  opacity: 0;
+}
+.project-window.in-viewport {
+  opacity: 1;
+  transition: opacity $window-in-dur ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .project-window.in-viewport {
+    transition: none;
+    opacity: 1;
+    animation: scale-in-up $window-in-dur ease both;
+
+    & header {
+      opacity: 1;
+      animation: slide-in-bottom $header-in-dur $window-in-dur ease both;
+
+      @for $i from 1 through 3 {
+        & button:nth-of-type(#{$i}) {
+          opacity: 1;
+          animation: scale-in-up
+            $header-btn-in-dur
+            $content-delay +
+            ($header-btn-stagger * ($i - 1))
+            ease
+            both;
+        }
+      }
+    }
+
+    & .project-img {
+      opacity: 1;
+      animation: slide-in-bottom $img-in-dur $content-delay + $img-delay ease
+        both;
+    }
+
+    & .project-win-title {
+      & div:nth-of-type(1) {
+        opacity: 1;
+        animation: slide-in-bottom $title-in-dur $content-delay - $title-in-dur *
+          0.3 ease both;
+      }
+
+      & div:nth-of-type(2) {
+        opacity: 1;
+        animation: slide-in-bottom $title-in-dur $content-delay ease both;
+      }
+    }
+
+    & .project-content {
+      opacity: 1;
+      & .project-content-line {
+        opacity: 1;
+        animation: slide-in-bottom $desc-in-dur #{calc(
+            $content-delay + $desc-delay + var(--add-delay)
+          )} ease both;
+      }
+    }
+
+    & .project-skills li {
+      opacity: 1;
+      animation: slide-in-bottom $desc-in-dur #{calc(
+          $content-delay + $desc-delay + var(--add-delay)
+        )} ease both;
+    }
+  }
+}
+
+/* width */
+// .project-skills::-webkit-scrollbar {
+//   background-color: cyan;
+//   padding: 10px;
+//   margin: 10px;
+//   height: 8px;
+// }
+//
+// /* Track */
+// .project-skills::-webkit-scrollbar-track {
+// }
+//
+// /* Handle */
+// .project-skills::-webkit-scrollbar-thumb {
+//   background: blue;
+//   border-radius: 5px;
+// }
+//
+// /* Handle on hover */
+// .project-skills::-webkit-scrollbar-thumb:hover {
+//   background: #b30000;
+// }

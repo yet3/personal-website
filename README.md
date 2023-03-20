@@ -4,7 +4,7 @@
   </a>
 </h1>
 <p align="center">
-  First iteration of my personal website made in 
+  Second iteration of my personal website made in 
   <a href='https://astro.build' rel='noreferrer noopener' target="_blank">
     Astro
   </a>
@@ -18,4 +18,3 @@
   </a>
 </p>
 
-![maxkasperowicz.com cover image](./public/cover.png)

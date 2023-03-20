@@ -1,38 +1,31 @@
 {
-  "name": "@yet3/personal-website",
-  "author": "Maksymilian Kasperowicz <kasperowicz.maksymilian@gmail.com>",
-  "url": "https://www.maxkasperowicz.com",
+  "name": "@example/basics",
   "type": "module",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.9.3",
-    "@astrojs/react": "^1.2.0",
-    "@astrojs/tailwind": "^2.0.2",
+    "@astrojs/image": "^0.15.1",
+    "@astrojs/solid-js": "^2.0.2",
+    "@astrojs/tailwind": "^3.0.1",
+    "@motionone/solid": "^10.15.5",
     "@yet3/tailwindcss-fluid-text": "^1.0.4",
-    "astro": "^1.4.7",
+    "astro": "^2.0.15",
     "clsx": "^1.2.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "sharp": "^0.31.1",
-    "tailwindcss": "^3.0.24"
-  },
-  "devDependencies": {
-    "@originjs/vite-plugin-commonjs": "^1.0.3",
-    "@rollup/plugin-commonjs": "^23.0.2",
-    "@types/marked": "^4.0.7",
-    "@types/react": "^18.0.21",
+    "gsap": "^3.11.4",
+    "motion": "^10.15.5",
+    "nanostores": "^0.7.4",
+    "sharp": "^0.31.3",
+    "solid-js": "^1.4.3",
+    "tailwindcss": "^3.0.24",
     "tailwindcss-animate": "^1.0.5"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yet3/personal-website.git"
+  "devDependencies": {
+    "sass": "^1.58.3"
   }
 }
