@@ -1,7 +1,7 @@
 export const GITHUB_URL = "https://github.com/yet3/";
 export const PROJECT_REPO_URL = GITHUB_URL + "personal-website";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/maxkasperowicz";
-export const NPM_URL = "https://www.npmjs.com/~yet3";
+export const NPM_URL = "https://www.npmjs.com/@yet3";
 
 export const HERO = {
   BASE_DELAY: 0.25,
