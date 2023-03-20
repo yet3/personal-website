@@ -1,0 +1,44 @@
+@use "./fonts.scss";
+@use "./anims.scss";
+
+:root {
+  /* --color-accent: #f83866; */
+  --color-accent: #eb7d78;
+
+  --white: #ffffff;
+  --bg: #1c1e23;
+
+  /* shark */
+  --color-shark-50: #9aa0ae;
+  --color-shark-100: #8f95a5;
+  --color-shark-200: #788093;
+  --color-shark-300: #656c7e;
+  --color-shark-400: #525867;
+  --color-shark-500: #404550;
+  --color-shark-600: #2e313a;
+  --color-shark-700: #1c1e23;
+  --color-shark-800: #0e0f12;
+  --color-shark-900: #010101;
+
+  --pinkish-brown: #413534;
+}
+
+* {
+  font-family: "Inter", system-ui, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #1c1e23;
+}
+
+body {
+  /* background-color: #1c1e23; */
+}
+
+code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
