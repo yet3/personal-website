@@ -1,13 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "@modules/hero/hero.astro";
+import {AnimTextPopIn } from "../common/animatedText";
 ---
 
 <Layout title="Maksymilian Kasperowicz">
-  <main>
-    <Hero />
-    <!-- <AboutMe /> -->
-    <!-- <Experience /> -->
+  <main class="grid place-items-center w-screen h-screen text-white fluid-text-7xl-9xl">
+  <AnimTextPopIn text="｡◕‿‿◕｡" delay={1} duration={1} />
   </main>
 </Layout>
 
