@@ -1,0 +1,5 @@
+@layer components {
+	.tech-list {
+		@apply flex flex-wrap text-xs xs:text-sm mt-1;
+	}
+}

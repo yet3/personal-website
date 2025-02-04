@@ -1,0 +1,21 @@
+---
+interface Props {
+  class?: string;
+  data: string[];
+}
+const { data, ...props } = Astro.props;
+---
+
+<ul
+  class={props.class}
+  class:list={["tech-list"]}
+  aria-label="Technologies used"
+>
+  {
+    data.map((tech) => (
+      <li class="mt-1.5 mr-1.5 rounded-full px-3 py-1 border border-white/10">
+        {tech}
+      </li>
+    ))
+  }
+</ul>

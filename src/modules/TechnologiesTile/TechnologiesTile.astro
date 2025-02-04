@@ -1,0 +1,194 @@
+---
+import CssIcon from "@common/Icons/CssIcon.astro";
+import ElectronIcon from "@common/Icons/ElectronIcon.astro";
+import ExpressjsIcon from "@common/Icons/ExpressjsIcon.astro";
+import FirebaseIcon from "@common/Icons/FirebaseIcon.astro";
+import GoIcon from "@common/Icons/GoIcon.astro";
+import HtmlIcon from "@common/Icons/HtmlIcon.astro";
+import JavascriptIcon from "@common/Icons/JavascriptIcon.astro";
+import NextjsIcon from "@common/Icons/NextjsIcon.astro";
+import NodejsIcon from "@common/Icons/NodejsIcon.astro";
+import PostgreSqlIcon from "@common/Icons/PostgreSqlIcon.astro";
+import ReactIcon from "@common/Icons/ReactIcon.astro";
+import SassIcon from "@common/Icons/SassIcon.astro";
+import SolidjsIcon from "@common/Icons/SolidjsIcon.astro";
+import SupabaseIcon from "@common/Icons/SupabaseIcon.astro";
+import SvelteIcon from "@common/Icons/SvelteIcon.astro";
+import TailwindCssIcon from "@common/Icons/TailwindCssIcon.astro";
+import TypescriptIcon from "@common/Icons/TypescriptIcon.astro";
+import ViteIcon from "@common/Icons/ViteIcon.astro";
+import VitestIcon from "@common/Icons/VitestIcon.astro";
+import AstroIcon from "@common/Icons/AstroIcon.astro";
+import SQLiteIcon from "@common/Icons/SQLiteIcon.astro";
+import Tile from "@common/Tile.astro";
+import TechList from "./TechList.astro";
+import BiomejsIcon from "@common/Icons/BiomejsIcon.astro";
+import PnpmIcon from "@common/Icons/PnpmIcon.astro";
+import ExpoIcon from "@common/Icons/ExpoIcon.astro";
+
+export type ITech = { label: string; href: string; Icon: any };
+
+const LEARNING: ITech[] = [
+  { label: "Go", href: "https://go.dev/", Icon: GoIcon },
+];
+
+const PROGRAMMING_LANGUAGES: ITech[] = [
+  {
+    label: "JavaScript",
+    href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    Icon: JavascriptIcon,
+  },
+  {
+    label: "TypeScript",
+    href: "https://www.typescriptlang.org/",
+    Icon: TypescriptIcon,
+  },
+];
+
+const FRAMEWORKS_AND_LIBS: ITech[] = [
+  { label: "React", href: "https://react.dev/", Icon: ReactIcon },
+  { label: "React Native", href: "https://reactnative.dev/", Icon: ReactIcon },
+  { label: "Expo", href: "https://expo.dev/", Icon: ExpoIcon },
+  {
+    label: "Electron",
+    href: "https://www.electronjs.org/",
+    Icon: ElectronIcon,
+  },
+  { label: "Solidjs", href: "https://www.solidjs.com/", Icon: SolidjsIcon },
+  { label: "Svelte", href: "https://svelte.dev/", Icon: SvelteIcon },
+  { label: "Astro", href: "https://astro.build/", Icon: AstroIcon },
+  { label: "Next.js", href: "https://nextjs.org/", Icon: NextjsIcon },
+  { label: "Vitest", href: "https://vitest.dev/", Icon: VitestIcon },
+];
+
+const MARKUP_AND_STYLING: ITech[] = [
+  {
+    label: "TailwindCSS",
+    href: "https://tailwindcss.com/",
+    Icon: TailwindCssIcon,
+  },
+  { label: "SCSS", href: "https://sass-lang.com/", Icon: SassIcon },
+  {
+    label: "HTML",
+    href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    Icon: HtmlIcon,
+  },
+  {
+    label: "CSS",
+    href: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    Icon: CssIcon,
+  },
+];
+
+const BACKEND: ITech[] = [
+  { label: "Node.js", href: "https://nodejs.org/en", Icon: NodejsIcon },
+  { label: "Express", href: "https://expressjs.com/", Icon: ExpressjsIcon },
+  {
+    label: "PostgreSQL",
+    href: "https://www.postgresql.org/",
+    Icon: PostgreSqlIcon,
+  },
+  { label: "SQLite", href: "https://www.sqlite.org/", Icon: SQLiteIcon },
+  { label: "Supabase", href: "https://supabase.com/", Icon: SupabaseIcon },
+  {
+    label: "Firebase",
+    href: "https://firebase.google.com/",
+    Icon: FirebaseIcon,
+  },
+];
+
+const TOOLS_AND_UTILS: ITech[] = [
+  { label: "Vite", href: "https://vite.dev/", Icon: ViteIcon },
+  { label: "Pnpm", href: "https://vitest.dev/", Icon: PnpmIcon },
+  { label: "Biome", href: "https://biomejs.dev/", Icon: BiomejsIcon },
+  //
+  // { label: "Eslint", href: "https://eslint.org/", Icon: EslintIcon },
+  // { label: "Prettier", href: "https://prettier.io/", Icon: PrettierIcon },
+
+  // { label: "Git", href: "https://git-scm.com/", Icon: GitIcon },
+  // { label: "Figma", href: "https://www.figma.com/", Icon: FigmaIcon },
+];
+---
+
+<Tile title="Tech I like to use" gridArea="tech" class="flex-col tech-tile">
+  <ol class="my-tech-grid grid">
+    <TechList
+      label="Languages"
+      data={PROGRAMMING_LANGUAGES}
+      gridArea="t_lang"
+    />
+    <TechList
+      label="Want to invest more time"
+      data={LEARNING}
+      gridArea="t_invest"
+    />
+    <TechList label="Backend" data={BACKEND} gridArea="t_backend" />
+    <TechList
+      label="Frameworks/Libs"
+      data={FRAMEWORKS_AND_LIBS}
+      gridArea="t_libs"
+    />
+    <TechList label="Tooling" data={TOOLS_AND_UTILS} gridArea="t_tools" />
+    <TechList label="Styling" data={MARKUP_AND_STYLING} gridArea="t_style" />
+  </ol>
+</Tile>
+
+<style>
+  .my-tech-grid {
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas:
+      "t_lang t_libs"
+      "t_invest t_libs"
+      "t_tools t_libs"
+      "t_tools t_backend"
+      "t_style t_backend";
+  }
+
+  @media (min-width: 450px) {
+    .my-tech-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto auto auto;
+      grid-template-areas:
+        "t_lang t_libs t_backend"
+        "t_invest t_libs t_backend"
+        "t_tools t_libs t_backend"
+        "t_tools t_style t_backend";
+    }
+  }
+
+  @media (min-width: 540px) {
+    .my-tech-grid {
+      gap: 0.5rem;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto auto;
+      grid-template-areas:
+        "t_lang t_libs t_backend t_style"
+        "t_invest t_libs t_backend t_style"
+        "t_tools t_libs t_backend t_style";
+    }
+  }
+
+  @media (min-width: 768px) {
+    .my-tech-grid {
+      gap: 0.2rem;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        "t_lang t_backend t_libs"
+        "t_invest t_backend t_libs"
+        "t_tools t_style t_libs";
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .my-tech-grid {
+      gap: 0.5rem;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas:
+        "t_lang t_libs t_backend t_style"
+        "t_invest t_libs t_backend t_style"
+        "t_tools t_libs t_backend t_style";
+    }
+  }
+</style>

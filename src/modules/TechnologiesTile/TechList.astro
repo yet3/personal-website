@@ -1,0 +1,36 @@
+---
+import type { ITech } from "./TechnologiesTile.astro";
+
+interface Props {
+  label: string;
+  gridArea: string;
+  data: ITech[];
+}
+
+const { data, label, gridArea } = Astro.props;
+---
+
+<li style={{ "grid-area": gridArea }}>
+  <h4 class="font-medium text-sm text-white/70">{label}</h4>
+
+  <ol class="grid content-start gap-1" aria-label="Technologies">
+    {
+      data.map((el) => (
+        <li>
+          <a
+            href={el.href}
+            rel="noopener noreferrer"
+            target="_blank"
+            class="cursor-pointer grid grid-cols-[24px_auto] gap-1 items-center w-fit"
+            aria-label={`${el.label} (opens in a new tab)`}
+          >
+            <div class="flex justify-center items-center">
+              <el.Icon />
+            </div>
+            <span>{el.label}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</li>

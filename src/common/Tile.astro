@@ -1,0 +1,36 @@
+---
+export interface IBaseTileProps {
+  gridArea?: string;
+}
+
+interface Props extends IBaseTileProps {
+  class?: string;
+  title?: string;
+  smallTitle?: boolean;
+}
+
+const { title, smallTitle, gridArea, ...props } = Astro.props;
+---
+
+<section
+  aria-label={title}
+  class={props.class}
+  class:list={"tile tile-base"}
+  style={{
+    "grid-area": gridArea,
+  }}
+>
+  {
+    title && (
+      <header class:list={[smallTitle ? "mb-3" : "mb-1"]}>
+        {smallTitle ? (
+          <h3 class="text-base font-medium text-white/75 mb-1">{title}</h3>
+        ) : (
+          <h2 class="text-xl font-medium mb-1">{title}</h2>
+        )}
+        <div class="w-full h-[1px] bg-pink-200/20 rounded-full" />
+      </header>
+    )
+  }
+  <slot />
+</section>

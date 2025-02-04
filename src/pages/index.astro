@@ -1,69 +1,85 @@
 ---
-import "../global.css";
-import MainLayout from "@layouts/mainLayout.astro";
-import Hero from "@modules/sections/hero/hero.astro";
-import Experience from "@modules/sections/experience/experience.astro";
-import Projects from "@modules/sections/projects/projects.astro";
-import Contact from "@modules/sections/contact/contact.astro";
-import { GITHUB_HREF, LINKEDIN_HREF, PROJECT_REPO_HREF } from "@constants";
-import LinkedInIcon from "@common/icons/linkedInIcon";
-import GithubIcon from "@common/icons/githubIcon";
-import Anchor from "@common/anchor.astro";
+import Layout from "@layouts/Layout.astro";
+import WelcomeHeader from "@modules/WelcomeHeader/WelcomeHeader.astro";
+import TechnologiesTile from "@modules/TechnologiesTile/TechnologiesTile.astro";
+import AboutMeTile from "@modules/AboutMeTile/AboutMeTile.astro";
+import ExperienceTiles from "@modules/ExperienceTiles/ExperienceTiles.astro";
+import GithubTile from "@modules/SocialTiles/GithubTile.astro";
+import EmptyTile from "@modules/SocialTiles/EmptyTile.astro";
+import EmailTile from "@modules/SocialTiles/EmailTile.astro";
+import CvTile from "@modules/SocialTiles/CvTile.astro";
+import PageFooter from "@modules/PageFooter.astro";
+import ProjectTiles from "@modules/ProjectTiles/ProjectTiles.astro";
+import MainGrid from "@modules/MainGrid.astro";
 ---
 
-<MainLayout>
-  <main class="grid gap-32 content-start items-start">
-    <Hero />
-    <Experience />
-    <Projects />
-    <Contact />
-  </main>
+<Layout>
+  <div class="page-bg"></div>
 
-  <footer class="grid grid-cols-[2.5rem,1fr,2.5rem]">
-    <div class="flex flex-col gap-4 pb-2 pl-1 sm:p-0">
-      <Anchor
-        href={GITHUB_HREF}
-        class="fill-dark-text hover:fill-accent cursor-pointer transition-colors"
-        aria-label="Github link"
-      >
-        <GithubIcon className="w-6 h-6 sm:w-8 sm:h-8 fill-inherit" />
-      </Anchor>
-      <Anchor
-        href={LINKEDIN_HREF}
-        aria-label="Linkedin link"
-        class="fill-dark-text hover:fill-accent cursor-pointer transition-colors"
-      >
-        <LinkedInIcon className="w-6 h-6 sm:w-8 sm:h-8 fill-inherit" />
-      </Anchor>
-    </div>
+  <WelcomeHeader />
 
-    <p
-      class="fluid-text-sm mt-auto mx-auto text-center flex flex-col sm:flex-row sm:gap-2"
-    >
-      <span>
-        Built with
-        <Anchor
-          class="underline hover:text-accent font-medium cursor-pointer"
-          content="Astro."
-          href="https://astro.build/"
-        />
-      </span>
-      <span>
-        Deployed on
-        <Anchor
-          class="underline hover:text-accent font-medium cursor-pointer"
-          content="Vercel."
-          href="https://vercel.com/"
-        />
-      </span>
-      <span>
-        See on
-        <Anchor
-          class="underline hover:text-accent font-medium cursor-pointer"
-          content="Github."
-          href={PROJECT_REPO_HREF}
-        />
-      </span>
-    </p>
-  </footer>
-</MainLayout>
+  <MainGrid>
+    <GithubTile />
+    <CvTile />
+    <EmptyTile />
+    <EmailTile />
+
+    <AboutMeTile />
+    <TechnologiesTile />
+    <ExperienceTiles />
+    <ProjectTiles />
+  </MainGrid>
+
+  <PageFooter />
+</Layout>
+
+<script>
+  const delays = [0, 0.1, 0.15, 0.2, 0.3, 0.4];
+  const tiles = document.querySelectorAll(".tile");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const intersecting: IntersectionObserverEntry[] = [];
+
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          intersecting.push(entry);
+        }
+      }
+
+      for (const entry of intersecting) {
+        if (entry.target instanceof HTMLElement) {
+          let idx =
+            intersecting.length === 0
+              ? 0
+              : Math.floor(Math.random() * delays.length);
+          let delay = delays[idx];
+
+          if (window.innerWidth < 768) {
+            delay = 0.1;
+          }
+
+          entry.target.style.setProperty("animation-delay", `${delay}s`);
+          entry.target.classList.add("tile-visible");
+
+          observer.unobserve(entry.target);
+        }
+      }
+    },
+    { threshold: 0.2 },
+  );
+
+  const welcomeIntro = document.querySelector("#welcome-intro");
+  if (!welcomeIntro) {
+    console.warn("#welcome-intro element is undefined");
+  } else {
+    const handleAnimEnd = () => {
+      welcomeIntro.removeEventListener("animationend", handleAnimEnd);
+      for (const tile of tiles) {
+        observer.observe(tile);
+      }
+    };
+
+    welcomeIntro.addEventListener("animationend", handleAnimEnd);
+  }
+</script>

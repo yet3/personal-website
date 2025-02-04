@@ -1,0 +1,20 @@
+---
+import ExperienceTile, { type IExperienceData } from "./ExperienceTile.astro";
+import type { MarkdownInstance } from "astro";
+
+type IExperienceMD = MarkdownInstance<IExperienceData>;
+
+const experiences = Object.values(
+  import.meta.glob("./experiences/*.md", { eager: true }),
+) as IExperienceMD[];
+---
+
+{
+  experiences.map((exp, i) => (
+    <ExperienceTile
+      gridArea={`exp_${i}`}
+      data={exp.frontmatter}
+      Content={exp.Content}
+    />
+  ))
+}

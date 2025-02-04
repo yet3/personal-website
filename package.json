@@ -1,38 +1,27 @@
 {
-  "name": "@yet3/personal-website",
-  "author": "Maksymilian Kasperowicz <kasperowicz.maksymilian@gmail.com>",
-  "url": "https://www.maxkasperowicz.com",
+  "name": "",
   "type": "module",
-  "version": "1.0.0",
-  "private": true,
+  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.9.3",
-    "@astrojs/react": "^1.2.0",
-    "@astrojs/tailwind": "^2.0.2",
-    "@yet3/tailwindcss-fluid-text": "^1.0.4",
-    "astro": "^1.4.7",
-    "clsx": "^1.2.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "sharp": "^0.31.1",
-    "tailwindcss": "^3.0.24"
+    "@astrojs/solid-js": "^5.0.2",
+    "@astrojs/tailwind": "^5.1.4",
+    "astro": "^5.1.6",
+    "dayjs": "^1.11.13",
+    "solid-js": "^1.9.3",
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
-    "@originjs/vite-plugin-commonjs": "^1.0.3",
-    "@rollup/plugin-commonjs": "^23.0.2",
-    "@types/marked": "^4.0.7",
-    "@types/react": "^18.0.21",
-    "tailwindcss-animate": "^1.0.5"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yet3/personal-website.git"
+    "fluid-tailwind": "^1.0.4",
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "sass": "^1.83.1",
+    "sharp": "^0.33.5",
+    "typescript": "^5.7.2"
   }
 }
