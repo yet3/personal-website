@@ -1,0 +1,106 @@
+---
+import Tile, { type IBaseTileProps } from "@common/Tile.astro";
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+import { Image } from "astro:assets";
+import ProjectTechList from "@common/ProjectTechList.astro";
+import LinkIcon from "@common/Icons/LinkIcon.astro";
+import GithubIcon from "@common/Icons/GithubIcon.astro";
+import OpenLinkIcon from "@common/Icons/OpenLinkIcon.astro";
+import { GITHUB_HREF } from "@lib/consts";
+
+export interface IProjectData {
+  title: string;
+  imageName: string;
+  imgPos?: string;
+  href?: string;
+  githubRepo: string;
+  tech: string[];
+
+  gridArea: string;
+}
+
+interface Props extends IBaseTileProps {
+  data: IProjectData;
+  Content: AstroComponentFactory;
+}
+
+const { data, Content } = Astro.props;
+const {
+  gridArea,
+  imageName,
+  title,
+  imgPos = "left",
+  href,
+  tech,
+  githubRepo,
+} = data;
+---
+
+<Tile title="Pet project" smallTitle gridArea={gridArea} class="flex flex-col">
+  <div class="grid grid-cols-[1fr_2fr] gap-3">
+    <div>
+      <div
+        class="mt-auto rounded-lg w-full h-36 relative overflow-hidden group"
+      >
+        {
+          href && (
+            <a
+              href={href}
+              rel="noopener noreferrer"
+              target="_blank"
+              class="group-hover:opacity-100 opacity-0 bg-black/40 backdrop-blur-sm size-full inset-0 absolute cursor-pointer flex justify-center items-center"
+              style="transition: opacity 150ms ease;"
+            >
+              <LinkIcon width={64} />
+            </a>
+          )
+        }
+        <Image
+          src={import(
+            `../../assets/projects/${imageName}.png`
+          )}
+          alt={`"${title}" project`}
+          class="w-full h-full object-cover"
+          style={{
+            "object-position": imgPos,
+          }}
+        />
+      </div>
+
+      <nav class="flex space-x-6 justify-center mt-3">
+        {
+          href && (
+            <a
+              href={href}
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label={`${title} (opens in a new tab)`}
+              class="cursor-pointer"
+            >
+              <OpenLinkIcon width={28} />
+            </a>
+          )
+        }
+        <a
+          href={`${GITHUB_HREF}/${githubRepo}`}
+          rel="noopener noreferrer"
+          target="_blank"
+          aria-label={`${title} github repo (opens in a new tab)`}
+          class="cursor-pointer"
+        >
+          <GithubIcon />
+        </a>
+      </nav>
+    </div>
+
+    <div class="flex flex-col">
+      <h2 class="text-base sm:text-lg font-medium mb-1">{title}</h2>
+      <main class="text-sm xs:text-base">
+        <Content />
+      </main>
+      <footer>
+        <ProjectTechList data={tech} class="md:text-xs lg:text-sm" />
+      </footer>
+    </div>
+  </div>
+</Tile>

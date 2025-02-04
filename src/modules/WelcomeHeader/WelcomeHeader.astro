@@ -1,0 +1,72 @@
+---
+import { HelloThere } from "./HelloThere.tsx";
+import { Clock } from "./Clock.tsx";
+import { PopTextIn } from "@common/PopTextIn.tsx";
+import { SlideIn } from "@common/SlideIn.tsx";
+---
+
+<header class="mt-4 grid grid-rows-[1fr_auto_1fr] justify-center h-[60vh]">
+  <Clock client:idle />
+  <div class="flex flex-col text-center items-center justify-center">
+    <HelloThere client:idle />
+
+    <h1
+      id="welcome-intro"
+      class="my-2 flex text-4xl sm:~text-4xl/6xl font-medium"
+    >
+      <PopTextIn
+        content="My "
+        duration="var(--dur-welcome-intro)"
+        delay="calc(var(--delay-welcome-intro) + 100ms)"
+      />
+      <PopTextIn
+        content="name "
+        duration="var(--dur-welcome-intro)"
+        delay="var(--delay-welcome-intro)"
+      />
+      <PopTextIn
+        content="is "
+        duration="var(--dur-welcome-intro)"
+        delay="calc(var(--delay-welcome-intro) + 200ms)"
+      />
+
+      <PopTextIn
+        class="!text-pink-500 font-semibold"
+        content="Maks"
+        duration="var(--dur-welcome-intro)"
+        delay="calc(var(--delay-welcome-intro) + 300ms)"
+      />
+    </h1>
+
+    <SlideIn
+      class="mt-1 ~text-xl/2xl max-w-96 !whitespace-normal"
+      duration="var(--dur-welcome-subtext)"
+      delay="var(--delay-welcome-subtext)"
+      from="8px">I'm a full-stack developer that loves making stuff</SlideIn
+    >
+  </div>
+</header>
+
+<style is:global>
+  :root {
+    --delay-welcome-intro: calc(
+      var(--delay-welcome-greeting) + var(--dur-welcome-greeting) + 100ms
+    );
+    --dur-welcome-intro: 300ms;
+
+    --delay-welcome-subtext: calc(
+      var(--delay-welcome-intro) + var(--dur-welcome-greeting) + 300ms
+    );
+    --dur-welcome-subtext: 400ms;
+
+    --delay-welcome-socials: calc(
+      var(--delay-welcome-subtext) + var(--dur-welcome-subtext)
+    );
+    --dur-welcome-socials: 500ms;
+
+    --delay-welcome-clock: calc(
+      var(--delay-welcome-subtext) + var(--dur-welcome-subtext)
+    );
+    --dur-welcome-clock: 500ms;
+  }
+</style>

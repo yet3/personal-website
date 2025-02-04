@@ -1,0 +1,14 @@
+---
+import MailIcon from "@common/Icons/MailIcon.astro";
+import LinkTile from "./LinkTile.astro";
+import { CONTACT_EMAIL } from "@lib/consts";
+---
+
+<LinkTile
+  title="Contact me"
+  linkLabel="Contact me via email"
+  href={`mailto:${CONTACT_EMAIL}`}
+  gridArea="s_email"
+>
+  <MailIcon />
+</LinkTile>

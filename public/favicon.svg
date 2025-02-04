@@ -1,0 +1,60 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="128"
+  height="128"
+  fill="none"
+  viewBox="0 0 512 512"
+>
+  <title>Page favicon</title>
+  <path fill="#191919" d="M0 0h512v512H0z" />
+  <path fill="url(#a)" fill-opacity=".4" d="M0 0h512v512H0z" />
+  <path fill="url(#b)" fill-opacity=".2" d="M0 0h512v512H0z" />
+  <rect
+    width="416"
+    height="416"
+    x="48"
+    y="48"
+    fill="#F0F0F0"
+    fill-opacity=".15"
+    rx="15"
+  />
+  <rect
+    width="417"
+    height="417"
+    x="47.5"
+    y="47.5"
+    stroke="#fff"
+    stroke-opacity=".3"
+    rx="15.5"
+  />
+  <path
+    fill="salmon"
+    d="M134 136h44.033l76.558 186.563h2.818L333.967 136H378v240h-34.522V202.328h-2.231l-70.922 173.32h-28.65l-70.922-173.437h-2.231V376H134z"
+  />
+  <defs>
+    <linearGradient
+      id="a"
+      x1="981.157"
+      x2="-41.987"
+      y1="1097.53"
+      y2="-15.711"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#7BA0FF" stop-opacity=".6" />
+      <stop offset=".766" stop-color="#F2827B" stop-opacity=".413" />
+      <stop offset="1" stop-color="salmon" stop-opacity=".4" />
+    </linearGradient>
+    <linearGradient
+      id="b"
+      x1="336.5"
+      x2="256"
+      y1="-852.5"
+      y2="1690.5"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#3BDD49" stop-opacity=".6" />
+      <stop offset=".766" stop-color="#F2827B" stop-opacity=".413" />
+      <stop offset="1" stop-color="salmon" stop-opacity=".4" />
+    </linearGradient>
+  </defs>
+</svg>

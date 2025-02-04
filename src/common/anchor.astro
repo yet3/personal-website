@@ -1,0 +1,24 @@
+---
+interface Props {
+  class?: string;
+  href: string;
+  ariaLabel: string;
+}
+
+const { href, ariaLabel, class: className } = Astro.props;
+---
+
+<a
+  href={href}
+  aria-label={ariaLabel}
+  rel="noopener noreferrer"
+  target="_blank"
+  class={className}
+>
+  <div aria-required="false">
+
+  </div>
+  <slot />
+</a>
+
+SnippetTabstop

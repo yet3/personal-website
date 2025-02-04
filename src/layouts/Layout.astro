@@ -1,0 +1,52 @@
+---
+import "@styles/index.scss";
+
+interface Props {
+  class?: string;
+}
+
+const props = Astro.props;
+
+const title = "Maksymilian Kasperowicz";
+const description = "Maksymilian Kasperowicz is a web developer from Poland that loves creating highly interactive applications that find use in the everyday lives of other people";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="Maksymilian Kasperowicz portfolio, Maks Kasperowicz portfolio, Maksymilian Kasperowicz cv, Maks Kasperowicz cv, portfolio, cv, Maksymilian Kasperowicz web developer, Maks Kaspeoriwcz web developer, web developer, developer, web dev, programmer"
+    />
+
+    <meta property="og:locale" content={"en_US"} />
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL("/og.png", Astro.url)} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:type" content="website" />
+
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content={new URL("/og.png", Astro.url)} />
+
+    <meta property="twitter:url" content={Astro.url} />
+  </head>
+  <body class={props.class}>
+    <slot />
+  </body>
+</html>
+
+<style></style>

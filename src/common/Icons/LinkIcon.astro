@@ -1,0 +1,23 @@
+---
+interface Props {
+  width?: string | number;
+  height?: string | number;
+}
+
+const { width = "24", height } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={width}
+  height={height}
+  fill="none"
+  viewBox="0 0 24 13"
+>
+  <title>Link icon</title>
+  <path
+    class="fill-white"
+    fill-rule="evenodd"
+    d="M6.207 2.483a3.724 3.724 0 1 0 0 7.448h2.93a1.241 1.241 0 1 1 0 2.483h-2.93A6.207 6.207 0 1 1 6.207 0h2.866a1.241 1.241 0 1 1 0 2.483zm7.479-1.242c0-.685.556-1.241 1.241-1.241h2.866a6.207 6.207 0 1 1 0 12.414h-2.93a1.241 1.241 0 0 1 0-2.483h2.93a3.724 3.724 0 1 0 0-7.448h-2.866a1.24 1.24 0 0 1-1.241-1.242M6.262 6.207c0-.686.556-1.241 1.242-1.241H16.6a1.241 1.241 0 1 1 0 2.482H7.504a1.24 1.24 0 0 1-1.242-1.241"
+    clip-rule="evenodd"></path>
+</svg>

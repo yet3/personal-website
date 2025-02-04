@@ -1,0 +1,85 @@
+---
+import Layout from "@layouts/Layout.astro";
+import WelcomeHeader from "@modules/WelcomeHeader/WelcomeHeader.astro";
+import TechnologiesTile from "@modules/TechnologiesTile/TechnologiesTile.astro";
+import AboutMeTile from "@modules/AboutMeTile/AboutMeTile.astro";
+import ExperienceTiles from "@modules/ExperienceTiles/ExperienceTiles.astro";
+import GithubTile from "@modules/SocialTiles/GithubTile.astro";
+import EmptyTile from "@modules/SocialTiles/EmptyTile.astro";
+import EmailTile from "@modules/SocialTiles/EmailTile.astro";
+import CvTile from "@modules/SocialTiles/CvTile.astro";
+import PageFooter from "@modules/PageFooter.astro";
+import ProjectTiles from "@modules/ProjectTiles/ProjectTiles.astro";
+import MainGrid from "@modules/MainGrid.astro";
+---
+
+<Layout>
+  <div class="page-bg"></div>
+
+  <WelcomeHeader />
+
+  <MainGrid>
+    <GithubTile />
+    <CvTile />
+    <EmptyTile />
+    <EmailTile />
+
+    <AboutMeTile />
+    <TechnologiesTile />
+    <ExperienceTiles />
+    <ProjectTiles />
+  </MainGrid>
+
+  <PageFooter />
+</Layout>
+
+<script>
+  const delays = [0, 0.1, 0.15, 0.2, 0.3, 0.4];
+  const tiles = document.querySelectorAll(".tile");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const intersecting: IntersectionObserverEntry[] = [];
+
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          intersecting.push(entry);
+        }
+      }
+
+      for (const entry of intersecting) {
+        if (entry.target instanceof HTMLElement) {
+          let idx =
+            intersecting.length === 0
+              ? 0
+              : Math.floor(Math.random() * delays.length);
+          let delay = delays[idx];
+
+          if (window.innerWidth < 768) {
+            delay = 0.1;
+          }
+
+          entry.target.style.setProperty("animation-delay", `${delay}s`);
+          entry.target.classList.add("tile-visible");
+
+          observer.unobserve(entry.target);
+        }
+      }
+    },
+    { threshold: 0.2 },
+  );
+
+  const welcomeIntro = document.querySelector("#welcome-intro");
+  if (!welcomeIntro) {
+    console.warn("#welcome-intro element is undefined");
+  } else {
+    const handleAnimEnd = () => {
+      welcomeIntro.removeEventListener("animationend", handleAnimEnd);
+      for (const tile of tiles) {
+        observer.observe(tile);
+      }
+    };
+
+    welcomeIntro.addEventListener("animationend", handleAnimEnd);
+  }
+</script>

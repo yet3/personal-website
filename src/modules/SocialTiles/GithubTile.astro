@@ -1,0 +1,14 @@
+---
+import GithubIcon from "@common/Icons/GithubIcon.astro";
+import LinkTile from "./LinkTile.astro";
+import { GITHUB_HREF } from "@lib/consts";
+---
+
+<LinkTile
+  title="My Github"
+  linkLabel="Github (opens in a new tab)"
+  href={GITHUB_HREF}
+  gridArea="s_git"
+>
+  <GithubIcon />
+</LinkTile>

@@ -1,0 +1,65 @@
+---
+import LinkIcon from "@common/Icons/LinkIcon.astro";
+import OpenLinkIcon from "@common/Icons/OpenLinkIcon.astro";
+import ProjectTechList from "@common/ProjectTechList.astro";
+import Tile, { type IBaseTileProps } from "@common/Tile.astro";
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
+export interface IExperienceData {
+  title: string;
+  where: string;
+  href?: string;
+  tech: string[];
+}
+
+interface Props extends IBaseTileProps {
+  data: IExperienceData;
+  Content: AstroComponentFactory;
+}
+
+const { data, gridArea, Content } = Astro.props;
+const { title, where, href, tech } = data;
+---
+
+<Tile title="Work epxerience" smallTitle gridArea={gridArea}>
+  <h2 class="font-medium flex">
+    {title}, {
+      href ? (
+        <a
+          href={href}
+          rel="noopener noreferrer"
+          target="_blank"
+          class="cursor-pointer flex whitespace-pre"
+          aria-label={`${where} website (opens in a new tab)`}
+        >
+          {where}
+          <OpenLinkIcon width={14} class="ml-0.5" />
+        </a>
+      ) : (
+        where
+      )
+    }
+  </h2>
+  <main class="experience__content mt-1">
+    <Content />
+  </main>
+  <footer>
+    <ProjectTechList data={tech} />
+  </footer>
+</Tile>
+
+<style is:global>
+  .experience__content ul {
+    @apply text-sm xs:text-base grid content-start gap-1 list-inside;
+  }
+  .experience__content ul li::before {
+    content: "";
+    display: inline-flex;
+    width: 6px;
+    height: 6px;
+    margin-right: 8px;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-3px);
+  }
+</style>

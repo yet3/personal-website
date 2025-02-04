@@ -1,0 +1,16 @@
+---
+import ProjectTile, { type IProjectData } from "./ProjectTile.astro";
+import type { MarkdownInstance } from "astro";
+
+type IExp = MarkdownInstance<IProjectData>;
+
+const experiences = Object.values(
+  import.meta.glob("./projects/*.md", { eager: true }),
+) as IExp[];
+---
+
+{
+  experiences.map((exp) => (
+    <ProjectTile data={exp.frontmatter} Content={exp.Content} />
+  ))
+}
