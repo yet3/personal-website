@@ -73,6 +73,8 @@ const loadExperiences = async () => {
 	})) as IExperience[];
 };
 
+let hasGeneratedImages = false;
+
 const loadProjects = async (): Promise<IProject[]> => {
 	const files = import.meta.glob("$static/projects/*/*.md", {
 		query: "raw"
@@ -115,7 +117,11 @@ const loadProjects = async (): Promise<IProject[]> => {
 
 							const outputAvif = src.replaceAll(".png", ".avif");
 							const outputWebp = src.replaceAll(".png", ".webp");
-							if (import.meta.env.MODE === "production" || !existsSync(outputAvif)) {
+							if (
+								import.meta.env.MODE === "production" ||
+								(!existsSync(outputAvif) && !hasGeneratedImages)
+							) {
+								hasGeneratedImages = true;
 								console.log("Generating .avif and .webp for:", imgSrc);
 								await Promise.all([
 									await sharp(src).avif({ quality: 70 }).toFile(outputAvif),
@@ -144,7 +150,7 @@ const loadProjects = async (): Promise<IProject[]> => {
 export const load: LayoutServerLoad = async () => {
 	const promises: [Promise<IExperience[]>, Promise<IProject[]>] = [
 		loadExperiences(),
-		loadProjects(),
+		loadProjects()
 	];
 	const data = await Promise.all(promises);
 	return {
