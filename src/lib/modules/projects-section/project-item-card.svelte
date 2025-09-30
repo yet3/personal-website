@@ -56,7 +56,7 @@
 				</Button>
 			{/if}
 			{#if data.appHref}
-				<Button class="text-sm h-9" href={data.appHref}>try it out!</Button>
+				<Button class="text-sm h-9" href={data.appHref}>Try it out!</Button>
 			{/if}
 		</div>
 	</div>
