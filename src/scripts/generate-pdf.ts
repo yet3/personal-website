@@ -7,17 +7,14 @@ import { type PreviewServer, preview } from "vite";
 let previewServer: PreviewServer | null = null;
 let browser: Browser | null = null;
 
-const DIR = join(process.cwd(), "build");
-const DEV_DIR = join(process.cwd(), ".svelte-kit/output/client");
-
-const cvPath = join(DIR, "cv.pdf");
-const resumePath = join(DIR, "resume.pdf");
+const STATIC_DIR = join(process.cwd(), "static");
+const BUILD_DIR = join(process.cwd(), ".svelte-kit/output/client");
 
 const main = async () => {
 	try {
 		previewServer = await preview();
 		const previewUrl = previewServer.resolvedUrls?.local[0];
-		console.log("Generating cv.pdf and resume.pdf, dir:", DIR);
+		console.log("Generating cv.pdf and resume.pdf");
 
 		if (!previewUrl) {
 			console.log("Failed to resolve preview url while generating cv.pdf and resume.pdf");
@@ -45,16 +42,14 @@ const main = async () => {
 		});
 
 		await Promise.all([
-			writeFile(cvPath, pdfData),
-			writeFile(resumePath, pdfData),
-
-			// Dev
-			import.meta.env.MODE !== "production"
-				? writeFile(join(DEV_DIR, "cv.pdf"), pdfData)
-				: undefined
+			writeFile(join(STATIC_DIR, "cv.pdf"), pdfData),
+			writeFile(join(STATIC_DIR, "resume.pdf"), pdfData),
+      //
+			writeFile(join(BUILD_DIR, "cv.pdf"), pdfData),
+			writeFile(join(BUILD_DIR, "reusme.pdf"), pdfData)
 		]);
 
-		console.log("Finished generating cv.pdf and resume.pdf, dir:", DIR);
+		console.log("Finished generating cv.pdf and resume.pdf:");
 	} catch (e) {
 		console.log(e);
 	} finally {
