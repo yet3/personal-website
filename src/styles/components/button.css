@@ -1,0 +1,15 @@
+@layer components {
+	.btn-base {
+		@apply flex cursor-pointer items-center justify-center;
+		@apply ease-bubble-200 transition-transform;
+		@apply hover:scale-105 active:scale-100;
+	}
+
+	.btn-md {
+		@apply p-1.5 px-3 rounded-lg text-base;
+	}
+
+	.btn-primary {
+		@apply bg-primary text-base-100;
+	}
+}

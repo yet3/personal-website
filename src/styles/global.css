@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+@font-face {
+	font-family: "Tamsyn";
+	src: url("/tamsyn-10x20.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+html {
+	font-family: "Tamsyn", sans-serif;
+}
+
+html,
+body {
+	margin: 0;
+	background-color: var(--color-base-200);
+	color: var(--color-base-content);
+}
+
+input[type="range"] {
+	appearance: none;
+	width: 100%;
+	height: 10px;
+	outline: none;
+	-webkit-transition: 0.2s;
+	transition: opacity 0.2s;
+	background-color: color-mix(in oklab, var(--color-primary) 20%, transparent);
+	border-radius: 8px;
+	cursor: pointer;
+
+	--c: var(--color-primary);
+	&:hover {
+		--c: var(--color-accent);
+	}
+
+	&::-webkit-slider-thumb,
+	&&::-moz-range-thumb {
+		appearance: none;
+		border: none;
+		width: 14;
+		height: 14px;
+		border-radius: 100%;
+		background-color: var(--c);
+		transition: background-color 150ms;
+	}
+}

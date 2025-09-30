@@ -1,0 +1,39 @@
+@utility animate-scale-in {
+		transform: scale(0%);
+	animation: anim__scale-in 0.25s var(--tw-ease, var(--ease-bubble-120)) forwards;
+}
+
+@utility anim-dur-* {
+	animation-duration: --value(integer) ms;
+}
+
+@keyframes anim__scale-in {
+	0% {
+		opacity: 0;
+		transform: scale(0%);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(100%);
+	}
+}
+
+/* @utility animate-scale-in { */
+/* 	animation: anim__scale-in 0.25s var(--ease-bubble-120) forwards; */
+/* } */
+
+@utility animate-scale-y-in {
+	@apply scale-y-0;
+	animation: anim__scale-y-in 0.25s var(--ease-bubble-120) forwards;
+}
+
+@keyframes anim__scale-y-in {
+	0% {
+		transform: scaleY(0%);
+		--tw-scale-y: 0%;
+	}
+	100% {
+		transform: scaleY(100%);
+		--tw-scale-y: 100%;
+	}
+}

@@ -1,0 +1,93 @@
+@import "./utils/animations.css";
+@import "./components/index.css";
+
+@theme {
+  --breakpoint-2xl: 1400px;
+  --breakpoint-2lg: 1100px;
+
+	/* Base */
+	--color-base-100: oklch(98% 0.016 73.684);
+	--color-base-200: oklch(97% 0.025 75.164);
+	--color-base-220: oklch(0.9549 0.0339 71.66);
+	--color-base-240: oklch(0.9402 0.0453 71.51);
+	--color-base-300: oklch(90% 0.076 70.697);
+	--color-base-content: oklch(32.45% 0.075 37.85);
+
+	/* Accent */
+	--color-accent: oklch(70% 0.191 22.216);
+	--color-accent-content: oklch(39% 0.141 25.723);
+
+	/* Primary */
+	--color-primary: oklch(22.45% 0.075 37.85);
+	--color-primary-content: var(--color-base-100);
+
+	/* Easing */
+	--ease-bubble-105: cubic-bezier(0.175, 0.885, 0.32, 1.05);
+	--ease-bubble-110: cubic-bezier(0.175, 0.885, 0.32, 1.1);
+	--ease-bubble-120: cubic-bezier(0.175, 0.885, 0.32, 1.2);
+	--ease-bubble-200: cubic-bezier(0.175, 0.885, 0.32, 2);
+
+	--default-transition-duration: 250ms;
+  --default-transition-timing-function: var(--ease-bubble-120);
+
+  --scale-word: 102%;
+  --translate-word: 1.5px;
+  --rotate-word: 1.5deg;
+
+  --z-index-particles: 0;
+
+ /* Tysmen 10x20  */
+  --text-xs: 1.2rem;
+  --text-xs--line-height: 0.9;
+
+  --text-sm: 1.45rem;
+  --text-sm--line-height: 0.9;
+
+  --text-base: 1.7rem;
+  --text-base--line-height: 0.9;
+
+  --text-lg: 1.9rem;
+  --text-lg--line-height: 1;
+
+  --text-xl: 2.1rem;
+  --text-xl--line-height: 1;
+
+  --text-2xl: 2.5rem;
+  --text-2xl--line-height: 1;
+
+  --text-3xl: 3.1rem;
+  --text-3xl--line-height: 1;
+
+  --text-4xl: 3.6rem;
+  --text-4xl--line-height: 1;
+
+  /* Tysmen 8x16 */
+  /* --text-sm: 1.3rem; */
+  /* --text-sm--line-height: 1; */
+  /**/
+  /* --text-base: 1.5rem; */
+  /* --text-base--line-height: 1.1; */
+  /**/
+  /* --text-lg: 1.75rem; */
+  /* --text-lg--line-height: 1.2; */
+  /**/
+  /* --text-xl: 2rem; */
+  /* --text-xl--line-height: 1; */
+  /**/
+  /* --text-2xl: 2.4rem; */
+  /* --text-2xl--line-height: 1.5; */
+  /**/
+  /* --text-4xl: 3.5rem; */
+  /* --text-4xl--line-height: 1; */
+}
+
+:root {
+	--delay-page: 150ms;
+  --delay-sections: 300ms;
+
+	/* Delay before an element becomes visible  */
+	--delay-in: 200ms;
+
+	--delay-per-section: 300ms;
+	--delay-per-skill: 15ms;
+}

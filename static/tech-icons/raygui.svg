@@ -1,0 +1,29 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  fill="none"
+  viewBox="0 0 24 24"
+>
+  <g clip-path="url(#raygui-a)">
+    <path fill="#ACACAC" d="M0 0h24v24H0z" />
+    <path fill="#E2E2E2" d="M1 1h22v22H1z" />
+    <path fill="#ACACAC" d="M0 0v24h24V0zm1.5 1.5h21v21h-21z" />
+    <g fill="#949494">
+      <path
+        d="M6.86 17.923h.5v2.357h-.5zm11.229 0h.5v2.357h-.5zm1.857 0h.5v2.357h-.5zm.954 0h.5v2.357h-.5zm0-.929h.5v.5h-.5zm-9.372.929h.5v2.357h-.5zM9.67 19.351h.5v.43h-.5z"
+      />
+      <path
+        d="M6.86 18.423v-.5h2.357v.5zm2.81 0v-.5h2.358v.5zm0 .928v-.5h2.358v.5zm0 .929v-.5h2.358v.5zm8.419 0v-.5h2.357v.5zm-5.607-2.357h.5v2.357h-.5zm1.858 0h.5v3.306h-.5z"
+      />
+      <path
+        d="M12.482 20.28v-.5h2.358v.5zm0 .949v-.5h2.357v.5zm4.669-3.306h.5v3.306h-.5z"
+      />
+      <path d="M15.294 21.229v-.5h2.357v.5zm0-3.306h.5v2.357h-.5z" />
+      <path d="M15.294 20.28v-.5h2.357v.5zm-.017-1.857v-.5h2.358v.5z" />
+    </g>
+  </g>
+  <defs>
+    <clipPath id="raygui-a"><path fill="#fff" d="M0 0h24v24H0z" /></clipPath>
+  </defs>
+</svg>

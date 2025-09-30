@@ -1,0 +1,46 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  viewBox="0 0 16 16"
+>
+  <title>Supabase icon</title>
+  <path
+    fill="url(#supabase-a)"
+    d="M9.315 15.734c-.409.515-1.238.233-1.247-.425l-.145-9.613h6.464c1.171 0 1.824 1.352 1.096 2.269z"
+  />
+  <path
+    fill="url(#supabase-b)"
+    fill-opacity=".2"
+    d="M9.315 15.734c-.409.515-1.238.233-1.247-.425l-.145-9.613h6.464c1.171 0 1.824 1.352 1.096 2.269z"
+  />
+  <path
+    fill="#3ECF8E"
+    d="M6.685.266c.409-.515 1.239-.233 1.248.425l.063 9.613H1.613c-1.171 0-1.824-1.352-1.096-2.269z"
+  />
+  <defs>
+    <linearGradient
+      id="supabase-a"
+      x1="7.924"
+      x2="13.669"
+      y1="7.828"
+      y2="10.238"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#249361" />
+      <stop offset="1" stop-color="#3ECF8E" />
+    </linearGradient>
+    <linearGradient
+      id="supabase-b"
+      x1="5.377"
+      x2="7.997"
+      y1="4.341"
+      y2="9.273"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop />
+      <stop offset="1" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,29 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  viewBox="0 0 16 16"
+>
+  <path
+    fill="#455A64"
+    d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8m0 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4"
+  />
+  <path
+    fill="url(#turborepo-a)"
+    d="M2.14 11.824A6.95 6.95 0 0 1 1 8h2a5 5 0 0 0 .596 2.368zM7 14.92v-2.021a4.95 4.95 0 0 1-1.946-.866l-1.427 1.428A6.95 6.95 0 0 0 7 14.92M8 1v2a5 5 0 0 1 1 9.9v2.02A6.996 6.996 0 0 0 8 1"
+  />
+  <defs>
+    <linearGradient
+      id="turborepo-a"
+      x1="13.675"
+      x2="3.807"
+      y1="3.772"
+      y2="13.64"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".15" stop-color="#2196F3" />
+      <stop offset=".85" stop-color="#F50057" />
+    </linearGradient>
+  </defs>
+</svg>
