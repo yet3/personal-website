@@ -16,7 +16,7 @@
 </script>
 
 <li>
-	<h2 class="text-[17px]">
+	<h2 class="text-[16px] font-medium">
 		<a
 			href={data.appHref || data.repoHref}
 			class="flex items-center"
