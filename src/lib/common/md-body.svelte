@@ -65,6 +65,10 @@
 				}
 			}
 
+      li::marker {
+        color: var(--color-accent);
+      }
+
 			ul {
 				list-style: disc;
 				margin-inline-start: 1em;
