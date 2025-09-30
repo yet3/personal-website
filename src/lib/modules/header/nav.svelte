@@ -50,7 +50,7 @@
 
 			for (const el of sections) {
 				const rect = el.getBoundingClientRect();
-				const distance = Math.abs(rect.y + rect.height * 0.3 - targetY);
+				const distance = Math.abs(rect.y + rect.height * 0.1 - targetY);
 				if (distance < minDist) {
 					minDist = distance;
 					finalId = el.id;
@@ -77,7 +77,7 @@
 		currentSection = el.id as SectionId;
 		cancelScroll = smoothScrollToEl(el, {
 			duration: 250,
-			offsetY: window.innerHeight * -0.2,
+			offsetY: window.innerHeight * -0.075,
 			onFinish: () => (blockAutoDetection = false)
 		});
 	};
