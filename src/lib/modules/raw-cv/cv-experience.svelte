@@ -9,14 +9,14 @@
 </script>
 
 <li>
-	<h2 class="text-[16px] font-medium">
+	<h2 class="text-[15px] font-medium">
 		<span>
 			{data.position}
 		</span>
 		<span class="text-accent">at</span>
 		<span>{data.at}</span>
 	</h2>
-	<h3 class="text-[16px] font-medium text-primary/60">{data.workMode}, {data.location}</h3>
+	<h3 class="text-[15px] font-medium text-primary/60">{data.workMode}, {data.location}</h3>
 	<div class="cv-body text-[12.5px]">
 		{@html data.html}
 	</div>

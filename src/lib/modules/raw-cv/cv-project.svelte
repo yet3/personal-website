@@ -16,7 +16,7 @@
 </script>
 
 <li>
-	<h2 class="text-[16px] font-medium">
+	<h2 class="text-[15px] font-medium">
 		<a
 			href={data.appHref || data.repoHref}
 			class="flex items-center"
@@ -29,7 +29,7 @@
 			<CvOpenIcon class="ml-1.5" />
 		</a>
 	</h2>
-	<div class="text-[14px] [&>*]:text-justify mt-0.5">
+	<div class="text-[12.5px] [&>*]:text-justify mt-0.5">
 		{@html data.html}
 	</div>
 

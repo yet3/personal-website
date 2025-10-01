@@ -10,7 +10,7 @@
 </script>
 
 <section class="flex flex-col gap-y-1">
-	<h2 class="font-medium text-[18px]">
+	<h2 class="font-medium text-[17px]">
 		<span class="text-accent">#</span>
 		<span>{title}</span>
 	</h2>
