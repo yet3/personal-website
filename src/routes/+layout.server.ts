@@ -73,7 +73,7 @@ const loadExperiences = async () => {
 	})) as IExperience[];
 };
 
-let hasGeneratedImages = false;
+const generatedImages = new Set<string>();
 
 const loadProjects = async (): Promise<IProject[]> => {
 	const files = import.meta.glob("$static/projects/*/*.md", {
@@ -115,18 +115,17 @@ const loadProjects = async (): Promise<IProject[]> => {
 						for (const imgSrc of images) {
 							const src = join(process.cwd(), "static", imgSrc.png);
 
-							const outputAvif = src.replaceAll(".png", ".avif");
-							const outputWebp = src.replaceAll(".png", ".webp");
-							if (
-								import.meta.env.MODE === "production" ||
-								(!existsSync(outputAvif) && !hasGeneratedImages)
-							) {
-								hasGeneratedImages = true;
-								console.log("Generating .avif and .webp for:", imgSrc);
-								await Promise.all([
-									await sharp(src).avif({ quality: 70 }).toFile(outputAvif),
-									await sharp(src).webp({ quality: 70 }).toFile(outputWebp)
-								]);
+							if (!generatedImages.has(src)) {
+                generatedImages.add(src)
+								const outputAvif = src.replaceAll(".png", ".avif");
+								const outputWebp = src.replaceAll(".png", ".webp");
+								if (import.meta.env.MODE === "production" || !existsSync(outputAvif)) {
+									console.log("Generating .avif and .webp for:", imgSrc);
+									await Promise.all([
+										await sharp(src).avif({ quality: 70 }).toFile(outputAvif),
+										await sharp(src).webp({ quality: 70 }).toFile(outputWebp)
+									]);
+								}
 							}
 						}
 
