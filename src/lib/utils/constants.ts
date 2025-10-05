@@ -1,6 +1,6 @@
 export const TITLE = "Maksymilian Kasperowicz";
 export const DESCRIPTION =
-	"Maksymilian Kasperowicz is a web developer from Poland that loves creating highly interactive applications that find use in the everyday lives of other people";
+	"Maksymilian Kasperowicz is a web developer from Poland that loves creating highly interactive applications, useful tools or just fun projects";
 
 export const LANGUAGE = "English";
 export const LOCALE = "en_US";
