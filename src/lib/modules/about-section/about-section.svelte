@@ -20,7 +20,7 @@
 		{isVisible}
 		animDelay={[DELAY_LOCAL, 200]}
 		class="mt-1 [&_span]:whitespace-pre flex-wrap"
-		text="I'm Maksymilian Kasperowicz, a full-stack developer from Poland. I have a passion for building highly interactive applications, whether they're useful tools or just for fun pet projects."
+		text="I'm Maksymilian Kasperowicz, a full-stack developer from Poland. I have a passion for building highly interactive applications, whether they're useful tools or just fun projects."
 	/>
 	<PopInSentences
 		{isVisible}
