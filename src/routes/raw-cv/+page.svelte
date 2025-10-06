@@ -11,7 +11,7 @@
 <CvHeader />
 <CvLinks />
 <div class="flex flex-1 gap-x-[var(--cv-columns-gap)]">
-	<div class="flex flex-col flex-[1.22] gap-y-[var(--cv-sections-gap)]">
+	<div class="flex flex-col flex-[1.34] gap-y-[var(--cv-sections-gap)]">
 		<CvAboutSection />
 		<CvExperienceSection />
 	</div>
