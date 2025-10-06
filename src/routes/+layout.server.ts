@@ -104,7 +104,14 @@ const loadProjects = async (): Promise<IProject[]> => {
 							projectDirName,
 							"blurhash"
 						);
+
+            console.log("meta.env", import.meta.env)
+            console.log("IS_DEV", isDev)
+            console.log("BUILD_DIR", BUILD_DIR)
+            console.log("BLUR_HASH_PATH", blurhashPath)
+
 						if (existsSync(blurhashPath)) {
+              console.log("FOUND BLURHASH")
 							blurHash = await readFile(blurhashPath, "utf-8");
 						}
 
@@ -126,6 +133,7 @@ const loadProjects = async (): Promise<IProject[]> => {
 };
 
 export const load: LayoutServerLoad = async () => {
+  console.log("+SERVER")
 	const promises: [Promise<IExperience[]>, Promise<IProject[]>] = [
 		loadExperiences(),
 		loadProjects()

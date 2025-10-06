@@ -35,22 +35,22 @@
 			/>
 		{/if}
 
-		<picture>
-			<source srcset={imgPathBase + data.images[0].avif} type="image/avif" />
-			<source srcset={imgPathBase + data.images[0].webp} type="image/webp" />
-			<img
-				src={imgPathBase + data.images[0].png}
-				class={[
-					"absolute top-0 left-0 size-full rounded-xl overflow-hidden transition-transform hover:scale-101 ease-bubble-200 delay-100 max-xl:object-center!",
-					data.imageFit === "contain" ? "object-contain" : "object-cover"
-				]}
-				style:object-position={data.imagePosition ?? "50% 0%"}
-				alt="Project preview"
-				loading="lazy"
-				decoding="async"
-				fetchpriority="auto"
-				onload={() => (hasImageLoaded = true)}
-			/>
-		</picture>
+		<!-- <picture> -->
+		<!-- 	<source srcset={imgPathBase + data.images[0].avif} type="image/avif" /> -->
+		<!-- 	<source srcset={imgPathBase + data.images[0].webp} type="image/webp" /> -->
+		<!-- 	<img -->
+		<!-- 		src={imgPathBase + data.images[0].png} -->
+		<!-- 		class={[ -->
+		<!-- 			"absolute top-0 left-0 size-full rounded-xl overflow-hidden transition-transform hover:scale-101 ease-bubble-200 delay-100 max-xl:object-center!", -->
+		<!-- 			data.imageFit === "contain" ? "object-contain" : "object-cover" -->
+		<!-- 		]} -->
+		<!-- 		style:object-position={data.imagePosition ?? "50% 0%"} -->
+		<!-- 		alt="Project preview" -->
+		<!-- 		loading="lazy" -->
+		<!-- 		decoding="async" -->
+		<!-- 		fetchpriority="auto" -->
+		<!-- 		onload={() => (hasImageLoaded = true)} -->
+		<!-- 	/> -->
+		<!-- </picture> -->
 	</a>
 </PopIn>
