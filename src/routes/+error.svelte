@@ -20,7 +20,9 @@
 			<ol class="text-lg flex flex-col ml-1 mt-0.5">
 				{#each LINKS as [text, href]}
 					<li>
-						<a {href}>- <span class="hover:text-accent transition-colors">{text}</span></a>
+						<a {href} data-sveltekit-replacestate
+							>- <span class="hover:text-accent transition-colors">{text}</span></a
+						>
 					</li>
 				{/each}
 			</ol>

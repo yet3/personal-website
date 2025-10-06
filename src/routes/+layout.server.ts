@@ -105,14 +105,15 @@ const loadProjects = async (): Promise<IProject[]> => {
 							"blurhash"
 						);
 
-            console.log("meta.env", import.meta.env)
-            console.log("process.env", process.env)
-            console.log("IS_DEV", isDev)
-            console.log("BUILD_DIR", BUILD_DIR)
-            console.log("BLUR_HASH_PATH", blurhashPath)
+						console.log("IS_DEV", isDev);
+						console.log("BUILD_DIR", BUILD_DIR);
+						console.log("BLUR_HASH_PATH", blurhashPath);
+
+						const inDir = await readdir(join(BUILD_DIR, "projects", projectDirName));
+            console.log("IN_DIR", inDir)
 
 						if (existsSync(blurhashPath)) {
-              console.log("FOUND BLURHASH")
+							console.log("FOUND BLURHASH");
 							blurHash = await readFile(blurhashPath, "utf-8");
 						}
 
@@ -134,7 +135,7 @@ const loadProjects = async (): Promise<IProject[]> => {
 };
 
 export const load: LayoutServerLoad = async () => {
-  console.log("+SERVER")
+	console.log("+SERVER");
 	const promises: [Promise<IExperience[]>, Promise<IProject[]>] = [
 		loadExperiences(),
 		loadProjects()
@@ -147,5 +148,5 @@ export const load: LayoutServerLoad = async () => {
 };
 
 export const prerender = true;
-export const ssr = false;
+export const ssr = true;
 export const csr = true;
