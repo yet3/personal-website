@@ -13,7 +13,7 @@
 		<span>
 			{data.position}
 		</span>
-		<span class="text-accent">at</span>
+		<span class="text-accent">{data.isFreelance ? "for" : "at"}</span>
 		<span>{data.at}</span>
 	</h2>
 	<h3 class="text-[15px] font-medium text-primary/60">{data.workMode}, {data.location}</h3>

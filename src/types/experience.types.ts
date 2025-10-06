@@ -6,6 +6,8 @@ export interface IExperience {
 	location: string;
 	skills: string[];
 
+  isFreelance?: boolean
+
 	html: string;
   totalBlocks: number
 }
