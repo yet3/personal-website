@@ -1,5 +1,5 @@
 ---
-title: Figma svg to react
+title: SVG to React / Native / SolidJS 
 appHref: https://www.figma.com/community/plugin/1139659790182545298/svg-to-react-native-solidjs 
 repoHref: https://github.com/yet3/figma-svg-to-react
 showInFooter: true
