@@ -4,7 +4,7 @@
 	import FooterSection from "../footer-section.svelte";
 
 	const LINKS: [string, string][] = [
-		["CV", CV_PDF_URL],
+		["CV/Resume", CV_PDF_URL],
 		["Github", GITHUB_URL]
 	];
 </script>
