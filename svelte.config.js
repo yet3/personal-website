@@ -16,7 +16,6 @@ const config = {
 			'$utils/*': 'src/lib/utils/*',
 			'$ctx/*': 'src/lib/ctx/*',
 			'$types/*': 'src/types/*',
-			'$assets/*': 'src/lib/assets/*',
 			'$static/*': 'static/*'
 		}
 	}
