@@ -1,12 +1,10 @@
 import { BUILD_DIR, DEV_DIR } from "$scripts/consts";
-import { encode as blurHashEncode } from "blurhash";
 import { load as cheerioLoad } from "cheerio";
 import frontmatter from "front-matter";
 import { existsSync } from "fs";
-import { mkdir, readFile, readdir } from "fs/promises";
+import { readFile, readdir } from "fs/promises";
 import { parse as parseMd } from "marked";
 import { basename, dirname, join } from "path";
-import sharp from "sharp";
 import type { IExperience } from "$types/experience.types";
 import type { IProject } from "$types/projects.types";
 import type { LayoutServerLoad } from "./$types";
