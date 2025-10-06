@@ -6,6 +6,7 @@
 	import { COVER_IMG, DESCRIPTION, LANGUAGE, LOCALE, TITLE, URL } from "$utils/constants";
 	import { watchElementsVisibility } from "$utils/elements-visibility.svelte";
 	import "$styles/global.css";
+	import Meta from "$common/meta.svelte";
 	import type { IParticlesSettings } from "$types/particles.types";
 	import type { LayoutProps } from "./$types";
 
@@ -61,23 +62,24 @@
 	<link rel="manifest" href="/site.webmanifest" />
 
 	<title>{TITLE}</title>
-	<meta name="title" content={TITLE} />
-	<meta name="description" content={DESCRIPTION} />
-	<meta name="robots" content="index, follow" />
-	<meta name="language" content={LANGUAGE} />
-	<meta name="image" content={COVER_IMG} />
+	<Meta name="title" content={TITLE} />
+	<Meta name="description" content={DESCRIPTION} />
+	<Meta name="robots" content="index, follow" />
+	<Meta name="language" content={LANGUAGE} />
+	<Meta name="image" content={COVER_IMG} />
 	<!--  -->
-	<meta property="og:site_name" content={TITLE} />
-	<meta property="og:locale" content={LOCALE} />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content={TITLE} />
-	<meta property="og:url" content={URL} />
-	<meta property="og:image" content={COVER_IMG} />
+	<Meta name="og:site_name" content={TITLE} />
+	<Meta name="og:locale" content={LOCALE} />
+	<Meta name="og:type" content="website" />
+	<Meta name="og:title" content={TITLE} />
+	<Meta name="og:url" content={URL} />
+	<Meta name="og:image" content={COVER_IMG} />
 	<!--  -->
-	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:title" content={TITLE} />
-	<meta property="twitter:description" content={DESCRIPTION} />
-	<meta property="twitter:image" content={COVER_IMG} />
+	<Meta name="og:image" content={COVER_IMG} />
+	<Meta name="twitter:card" content="summary_large_image" />
+	<Meta name="twitter:title" content={TITLE} />
+	<Meta name="twitter:description" content={DESCRIPTION} />
+	<Meta name="twitter:image" content={COVER_IMG} />
 </svelte:head>
 
 {@render children?.()}

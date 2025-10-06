@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Meta from "$common/meta.svelte";
 	import CvHeader from "$modules/raw-cv/cv-header.svelte";
 	import CvLinks from "$modules/raw-cv/cv-links.svelte";
 	import CvAboutSection from "$modules/raw-cv/sections/cv-about-section.svelte";
@@ -19,7 +20,7 @@
 	/>
 
 	<title>{TITLE}</title>
-	<meta name="title" content={TITLE} />
+	<Meta name="title" content={TITLE} />
 </svelte:head>
 
 <CvHeader />

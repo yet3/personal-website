@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
+	import Meta from "$common/meta.svelte";
 
 	interface IProps {
 		docName: string;
@@ -16,8 +17,8 @@
 
 <svelte:head>
 	<title>{TITLE}</title>
-	<meta name="title" content={TITLE} />
-	<meta name="description" content={DESC} />
+	<Meta name="title" content={TITLE} />
+	<Meta name="description" content={DESC} />
 </svelte:head>
 
 <h1 class="h-screen w-screen flex items-center justify-center text-center text-xl sm:text-3xl">
