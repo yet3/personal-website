@@ -49,7 +49,7 @@
 <svelte:head>
 	<link
 		rel="preload"
-		href="/tamsyn-10x20.woff2"
+		href="/fonts/tamsyn-10x20.woff2"
 		as="font"
 		type="font/woff2"
 		crossorigin="anonymous"

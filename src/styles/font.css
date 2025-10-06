@@ -1,6 +1,9 @@
 @font-face {
 	font-family: "Tamsyn";
-	src: url("/tamsyn-10x20.woff2") format("woff2");
+	src:
+		url("/fonts/tamsyn-10x20.woff2") format("woff2"),
+		url("/fonts/tamsyn-10x20.woff") format("woff"),
+		url("/fonts/tamsyn-10x20.tff") format("tff");
 	size-adjust: 170%;
 	font-weight: normal;
 	font-style: normal;
