@@ -49,8 +49,8 @@
 			]}
 		>
 			<img
+				class="size-4"
 				src={iconSrc}
-				data-image-component="true"
 				alt="Icon"
 				loading="lazy"
 				decoding="async"
@@ -65,7 +65,15 @@
 {/snippet}
 
 {#if href}
-	<a {href} onclick={onClick} rel="noopener noreferrer" target="_blank" class={cn} {style} aria-label="Link to {label} (opens in a new tab)">
+	<a
+		{href}
+		onclick={onClick}
+		rel="noopener noreferrer"
+		target="_blank"
+		class={cn}
+		{style}
+		aria-label="Link to {label} (opens in a new tab)"
+	>
 		{@render item()}
 	</a>
 {:else if onClick}
