@@ -106,6 +106,7 @@ const loadProjects = async (): Promise<IProject[]> => {
 						);
 
             console.log("meta.env", import.meta.env)
+            console.log("process.env", process.env)
             console.log("IS_DEV", isDev)
             console.log("BUILD_DIR", BUILD_DIR)
             console.log("BLUR_HASH_PATH", blurhashPath)
