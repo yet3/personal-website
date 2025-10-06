@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import CvHeader from "$modules/raw-cv/cv-header.svelte";
 	import CvLinks from "$modules/raw-cv/cv-links.svelte";
 	import CvAboutSection from "$modules/raw-cv/sections/cv-about-section.svelte";
@@ -6,7 +6,21 @@
 	import CvLanguagesSection from "$modules/raw-cv/sections/cv-languages-section.svelte";
 	import CvProjectsSection from "$modules/raw-cv/sections/cv-projects-section.svelte";
 	import CvTechnologiesSection from "$modules/raw-cv/sections/cv-technologies-section.svelte";
+
+	const TITLE = `Raw CV | Maksymilian Kasperowicz`;
 </script>
+
+<svelte:head>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet"
+	/>
+
+	<title>{TITLE}</title>
+	<meta name="title" content={TITLE} />
+</svelte:head>
 
 <CvHeader />
 <CvLinks />
@@ -25,7 +39,7 @@
 <style>
 	:global {
 		:root {
-      --cv-columns-gap: 20px;
+			--cv-columns-gap: 20px;
 			--cv-sections-gap: 14px;
 			--cv-skills-gap: 8px;
 		}
