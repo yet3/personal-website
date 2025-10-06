@@ -12,11 +12,16 @@
 
 	let hasImageLoaded = $state(false);
 	const { data, isVisible, animDelay }: IProps = $props();
+
+	let imgPathBase = $state("");
+	if (import.meta.env.DEV) {
+		imgPathBase = ".svelte-kit/output/client/";
+	}
 </script>
 
 <PopIn
 	{isVisible}
-  {animDelay}
+	{animDelay}
 	class={[
 		"ease-bubble-105 relative aspect-video rounded-xl shadow-lg duration-400 w-full xl:w-9/10",
 		"bg-base-240"
@@ -31,15 +36,15 @@
 		{/if}
 
 		<picture>
-			<source srcset={data.images[0].avif} type="image/avif" />
-			<source srcset={data.images[0].webp} type="image/webp" />
+			<source srcset={imgPathBase + data.images[0].avif} type="image/avif" />
+			<source srcset={imgPathBase + data.images[0].webp} type="image/webp" />
 			<img
-				src={data.images[0].png}
+				src={imgPathBase + data.images[0].png}
 				class={[
 					"absolute top-0 left-0 size-full rounded-xl overflow-hidden transition-transform hover:scale-101 ease-bubble-200 delay-100 max-xl:object-center!",
 					data.imageFit === "contain" ? "object-contain" : "object-cover"
 				]}
-        style:object-position="{data.imagePosition ?? "50% 0%"}"
+				style:object-position={data.imagePosition ?? "50% 0%"}
 				alt="Project preview"
 				loading="lazy"
 				decoding="async"

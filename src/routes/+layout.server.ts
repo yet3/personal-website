@@ -1,8 +1,9 @@
+import { BUILD_DIR, DEV_DIR } from "$scripts/consts";
 import { encode as blurHashEncode } from "blurhash";
 import { load as cheerioLoad } from "cheerio";
 import frontmatter from "front-matter";
 import { existsSync } from "fs";
-import { readdir } from "fs/promises";
+import { mkdir, readFile, readdir } from "fs/promises";
 import { parse as parseMd } from "marked";
 import { basename, dirname, join } from "path";
 import sharp from "sharp";
@@ -73,65 +74,45 @@ const loadExperiences = async () => {
 	})) as IExperience[];
 };
 
-const generatedImages = new Set<string>();
-
 const loadProjects = async (): Promise<IProject[]> => {
 	const files = import.meta.glob("$static/projects/*/*.md", {
 		query: "raw"
 	});
 	const items = await loadMdFiles(files);
 
+	const isDev = import.meta.env.DEV;
+
 	return await Promise.all<IProject>(
 		items.map(
 			({ filePath, ...item }) =>
 				new Promise(async (resolve, reject) => {
 					try {
-						const dirPath = dirname(filePath);
-						const dirName = basename(dirPath);
+						const projectDir = dirname(filePath);
+						const projectDirName = basename(projectDir);
+						const projectImagesDir = join("/projects", projectDirName, "images");
 
-						const images = (await readdir(join(process.cwd(), dirPath, "images")))
+						const images = (await readdir(join(process.cwd(), projectDir, "images")))
 							.filter((file) => file.endsWith(".png"))
 							.map((file) => ({
-								png: join("/projects", dirName, "images", file),
-								webp: join("/projects", dirName, "images", file.replaceAll(".png", ".webp")),
-								avif: join("/projects", dirName, "images", file.replaceAll(".png", ".avif"))
+								png: join(projectImagesDir, file),
+								webp: join(projectImagesDir, file.replaceAll(".png", ".webp")),
+								avif: join(projectImagesDir, file.replaceAll(".png", ".avif"))
 							}));
 
 						let blurHash = "KDG+XX0000-:a#IU00~qxv";
-						if (images[0]) {
-							const s = sharp(join(process.cwd(), "static", images[0].png))
-								.resize(480)
-								.png({ quality: 5 })
-								.raw()
-								.ensureAlpha();
-
-							const { data: pixels, info } = await s.toBuffer({
-								resolveWithObject: true
-							});
-							const ar = new Uint8ClampedArray(pixels);
-							blurHash = blurHashEncode(ar, info.width, info.height, 5, 5);
-						}
-
-						for (const imgSrc of images) {
-							const src = join(process.cwd(), "static", imgSrc.png);
-
-							if (!generatedImages.has(src)) {
-                generatedImages.add(src)
-								const outputAvif = src.replaceAll(".png", ".avif");
-								const outputWebp = src.replaceAll(".png", ".webp");
-								if (import.meta.env.MODE === "production" || !existsSync(outputAvif)) {
-									console.log("Generating .avif and .webp for:", imgSrc);
-									await Promise.all([
-										await sharp(src).avif({ quality: 70 }).toFile(outputAvif),
-										await sharp(src).webp({ quality: 70 }).toFile(outputWebp)
-									]);
-								}
-							}
+						const blurhashPath = join(
+							isDev ? DEV_DIR : BUILD_DIR,
+							"projects",
+							projectDirName,
+							"blurhash"
+						);
+						if (existsSync(blurhashPath)) {
+							blurHash = await readFile(blurhashPath, "utf-8");
 						}
 
 						resolve({
 							...(item.attributes as unknown as IProject),
-							id: dirName.replace(/[0-9]{2}-/gm, ""),
+							id: projectDirName.replace(/[0-9]{2}-/gm, ""),
 							images,
 							html: item.body,
 							totalBlocks: item.totalBlocks,
