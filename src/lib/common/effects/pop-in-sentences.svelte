@@ -1,9 +1,9 @@
 <script lang="ts">
+	import { debounce } from "$utils/debounce";
 	import { vardelay } from "$utils/delays";
 	import { onMount } from "svelte";
 	import type { ClassValue } from "svelte/elements";
 	import type { IDelay } from "$types/anims.types";
-	import { throttle } from "$utils/throttle";
 
 	interface IProps {
 		text: string;
@@ -13,17 +13,23 @@
 		isVisible?: boolean;
 	}
 
-	const { text, class: className, animDelay, element = "p", isVisible = true }: IProps = $props();
+	const {
+		text,
+		class: className,
+		animDelay,
+		element = "p",
+		isVisible = true
+	}: IProps = $props();
 
 	let el: HTMLElement | null;
 
-	let myLines = $state<string[][]>([]);
+	let lines = $state<string[][]>([]);
 
 	onMount(() => {
 		if (!el) return;
 
-		const calculateStuff = throttle(() => {
-      if (!el) return;
+		const calculateLines = debounce(() => {
+			if (!el) return;
 			const rect = el.getBoundingClientRect();
 			const maxWidth = rect.width;
 
@@ -40,7 +46,7 @@
 
 			const r = new Range();
 			const textNode = messureContainer.childNodes[0].childNodes[0];
-			const lines: string[][] = [];
+			const tmpLines: string[][] = [];
 
 			let lineWords: string[] = [];
 			let totalWidth = 0;
@@ -62,7 +68,7 @@
 				}
 
 				if (totalWidth + wordRect.width >= maxWidth) {
-					lines.push(lineWords);
+					tmpLines.push(lineWords);
 					lineWords = [];
 					totalWidth = 0;
 				}
@@ -72,16 +78,16 @@
 			}
 
 			if (lineWords.length > 0) {
-				lines.push(lineWords);
+				tmpLines.push(lineWords);
 			}
 
-			myLines = lines;
+			lines = tmpLines;
 
 			messureContainer.remove();
 		}, 50);
 
 		const resizeObserver = new ResizeObserver(() => {
-			calculateStuff();
+			calculateLines();
 		});
 
 		resizeObserver.observe(el);
@@ -95,11 +101,14 @@
 <svelte:element
 	this={element}
 	bind:this={el}
-	class={["text-base pop-in-sentences container flex flex-wrap translate-y-0", className]}
+	class={[
+		"text-base pop-in-sentences container flex flex-wrap translate-y-0",
+		className
+	]}
 	use:vardelay={["--delay", animDelay]}
 	data-has-anim={isVisible}
 >
-	{#each myLines as words, idx}
+	{#each lines as words, idx}
 		<span>
 			{#each words as word}
 				<span style:--idx={idx}><span>{word}</span></span>
