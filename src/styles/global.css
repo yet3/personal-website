@@ -1,13 +1,6 @@
 @import "tailwindcss";
 @import "./theme.css";
-
-@font-face {
-	font-family: "Tamsyn";
-	src: url("/tamsyn-10x20.woff2") format("woff2");
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
-}
+@import "./font.css";
 
 html {
 	font-family: "Tamsyn", sans-serif;
