@@ -1,8 +1,9 @@
 ---
-at: Freelance (Dentica)
+at: Dentica (Freelance)
 position: Full-Stack Developer
 workMode: Remote
 location: Poland
+isFreelance: true
 skills:
     - typescript
     - react
