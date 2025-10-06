@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { CONTACT_EMAIL, GITHUB_URL, URL } from "$utils/constants";
 	import type { Snippet } from "svelte";
 	import CvEmailIcon from "./icons/cv-email-icon.svelte";
 	import CvGithubIcon from "./icons/cv-github-icon.svelte";
@@ -35,8 +36,8 @@
 <div class="my-4">
 	<ul class="flex justify-between">
 		{@render item("+48 697 015 660", "phone")}
-		{@render item("maxkasperowicz.com", "website", "https://www.maxkasperowicz.com/")}
-		{@render item("github.com/yet3", "github", "https://github.com/yet3")}
-		{@render item("kasperowicz.maksymilian@gmail.com", "email")}
+		{@render item("maxkasperowicz.com", "website", URL)}
+		{@render item(GITHUB_URL.replace("https://", ""), "github", GITHUB_URL)}
+		{@render item(CONTACT_EMAIL, "email")}
 	</ul>
 </div>
