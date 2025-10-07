@@ -1,29 +1,17 @@
 import { readdir } from "fs/promises";
 import { basename, join } from "path";
 import sharp from "sharp";
-import type { PluginOption, Rollup } from "vite";
+import type { Rollup } from "vite";
 
 const IN_PROJECTS_DIR = join(process.cwd(), "static/projects");
 
-export const handleProjectsImages = (): PluginOption => {
-	return {
-		name: "handle-projects-images",
-    enforce: "post",
-		async generateBundle() {
-			if (this.environment.name === "ssr") {
-				return;
-			}
-
-			try {
-				const projects = (await readdir(IN_PROJECTS_DIR)).filter((name) => /^[0-9]/gm.test(name));
-				await Promise.all(
-					projects.map((projectDirName) => handleProject(this.emitFile, projectDirName))
-				);
-			} catch (e) {
-				console.log("Error handling projects' images", e);
-			}
-		}
-	};
+export const optimizeProjectsImages = async (emitFile: Rollup.EmitFile) => {
+	try {
+		const projects = (await readdir(IN_PROJECTS_DIR)).filter((name) => /^[0-9]/gm.test(name));
+		await Promise.all(projects.map((projectDirName) => handleProject(emitFile, projectDirName)));
+	} catch (e) {
+		console.log("Error handling projects' images", e);
+	}
 };
 
 const handleProject = async (emitFile: Rollup.EmitFile, projectDirName: string) => {

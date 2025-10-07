@@ -9,8 +9,9 @@
 	import Meta from "$common/meta.svelte";
 	import type { IParticlesSettings } from "$types/particles.types";
 	import type { LayoutProps } from "./$types";
+	import { APP_DATA } from "$lib/app-data.svelte";
 
-	const { children, data }: LayoutProps = $props();
+	const { children }: LayoutProps = $props();
 
 	const PARTICLES_KEY = "particles-settings";
 
@@ -42,8 +43,8 @@
 	});
 
 	setParticlesSettings(particlesSettings);
-	setExperiences(data.experiences);
-	setProjects(data.projects);
+	setExperiences(APP_DATA.experiences);
+	setProjects(APP_DATA.projects);
 	watchElementsVisibility();
 </script>
 

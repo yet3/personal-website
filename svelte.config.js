@@ -7,10 +7,11 @@ const config = {
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter({
-      fallback: null
-    }),
-
+		adapter: adapter(),
+		prerender: {
+			// Optional: specify which pages to prerender
+			entries: ["*"]
+		},
 		alias: {
 			"$styles/*": "src/styles/*",
 			"$modules/*": "src/lib/modules/*",
