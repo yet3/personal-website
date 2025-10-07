@@ -9,7 +9,6 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		prerender: {
-			// Optional: specify which pages to prerender
 			entries: ["*"]
 		},
 		alias: {

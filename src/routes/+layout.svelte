@@ -7,6 +7,7 @@
 	import { watchElementsVisibility } from "$utils/elements-visibility.svelte";
 	import "$styles/global.css";
 	import Meta from "$common/meta.svelte";
+	import { onMount } from "svelte";
 	import type { IParticlesSettings } from "$types/particles.types";
 	import type { LayoutProps } from "./$types";
 	import { APP_DATA } from "$lib/app-data.svelte";
@@ -33,9 +34,12 @@
 		})()
 	);
 
-	$effect(() => {
+  onMount(() => {
     window.APP_DATA = APP_DATA;
+    console.log(APP_DATA)
+  })
 
+	$effect(() => {
 		try {
 			const json = JSON.stringify(particlesSettings);
 			localStorage.setItem(PARTICLES_KEY, json);

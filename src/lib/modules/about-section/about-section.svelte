@@ -13,6 +13,7 @@
 	ariaLabel="About me"
 	onVisible={() => (isVisible = true)}
   noTitle
+  class="overflow-hidden"
 >
 	<Greeting {isVisible} />
 

@@ -37,6 +37,7 @@
 		<Button
 			class="aspect-square p-2 font-bold tracking-wider text-primary-content"
 			ariaLabel="Open my CV (in a new tab)"
+      isHrefExternal
 			href={CV_PDF_URL}><span class="translate-x-[1px]">CV</span></Button
 		>
 	</PopIn>

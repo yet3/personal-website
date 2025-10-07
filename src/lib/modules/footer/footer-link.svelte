@@ -10,9 +10,8 @@
 </script>
 
 <a
-	{href}
-	data-sveltekit-reload
-	rel="noopener noreferrer"
+  {href}
+	rel="external noopener noreferrer"
 	target="_blank"
 	class="hover:text-accent transition-colors"
 >

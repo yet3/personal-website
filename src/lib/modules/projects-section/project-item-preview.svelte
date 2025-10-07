@@ -13,7 +13,6 @@
 	let hasImageLoaded = $state(false);
 	const { data, isVisible, animDelay }: IProps = $props();
 
-  console.log(data)
 	let imgPathBase = $state("");
 	if (import.meta.env.DEV) {
 		imgPathBase = ".svelte-kit/output/client/";

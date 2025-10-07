@@ -102,7 +102,7 @@
 	this={element}
 	bind:this={el}
 	class={[
-		"text-base pop-in-sentences container flex flex-wrap translate-y-0",
+		"text-base pop-in-sentences flex flex-col translate-y-0 max-w-full",
 		className
 	]}
 	use:vardelay={["--delay", animDelay]}
