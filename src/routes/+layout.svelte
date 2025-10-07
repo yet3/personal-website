@@ -34,6 +34,8 @@
 	);
 
 	$effect(() => {
+    window.APP_DATA = APP_DATA;
+
 		try {
 			const json = JSON.stringify(particlesSettings);
 			localStorage.setItem(PARTICLES_KEY, json);

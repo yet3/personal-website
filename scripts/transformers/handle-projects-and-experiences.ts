@@ -14,6 +14,10 @@ export const handleProjectsAndExperiences = (): PluginOption => {
 			await optimizeProjectsImages(this.emitFile);
 		},
 		async transform(_, fileName) {
+			if (this.environment.name === "ssr") {
+				return;
+			}
+
 			if (fileName.includes("app-data.svelte.ts")) {
 				try {
 					const [experiences, projects] = await Promise.all([loadExperiences(), loadProjects()]);
