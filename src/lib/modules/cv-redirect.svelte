@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
+	import { onMount } from "svelte";
 	import Meta from "$common/meta.svelte";
 
 	interface IProps {
@@ -12,7 +13,9 @@
 	const TITLE = `${docName} pdf redirect | Maksymilian Kasperowicz`;
 	const DESC = `This page redirects to ${docName} pdf`;
 
-	goto(import.meta.env.DEV ? `/cv-output/${fileName}` : `/${fileName}`);
+	onMount(() => {
+		goto(import.meta.env.DEV ? `/cv-output/${fileName}` : `/${fileName}`);
+	});
 </script>
 
 <svelte:head>
