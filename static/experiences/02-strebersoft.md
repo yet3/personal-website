@@ -20,6 +20,22 @@ skills:
     - Styled-Components
     - Webpack
     - ClickUp
+    - typescript
+    - javascript
+    - react
+    - nextjs
+    - electron
+    - reactnative
+    - expo
+    - nodejs
+    - express
+    - postgresql
+    - mongodb
+    - html
+    - css
+    - styledcomponents
+    - webpack
+    - clickup
 ---
 
 - Worked under an experienced developer/dev-op/product manager.
