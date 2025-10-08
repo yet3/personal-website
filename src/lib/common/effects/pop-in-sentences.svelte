@@ -13,13 +13,7 @@
 		isVisible?: boolean;
 	}
 
-	const {
-		text,
-		class: className,
-		animDelay,
-		element = "p",
-		isVisible = true
-	}: IProps = $props();
+	const { text, class: className, animDelay, element = "p", isVisible = true }: IProps = $props();
 
 	let el: HTMLElement | null;
 
@@ -101,10 +95,7 @@
 <svelte:element
 	this={element}
 	bind:this={el}
-	class={[
-		"text-base pop-in-sentences container flex flex-wrap translate-y-0",
-		className
-	]}
+	class={["text-base pop-in-sentences flex flex-col translate-y-0 max-w-full", className]}
 	use:vardelay={["--delay", animDelay]}
 	data-has-anim={isVisible}
 >
