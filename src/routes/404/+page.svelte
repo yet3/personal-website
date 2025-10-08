@@ -3,7 +3,7 @@
 
 	const LINKS: string[][] = [
 		["Home", "/"],
-		["CV/Resume", CV_PDF_URL]
+		["CV/Resume", CV_PDF_URL, "external"]
 	];
 </script>
 
@@ -18,9 +18,9 @@
 		<div class="flex flex-col items-start mt-4">
 			<h2 class="text-xl">Go to:</h2>
 			<ol class="text-lg flex flex-col ml-1 mt-0.5">
-				{#each LINKS as [text, href]}
+				{#each LINKS as [text, href, rel]}
 					<li>
-						<a {href}>- <span class="hover:text-accent transition-colors">{text}</span></a>
+						<a {href} {rel}>- <span class="hover:text-accent transition-colors">{text}</span></a>
 					</li>
 				{/each}
 			</ol>
