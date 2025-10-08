@@ -1,29 +1,17 @@
 import { readdir } from "fs/promises";
 import { basename, join } from "path";
 import sharp from "sharp";
-import type { PluginOption, Rollup } from "vite";
+import type { Rollup } from "vite";
 
 const IN_PROJECTS_DIR = join(process.cwd(), "static/projects");
 
-export const handleProjectsImages = (): PluginOption => {
-	return {
-		name: "handle-projects-images",
-    enforce: "post",
-		async generateBundle() {
-			if (this.environment.name === "ssr") {
-				return;
-			}
-
-			try {
-				const projects = (await readdir(IN_PROJECTS_DIR)).filter((name) => /^[0-9]/gm.test(name));
-				await Promise.all(
-					projects.map((projectDirName) => handleProject(this.emitFile, projectDirName))
-				);
-			} catch (e) {
-				console.log("Error handling projects' images", e);
-			}
-		}
-	};
+export const optimizeProjectsImages = async (emitFile: Rollup.EmitFile) => {
+	try {
+		const projects = (await readdir(IN_PROJECTS_DIR)).filter((name) => /^[0-9]/gm.test(name));
+		await Promise.all(projects.map((projectDirName) => handleProject(emitFile, projectDirName)));
+	} catch (e) {
+		console.log("Error handling projects' images", e);
+	}
 };
 
 const handleProject = async (emitFile: Rollup.EmitFile, projectDirName: string) => {
@@ -36,9 +24,10 @@ const handleProject = async (emitFile: Rollup.EmitFile, projectDirName: string) 
 
 	console.log(`[${projectDirName}] Started generating/optimizing images`);
 	for (const inImgSrc of inImages) {
-		const sPng = sharp(inImgSrc).png({ quality: 70 });
-		const sAvif = sharp(inImgSrc).avif({ quality: 70 });
-		const sWebp = sharp(inImgSrc).webp({ quality: 70 });
+		const s = sharp(inImgSrc).resize(1920);
+		const sPng = s.png({ quality: 70 });
+		const sAvif = s.avif({ quality: 70 });
+		const sWebp = s.webp({ quality: 70 });
 
 		const baseName = basename(inImgSrc);
 		const makeFilePath = (format: string) => {

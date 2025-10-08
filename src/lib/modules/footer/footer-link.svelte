@@ -9,6 +9,11 @@
 	const { children, href }: IProps = $props();
 </script>
 
-<a {href} rel="noopener noreferrer" target="_blank" class="hover:text-accent transition-colors">
+<a
+	{href}
+	rel="external noopener noreferrer"
+	target="_blank"
+	class="hover:text-accent transition-colors"
+>
 	{@render children()}
 </a>

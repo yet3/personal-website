@@ -3,10 +3,10 @@ import tailwindcss from "@tailwindcss/vite";
 import browserslist from "browserslist";
 import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
-import { handleProjectsImages } from "./scripts/handle-projects-images";
+import { handleProjectsAndExperiences } from "./scripts/transformers/handle-projects-and-experiences";
 
 export default defineConfig({
-	plugins: [sveltekit(), tailwindcss(), handleProjectsImages()],
+	plugins: [sveltekit(), tailwindcss(), handleProjectsAndExperiences()],
 	server: {
 		fs: {
 			allow: ["static", "cv-output"]
@@ -19,6 +19,6 @@ export default defineConfig({
 		}
 	},
 	build: {
-		cssMinify: "lightningcss",
+		cssMinify: "lightningcss"
 	}
 });

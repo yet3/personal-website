@@ -2,4 +2,4 @@
 	import CvRedirect from "$modules/cv-redirect.svelte";
 </script>
 
-<CvRedirect docName="Résumé" fileName="resume.pdf" />
+<CvRedirect docName="Resume" fileName="resume.pdf" />
