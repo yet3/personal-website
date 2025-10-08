@@ -1,9 +1,9 @@
 <script lang="ts">
+	import { SectionId } from "$utils/constants";
 	import { DELAY_LOCAL } from "$utils/delays";
 	import PopInSentences from "$common/effects/pop-in-sentences.svelte";
 	import Section from "$common/section.svelte";
 	import Greeting from "./about-greeting.svelte";
-	import { SectionId } from "$utils/constants";
 
 	let isVisible = $state(false);
 </script>
@@ -11,8 +11,9 @@
 <Section
 	id={SectionId.About}
 	ariaLabel="About me"
+	class="overflow-hidden"
 	onVisible={() => (isVisible = true)}
-  noTitle
+	noTitle
 >
 	<Greeting {isVisible} />
 
