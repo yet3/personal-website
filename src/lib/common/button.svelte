@@ -12,20 +12,29 @@
 
 		onClick?: () => void;
 		href?: string;
+		isHrefExternal?: boolean;
 	}
 
-	const { children, class: className, ariaLabel, animDelay, href, onClick }: IProps = $props();
+	const {
+		children,
+		class: className,
+		ariaLabel,
+		animDelay,
+		href,
+		onClick,
+    isHrefExternal
+	}: IProps = $props();
 </script>
 
 {#if href}
 	<a
 		{href}
-		rel="noopener noreferrer"
+		rel={[isHrefExternal && "external" , "noopener","noreferrer"].filter(el => el).join(" ")}
 		target="_blank"
 		class={[className, "btn-base btn-md btn-primary"]}
 		aria-label={ariaLabel}
 		use:animdelay={animDelay}
-    onclick={onClick}
+		onclick={onClick}
 	>
 		{@render children?.()}
 	</a>
@@ -35,7 +44,7 @@
 		class={[className, "btn-base btn-md btn-primary"]}
 		aria-label={ariaLabel}
 		use:animdelay={animDelay}
-    onclick={onClick}
+		onclick={onClick}
 	>
 		{@render children?.()}
 	</button>
