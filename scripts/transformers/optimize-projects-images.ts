@@ -24,9 +24,10 @@ const handleProject = async (emitFile: Rollup.EmitFile, projectDirName: string) 
 
 	console.log(`[${projectDirName}] Started generating/optimizing images`);
 	for (const inImgSrc of inImages) {
-		const sPng = sharp(inImgSrc).png({ quality: 70 });
-		const sAvif = sharp(inImgSrc).avif({ quality: 70 });
-		const sWebp = sharp(inImgSrc).webp({ quality: 70 });
+		const s = sharp(inImgSrc).resize(1920);
+		const sPng = s.png({ quality: 70 });
+		const sAvif = s.avif({ quality: 70 });
+		const sWebp = s.webp({ quality: 70 });
 
 		const baseName = basename(inImgSrc);
 		const makeFilePath = (format: string) => {
