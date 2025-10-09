@@ -62,7 +62,7 @@
 
 <div class="relative text-base" bind:this={containerEl}>
 	<Button
-		class="aspect-square p-2 font-bold tracking-wider text-primary-content"
+		class="size-10 p-2 font-bold tracking-wider text-primary-content"
 		ariaLabel="Open my CV (in a new tab)"
 		onClick={() => (isOpen = !isOpen)}
 	>
