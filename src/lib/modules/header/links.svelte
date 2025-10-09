@@ -20,13 +20,13 @@
 		<ParticlesSettings />
 	</PopIn>
 	<PopIn element="li" {isVisible} animDelay={delay(1)}>
-		<Button class="aspect-square p-2" ariaLabel="Open my github (in a new tab)" href={GITHUB_URL}>
+		<Button class="size-10 p-2" ariaLabel="Open my github (in a new tab)" href={GITHUB_URL}>
 			<GithubIcon class="fill-primary-content" />
 		</Button>
 	</PopIn>
 	<PopIn element="li" {isVisible} animDelay={delay(2)}>
 		<Button
-			class="aspect-square p-2"
+			class="size-10 p-2"
 			ariaLabel="Open email (in your default email app)"
 			href="mailto:{CONTACT_EMAIL}"
 		>
@@ -35,7 +35,7 @@
 	</PopIn>
 	<PopIn element="li" {isVisible} animDelay={delay(3)}>
 		<Button
-			class="aspect-square p-2 font-bold tracking-wider text-primary-content"
+			class="size-10 p-2 font-bold tracking-wider text-primary-content"
 			ariaLabel="Open my CV (in a new tab)"
 			isHrefExternal
 			href={CV_PDF_URL}><span class="translate-x-[1px]">CV</span></Button

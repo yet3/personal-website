@@ -8,7 +8,7 @@
 	import CvProjectsSection from "$modules/raw-cv/sections/cv-projects-section.svelte";
 	import CvTechnologiesSection from "$modules/raw-cv/sections/cv-technologies-section.svelte";
 
-	const TITLE = `Raw CV | Maksymilian Kasperowicz`;
+	const TITLE = `CV | Maksymilian Kasperowicz`;
 </script>
 
 <svelte:head>

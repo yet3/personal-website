@@ -4,6 +4,7 @@
 	import Footer from "$modules/footer/footer.svelte";
 	import Header from "$modules/header/header.svelte";
 	import LanguagesSection from "$modules/languages-section.svelte";
+	import MadeWidth from "$modules/made-width.svelte";
 	import ProjectsSection from "$modules/projects-section/projects-section.svelte";
 	import TechnologiesSection from "$modules/technologies-section.svelte";
 	import { type Component, onMount } from "svelte";
@@ -40,15 +41,7 @@
 	</main>
 	<Header />
 
-	{#snippet link(text: string, href: string)}
-		<a {href} class="underline decoration-accent">{text}</a>
-	{/snippet}
 
-	<p class="relative text-sm sm:text-base text-center mb-12 mx-auto px-2 md:px-12">
-		Made with {@render link("SvelteKit", "https://svelte.dev/docs/kit/introduction")}, Styled with
-		{@render link("TailwindCSS", "https://tailwindcss.com/")}, Deployed on
-		{@render link("Vercel", "https://vercel.com/")}, Font used
-		{@render link("Tamsyn10x20", "http://www.fial.com/~scott/tamsyn-font/")}
-	</p>
+  <MadeWidth />
 </div>
 <Footer />
