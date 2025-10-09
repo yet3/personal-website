@@ -75,8 +75,8 @@
 	<Meta name="og:title" content={TITLE} />
 	<Meta name="og:url" content={URL} />
 	<Meta name="og:image" content={COVER_IMG} />
+	<Meta name="og:description" content={DESCRIPTION} />
 	<!--  -->
-	<Meta name="og:image" content={COVER_IMG} />
 	<Meta name="twitter:card" content="summary_large_image" />
 	<Meta name="twitter:title" content={TITLE} />
 	<Meta name="twitter:description" content={DESCRIPTION} />
