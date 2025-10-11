@@ -41,7 +41,7 @@
 				scale: 0%;
 				transform-origin: top left;
 				transition-property: scale;
-				transition-timing-function: var(--ease-bubble-120);
+				transition-timing-function: var(--ease-bubble-110);
 				transition-delay: var(--hide-delay);
 				transition-duration: 0ms;
 
