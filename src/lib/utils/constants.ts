@@ -5,7 +5,7 @@ export const DESCRIPTION =
 export const LANGUAGE = "English";
 export const LOCALE = "en_US";
 export const URL = "https://www.maxkasperowicz.com/";
-export const COVER_IMG = "";
+export const COVER_IMG = "/cover.png";
 
 export const GITHUB_URL = "https://github.com/yet3";
 export const SELF_REPO_URL = `${GITHUB_URL}/personal-website`;
