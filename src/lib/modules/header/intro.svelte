@@ -29,7 +29,7 @@
 	>
 		<HoverZoomLetters text="Maksymilian Kasperowicz" />
 	</PopIn>
-	<PopIn element="h2" class="text-lg sm:text-xl font-medium mb-2" animDelay={[DELAY_PAGE, 75]} {isVisible}>
+	<PopIn element="h2" class="text-xl sm:text-2xl font-medium mb-2" animDelay={[DELAY_PAGE, 75]} {isVisible}>
 		<HoverZoomLetters text="Full-Stack Developer" />
 	</PopIn>
 	<PopIn
