@@ -9,7 +9,7 @@ export const COVER_IMG = "/cover.png";
 
 export const GITHUB_URL = "https://github.com/yet3";
 export const SELF_REPO_URL = `${GITHUB_URL}/personal-website`;
-export const CONTACT_EMAIL = "yet3.dev@gmail.com";
+export const CONTACT_EMAIL = "kasperowicz.maksymilian@gmail.com";
 export const CV_PDF_URL = "/cv.pdf";
 
 export enum SectionId {
