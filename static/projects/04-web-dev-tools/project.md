@@ -13,4 +13,4 @@ skills:
 - biome
 ---
 
-A collection of useful tools for web developers, currently focused on css generators (in-development)
+A collection of useful tools for developers (in-development)
