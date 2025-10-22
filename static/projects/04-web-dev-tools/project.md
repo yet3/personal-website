@@ -1,16 +1,16 @@
 ---
 title: WebDevTools 
-appHref: https://web-dev-tools-eight.vercel.app/ 
-repoHref: https://github.com/yet3/web-dev-tools
+appHref: https://web-dev-tools-alpha.vercel.app/
 showInFooter: true
 skills:
 - typescript
-- astro
+- solidstart
 - solidjs
+- mixpanel
 - html
 - css
-- tailwindcss
-- prettier
+- unocss
+- biome
 ---
 
 A collection of useful tools for web developers, currently focused on css generators (in-development)

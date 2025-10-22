@@ -54,6 +54,12 @@ export const SKILLS = {
 		href: "https://tailwindcss.com/",
 		isCoreSkill: true
 	},
+	unocss: {
+		label: "UnoCSS",
+		iconSrc: iconSrc("unocss"),
+		href: "https://unocss.dev/",
+		isCoreSkill: true
+	},
 
 	// Backend Languages
 	go: {
@@ -110,6 +116,12 @@ export const SKILLS = {
 		label: "Next.js",
 		iconSrc: iconSrc("nextjs"),
 		href: "https://nextjs.org/",
+		isCoreSkill: true
+	},
+	solidstart: {
+		label: "SolidStart",
+		iconSrc: iconSrc("solidjs"),
+		href: "https://start.solidjs.com/",
 		isCoreSkill: true
 	},
 
