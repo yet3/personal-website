@@ -35,7 +35,7 @@
 
 <div class="my-4">
 	<ul class="flex justify-between">
-		{@render item("+48 697 015 660", "phone")}
+		{@render item("+48 530 663 183", "phone")}
 		{@render item("maxkasperowicz.com", "website", URL)}
 		{@render item(GITHUB_URL.replace("https://", ""), "github", GITHUB_URL)}
 		{@render item(CONTACT_EMAIL, "email")}
