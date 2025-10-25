@@ -1,6 +1,6 @@
 ---
 title: Cyberpunk breach protocol
-appHref: https://cyberpunk2077-breach-protocol.vercel.app/ 
+appHref: https://www.cyberpunk-breach-protocol.com/ 
 repoHref: https://github.com/yet3/cyberpunk2077-breach-protocol
 showInFooter: true
 showInCv: true
