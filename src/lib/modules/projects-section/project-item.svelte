@@ -1,6 +1,7 @@
 <script lang="ts">
+	import { SectionId } from "$utils/constants";
 	import { DELAY_IN_ORDER, DELAY_LOCAL } from "$utils/delays";
-	import { onvisible, watchlayer } from "$utils/elements-visibility.svelte";
+	import { onvisible, requiredvis, watchlayer } from "$utils/elements-visibility.svelte";
 	import type { IDelay } from "$types/anims.types";
 	import type { IProject } from "$types/projects.types";
 	import ProjectItemCard from "./project-item-card.svelte";
@@ -20,7 +21,12 @@
 	class="relative"
 	use:onvisible={() => (isProjectVisible = true)}
 	use:watchlayer={"project-item"}
+	use:requiredvis={SectionId.Projects}
 >
 	<ProjectItemPreview {data} isVisible={isProjectVisible} animDelay={DELAY} />
-	<ProjectItemCard {data} animDelay={DELAY} />
+	<ProjectItemCard
+		{data}
+		setIsProjectVisible={(val) => (isProjectVisible = val)}
+		animDelay={DELAY}
+	/>
 </li>

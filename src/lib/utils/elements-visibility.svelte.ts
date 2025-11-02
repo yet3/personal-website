@@ -9,6 +9,7 @@ const REMOVE_EV = "un-watch-element";
 const ID_ATTR = "data-watch-id";
 const IS_VIS_ATTR = "data-is-visible";
 const LAYER_ATTR = "data-watch-layer";
+const REQUIRED_VIS_ATTR = "data-watch-required";
 
 export type IOnVisibleFn = () => void;
 interface IWatchItem {
@@ -52,16 +53,22 @@ export const watchlayer: Action<HTMLElement, string | undefined> = (node, value)
 	node.setAttribute(LAYER_ATTR, value);
 };
 
+export const requiredvis: Action<HTMLElement, string | undefined> = (node, value) => {
+	if (!value) return;
+	node.setAttribute(REQUIRED_VIS_ATTR, value);
+};
+
 export const watchElementsVisibility = () => {
 	$effect(() => {
 		/* eslint-disable svelte/prefer-svelte-reactivity */
 		const items = new Map<Element, IWatchItem>();
 		let isInitialCheck = true;
+		const visibleIds = new Set<string>();
 
 		const observer = new IntersectionObserver(
 			(entities) => {
 				const idxs: Record<string, number> = {};
-        entities.sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top)
+				entities.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
 
 				const getThenUpdateIdx = (key: string) => {
 					const idx = idxs[key] ?? 0;
@@ -74,21 +81,36 @@ export const watchElementsVisibility = () => {
 
 					if (entity.isIntersecting) {
 						const item = items.get(entity.target);
+						let shouldSkip = false;
+
 						if (item) {
-							const layerKey = item.node.getAttribute(LAYER_ATTR) || "default";
-							const idx = getThenUpdateIdx(layerKey);
+							const requiredVis = item.node.getAttribute(REQUIRED_VIS_ATTR);
 
-							items.delete(item.node);
-							item.node.setAttribute(IS_VIS_ATTR, "true");
-							item.node.style.setProperty(DELAY_IN_ORDER, idx.toString());
-
-							if (!isInitialCheck) {
-								item.node.style.setProperty(DELAY_LOCAL, `var(${DELAY_IN})`);
+							if (requiredVis) {
+								shouldSkip = !visibleIds.has(requiredVis);
+								console.log(item, requiredVis, shouldSkip);
 							}
 
-							item.callback?.();
+							if (!shouldSkip) {
+								visibleIds.add(item.node.id);
+
+								const layerKey = item.node.getAttribute(LAYER_ATTR) || "default";
+								const idx = getThenUpdateIdx(layerKey);
+
+								items.delete(item.node);
+								item.node.setAttribute(IS_VIS_ATTR, "true");
+								item.node.style.setProperty(DELAY_IN_ORDER, idx.toString());
+
+								if (!isInitialCheck) {
+									item.node.style.setProperty(DELAY_LOCAL, `var(${DELAY_IN})`);
+								}
+
+								item.callback?.();
+							}
 						}
-						observer.unobserve(entity.target);
+						if (!shouldSkip) {
+							observer.unobserve(entity.target);
+						}
 					}
 				}
 				isInitialCheck = false;
@@ -99,7 +121,7 @@ export const watchElementsVisibility = () => {
 		);
 
 		let canObserve = false;
-		let initTimeout: number | null = setTimeout(() => {
+		let initTimeout: NodeJS.Timeout | null = setTimeout(() => {
 			for (const [, item] of items) {
 				observer.observe(item.node);
 			}

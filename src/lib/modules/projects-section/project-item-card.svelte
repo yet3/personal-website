@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { SectionId } from "$utils/constants";
 	import { DELAY_PER_SKILL } from "$utils/delays";
 	import Button from "$common/button.svelte";
 	import HoverZoomLetters from "$common/effects/hover-zoom-letters.svelte";
@@ -12,18 +13,23 @@
 	interface IProps {
 		data: IProject;
 		animDelay: IDelay;
+		setIsProjectVisible: (val: boolean) => void;
 	}
 
 	let isVisible = $state(false);
-	const { data, animDelay }: IProps = $props();
+	const { data, animDelay, setIsProjectVisible }: IProps = $props();
 </script>
 
 <PopIn
 	{isVisible}
 	{animDelay}
 	class="xl:absolute z-10 top-0 right-0 translate-y-[-2rem] xl:-translate-y-1/2 xl:top-1/2 xl:-right-24 w-full xl:w-128"
-	onVisible={() => (isVisible = true)}
+	onVisible={() => {
+		isVisible = true;
+		setIsProjectVisible(true);
+	}}
 	watchLayer={"project-item"}
+	requiredVis={SectionId.Projects}
 >
 	<div
 		class="hover:scale-102 hover:-translate-y-1 transition-transform bg-base-200 rounded-lg px-4 py-5 shadow-lg ease-bubble-200 border border-primary/20 delay-100"
