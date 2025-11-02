@@ -21,10 +21,9 @@
 			<a
 				{href}
 				rel="external noopener noreferrer"
-        target="_blank"
+				target="_blank"
 				class="whitespace-pre inline-flex hover:scale-word ease-bubble-200 hover:-translate-word transition-transform"
-				>{text} <span class="underline decoration-accent">{link} </span>
-				{#if idx < ITEMS.length - 1}
+				>{text} <span class="underline decoration-accent">{link}</span>{#if idx < ITEMS.length - 1}
 					{", "}
 				{/if}
 			</a>
