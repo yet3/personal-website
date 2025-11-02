@@ -88,7 +88,6 @@ export const watchElementsVisibility = () => {
 
 							if (requiredVis) {
 								shouldSkip = !visibleIds.has(requiredVis);
-								console.log(item, requiredVis, shouldSkip);
 							}
 
 							if (!shouldSkip) {
