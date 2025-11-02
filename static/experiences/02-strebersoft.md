@@ -4,22 +4,6 @@ position: Full-Stack Developer
 workMode: Remote
 location: Poland
 skills:
-    - TypeScript
-    - JavaScript
-    - React
-    - Next.js
-    - Electron
-    - React Native
-    - Expo
-    - Node.js
-    - Express
-    - PostgreSQL
-    - MongoDB
-    - HTML
-    - CSS
-    - Styled-Components
-    - Webpack
-    - ClickUp
     - typescript
     - javascript
     - react
