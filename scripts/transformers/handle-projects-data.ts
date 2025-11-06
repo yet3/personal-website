@@ -1,11 +1,10 @@
 import type { PluginOption } from "vite";
-import { loadExperiences } from "./load-experiences";
-import { loadProjects } from "./load-projects";
+import { generateProjectsData } from "./generate-projects-data";
 import { optimizeProjectsImages } from "./optimize-projects-images";
 
-export const handleProjectsAndExperiences = (): PluginOption => {
+export const handleProjectsData = (): PluginOption => {
 	return {
-		name: "handle-projects-and-experiences",
+		name: "handle-projects-data",
 		async generateBundle() {
 			if (this.environment.name === "ssr") {
 				return;
@@ -20,11 +19,10 @@ export const handleProjectsAndExperiences = (): PluginOption => {
 
 			if (fileName.includes("app-data.svelte.ts")) {
 				try {
-					const [experiences, projects] = await Promise.all([loadExperiences(), loadProjects()]);
+					const projects = await generateProjectsData();
 
 					const data = JSON.stringify({
-						experiences,
-						projects
+						PROJECTS: projects
 					});
 
 					return {

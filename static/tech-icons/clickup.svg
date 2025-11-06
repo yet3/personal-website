@@ -1,0 +1,40 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="31"
+  height="38"
+  fill="none"
+  viewBox="0 0 31 38"
+>
+  <path
+    fill="url(#clickup-a)"
+    d="m0 29.194 5.72-4.476c3.04 4.052 6.269 5.92 9.864 5.92 3.573 0 6.71-1.847 9.614-5.866L31 29.14C26.812 34.937 21.609 38 15.583 38 9.577 38 4.322 34.957 0 29.194"
+  />
+  <path
+    fill="url(#clickup-b)"
+    d="M15.564 9.738 5.383 18.7.676 13.124 15.586 0l14.792 13.135-4.727 5.556z"
+  />
+  <defs>
+    <linearGradient
+      id="clickup-a"
+      x1="0"
+      x2="31"
+      y1="40.392"
+      y2="40.392"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#7612FA" />
+      <stop offset="1" stop-color="#40DDFF" />
+    </linearGradient>
+    <linearGradient
+      id="clickup-b"
+      x1=".676"
+      x2="30.378"
+      y1="22.069"
+      y2="22.069"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#FA12E3" />
+      <stop offset="1" stop-color="gold" />
+    </linearGradient>
+  </defs>
+</svg>

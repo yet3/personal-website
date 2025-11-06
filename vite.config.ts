@@ -3,10 +3,10 @@ import tailwindcss from "@tailwindcss/vite";
 import browserslist from "browserslist";
 import { browserslistToTargets } from "lightningcss";
 import { defineConfig } from "vite";
-import { handleProjectsAndExperiences } from "./scripts/transformers/handle-projects-and-experiences";
+import { handleProjectsData } from "./scripts/transformers/handle-projects-data";
 
 export default defineConfig({
-	plugins: [sveltekit(), tailwindcss(), handleProjectsAndExperiences()],
+	plugins: [sveltekit(), tailwindcss(), handleProjectsData()],
 	server: {
 		fs: {
 			allow: ["static", "cv-output"]
