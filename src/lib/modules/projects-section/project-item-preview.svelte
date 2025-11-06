@@ -1,8 +1,8 @@
 <script lang="ts">
 	import BlurHash from "$common/blur-hash.svelte";
 	import { APP_DATA } from "$lib/app-data.svelte";
-	import type { IProject } from "$types/projects.types";
-	import type { IProjectId } from "../../../projects";
+	import type { IProject, IProjectGeneratedData } from "$types/projects.types";
+	import { type IProjectId } from "../../../projects";
 
 	interface IProps {
 		data: IProject;
@@ -16,16 +16,24 @@
 		imgPathBase = ".svelte-kit/output/client/";
 	}
 
-	const PROJECT_DATA = APP_DATA.PROJECTS[data.id as IProjectId] ?? {
+	const def: IProjectGeneratedData = {
 		blurHash: "",
-		images: {
-			0: {
+		images: [
+			{
 				png: "",
 				webp: "",
 				avif: ""
 			}
-		}
+		]
 	};
+
+	let previewData = $state(APP_DATA.PROJECTS[data.id as IProjectId] ?? def);
+
+	if (typeof window !== "undefined") {
+		$effect(() => {
+			previewData = APP_DATA.PROJECTS[data.id as IProjectId] ?? def;
+		});
+	}
 </script>
 
 <div
@@ -37,16 +45,16 @@
 	<a href={data.appHref || data.repoHref} rel="noopener noreferrer" target="_blank">
 		{#if !hasImageLoaded}
 			<BlurHash
-				hash={PROJECT_DATA.blurHash}
+				hash={previewData.blurHash}
 				class="rounded-xl transition-transform hover:scale-101 ease-bubble-200 size-full delay-100"
 			/>
 		{/if}
-
+		<!-- svelte-ignore hydration_attribute_changed -->
 		<picture>
-			<source srcset={imgPathBase + PROJECT_DATA.images[0].avif} type="image/avif" />
-			<source srcset={imgPathBase + PROJECT_DATA.images[0].webp} type="image/webp" />
+			<source srcset={imgPathBase + previewData.images[0].avif} type="image/avif" />
+			<source srcset={imgPathBase + previewData.images[0].webp} type="image/webp" />
 			<img
-				src={imgPathBase + PROJECT_DATA.images[0].png}
+				src={imgPathBase + previewData.images[0].png}
 				class={[
 					"absolute top-0 left-0 size-full rounded-xl overflow-hidden transition-transform hover:scale-101 ease-bubble-200 delay-100 max-xl:object-center!",
 					data.imageFit === "contain" ? "object-contain" : "object-cover"
