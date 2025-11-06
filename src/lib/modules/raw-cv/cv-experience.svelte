@@ -17,9 +17,11 @@
 		<span>{data.at}</span>
 	</h2>
 	<h3 class="text-[15px] font-medium text-primary/60">{data.workMode}, {data.location}</h3>
-	<div class="cv-body text-[12.5px]">
-		{@html data.html}
-	</div>
+	<ol class="cv-body text-[12.5px]">
+		{#each data.contentBlocks as block}
+			<li>{@html block}</li>
+		{/each}
+	</ol>
 </li>
 
 <style>

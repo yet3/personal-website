@@ -1,9 +1,4 @@
 <script lang="ts">
-	import { onvisible } from "$utils/elements-visibility.svelte";
-	import PopIn from "$common/effects/pop-in.svelte";
-
-	let isVisible = $state(false);
-
 	const ITEMS: string[][] = [
 		["Made with", "SvelteKit", "https://svelte.dev/docs/kit/introduction"],
 		["Styled with", "TailwindCSS", "https://tailwindcss.com/"],
@@ -14,19 +9,16 @@
 
 <p
 	class="relative text-sm sm:text-base text-center mb-12 mx-auto px-2 md:px-24 flex flex-wrap justify-center"
-	use:onvisible={() => (isVisible = true)}
 >
 	{#each ITEMS as [text, link, href], idx}
-		<PopIn {isVisible} animDelay={50 + idx * 50}>
-			<a
-				{href}
-				rel="external noopener noreferrer"
-				target="_blank"
-				class="whitespace-pre inline-flex hover:scale-word ease-bubble-200 hover:-translate-word transition-transform"
-				>{text} <span class="underline decoration-accent">{link}</span>{#if idx < ITEMS.length - 1}
-					{", "}
-				{/if}
-			</a>
-		</PopIn>
+		<a
+			{href}
+			rel="external noopener noreferrer"
+			target="_blank"
+			class="whitespace-pre inline-flex hover:scale-word ease-bubble-200 hover:-translate-word transition-transform"
+			>{text} <span class="underline decoration-accent">{link}</span>{#if idx < ITEMS.length - 1}
+				{", "}
+			{/if}
+		</a>
 	{/each}
 </p>

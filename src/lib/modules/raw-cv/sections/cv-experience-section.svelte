@@ -1,14 +1,14 @@
 <script>
-	import { getExperiences } from "$ctx/experience-ctx";
+	import { EXPERIENCES } from "../../../../experiences";
 	import CvExperience from "../cv-experience.svelte";
 	import CvSection from "../cv-section.svelte";
 
-	const EXPERIENCES = getExperiences();
+	const experiences = Object.values(EXPERIENCES)
 </script>
 
 <CvSection title="Experience">
 	<ol class="flex flex-col gap-3">
-		{#each EXPERIENCES as data}
+		{#each experiences as data}
 			<CvExperience {data} />
 		{/each}
 	</ol>

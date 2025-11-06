@@ -6,7 +6,7 @@
 </script>
 
 <footer
-	class="flex flex-col bg-base-200 border-t border-t-primary/15 py-8 px-4 text-base relative border border-primary/20 rounded-lg w-[calc(100%-1rem)] mx-auto shadow-lg mb-2"
+	class="flex flex-col bg-base-200 border-t border-t-primary/15 py-8 px-4 text-base relative border border-primary/20 rounded-lg w-[calc(100%-1rem)] mx-auto shadow-lg mb-2 z-1"
 >
 	<div
 		class="justify-center gap-x-24 gap-y-8 grid md:grid-cols-[repeat(2,auto)] 2lg:lg:grid-cols-[repeat(4,auto)]"

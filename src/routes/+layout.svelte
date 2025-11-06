@@ -1,15 +1,11 @@
 <script lang="ts">
-	import { setExperiences } from "$ctx/experience-ctx";
 	import { setParticlesSettings } from "$ctx/particles-settings-ctx";
-	import { setProjects } from "$ctx/projects-ctx";
 	import { makeDefaultParitclesSettings } from "$modules/particles/make-default-paritcles-settings";
 	import { COVER_IMG, DESCRIPTION, LANGUAGE, LOCALE, TITLE, URL } from "$utils/constants";
-	import { watchElementsVisibility } from "$utils/elements-visibility.svelte";
 	import "$styles/global.css";
 	import Meta from "$common/meta.svelte";
 	import type { IParticlesSettings } from "$types/particles.types";
 	import type { LayoutProps } from "./$types";
-	import { APP_DATA } from "$lib/app-data.svelte";
 
 	const { children }: LayoutProps = $props();
 
@@ -43,9 +39,6 @@
 	});
 
 	setParticlesSettings(particlesSettings);
-	setExperiences(APP_DATA.experiences);
-	setProjects(APP_DATA.projects);
-	watchElementsVisibility();
 </script>
 
 <svelte:head>

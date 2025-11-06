@@ -2,7 +2,6 @@
 	import { getParticlesSettings } from "$ctx/particles-settings-ctx";
 	import { makeDefaultParitclesSettings } from "$modules/particles/make-default-paritcles-settings";
 	import Button from "$common/button.svelte";
-	import PopIn from "$common/effects/pop-in.svelte";
 	import CheryBlossomIcon from "$common/icons/chery-blossom-icon.svelte";
 	import { type IParticlesSettings } from "$types/particles.types";
 
@@ -69,34 +68,41 @@
 		<CheryBlossomIcon />
 	</Button>
 
-	<PopIn
-		class="origin-bottom absolute bottom-full -translate-y-2 left-1/2 -translate-x-1/2 bg-base-200 shadow-lg border border-primary/20 rounded-lg text-base-content p-3 w-64 flex flex-col"
-		isVisible={isOpen}
-		element="aside"
-	>
-		<h3 class="font-medium text-base-content text-center mb-3 text-lg">
-			<span class="text-accent">#</span>particles
-		</h3>
-
-		<button
-			class="mx-auto cursor-pointer grid grid-cols-[1fr_auto_1fr] gap-1 mb-2"
-			onclick={() => (settings.isEnabled = !settings.isEnabled)}
-			><div class={[settings.isEnabled && "text-green-600 font-bold"]}>On</div>
-			/
-			<div class={[!settings.isEnabled && "text-red-600 font-bold"]}>Off</div></button
+	{#if isOpen}
+		<aside
+			class="origin-bottom absolute bottom-full -translate-y-2 left-1/2 -translate-x-1/2 bg-base-200 shadow-lg border border-primary/20 rounded-lg text-base-content p-3 w-64 flex flex-col"
 		>
+			<h3 class="font-medium text-base-content text-center mb-3 text-lg">
+				<span class="text-accent mr-0.5">#</span>particles
+			</h3>
 
-		<div class="grid">
-			{@render slider('fps', "fps", 12, 120, 1)}
-			{@render slider('pixelation', "pixelation", 0, 5, 0.25)}
-			{@render slider('spawnEvery', "spawn every", 0.1, 4, 0.1)}
-		</div>
+			<div class="mx-auto grid grid-cols-[1fr_auto_1fr] gap-1 mb-2">
+				<button
+					type="button"
+					onclick={() => (settings.isEnabled = true)}
+					class={["cursor-pointer", settings.isEnabled && "text-green-600 font-bold"]}>On</button
+				>
 
-		<Button
-			class="mt-4"
-			onClick={() => {
-				Object.assign(settings, makeDefaultParitclesSettings());
-			}}>Reset</Button
-		>
-	</PopIn>
+				/
+				<button
+					type="button"
+					onclick={() => (settings.isEnabled = false)}
+					class={["cursor-pointer", !settings.isEnabled && "text-red-600 font-bold"]}>Off</button
+				>
+			</div>
+
+			<div class="grid">
+				{@render slider("fps", "fps", 12, 120, 1)}
+				{@render slider("pixelation", "pixelation", 0, 5, 0.25)}
+				{@render slider("spawnEvery", "spawn every", 0.1, 4, 0.1)}
+			</div>
+
+			<Button
+				class="mt-4"
+				onClick={() => {
+					Object.assign(settings, makeDefaultParitclesSettings());
+				}}>Reset</Button
+			>
+		</aside>
+	{/if}
 </div>

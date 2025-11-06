@@ -1,22 +1,16 @@
 <script lang="ts">
-	import { getExperiences } from "$ctx/experience-ctx";
-	import Section from "$common/section.svelte";
-	import ExperienceItem from "./experience-item.svelte";
 	import { SectionId } from "$utils/constants";
+	import Section from "$common/section.svelte";
+	import { EXPERIENCES } from "../../../experiences";
+	import ExperienceItem from "./experience-item.svelte";
 
-	let isVisible = $state(false);
-	const experiences = getExperiences();
+	const experiences = Object.values(EXPERIENCES);
 </script>
 
-<Section
-	id={SectionId.Experience}
-	ariaLabel="My work experience"
-	{isVisible}
-	onVisible={() => (isVisible = true)}
->
+<Section id={SectionId.Experience} ariaLabel="My work experience">
 	<ol class="list-none grid gap-2.5" style="transform: translateX(0%);">
 		{#each experiences as item}
-			<ExperienceItem data={item} makeSectionVisible={() => (isVisible = true)} />
+			<ExperienceItem data={item} />
 		{/each}
 	</ol>
 </Section>

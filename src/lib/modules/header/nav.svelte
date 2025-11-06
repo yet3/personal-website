@@ -1,16 +1,8 @@
 <script lang="ts">
 	import { SECTIONS_TITLES, SectionId } from "$utils/constants";
-	import { DELAY_PAGE, animdelay } from "$utils/delays";
 	import { smoothScrollToEl } from "$utils/smooth-scrool";
 	import { throttle } from "$utils/throttle";
 	import { onMount } from "svelte";
-	import PopIn from "$common/effects/pop-in.svelte";
-
-	interface IProps {
-		isVisible: boolean;
-	}
-
-	const { isVisible }: IProps = $props();
 
 	const items = Object.keys(SECTIONS_TITLES).map((key) => ({
 		id: key,
@@ -85,7 +77,7 @@
 
 <nav class="mt-24 text-lg">
 	<ol class="grid justify-end text-start gap-2">
-		{#each items as item, idx}
+		{#each items as item}
 			{@const isSelected = !isMobile && currentSection === item.id}
 			<li class="flex items-center justify-end space-x-2 font-medium">
 				<a
@@ -96,33 +88,18 @@
 						isSelected ? "w-58" : "w-40 hover:w-46 delay-50"
 					]}
 				>
-					<PopIn
+					<span
 						class={[
 							"font-medium inline-flex mr-0.5 transition-colors",
 							isSelected && "text-accent"
 						]}
-						element="span"
-						animDelay={[DELAY_PAGE, 150, idx * 75]}
-						{isVisible}
 					>
 						#
-					</PopIn>
-					<PopIn
-						class="inline-flex"
-						element="span"
-						animDelay={[DELAY_PAGE, 100, idx * 75]}
-						{isVisible}
-					>
+					</span>
+					<span class="inline-flex">
 						{item.id}
-					</PopIn>
-					<div
-						use:animdelay={[DELAY_PAGE, 50, idx * 50]}
-						class={[
-							"ml-2 w-full",
-							"transition-transform ease-bubble-120 origin-right",
-							isVisible ? "scale-x-100" : "scale-x-0"
-						]}
-					>
+					</span>
+					<div class="ml-2 w-full">
 						<div
 							class={["h-px w-full transition-colors", isSelected ? "bg-accent" : "bg-primary"]}
 						></div>

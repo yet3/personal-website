@@ -24,7 +24,7 @@
 	<Particles />
 {/if}
 
-<div class="grid lg:grid-cols-[1.5fr_1fr] max-w-[1800px] mx-auto">
+<div class="grid lg:grid-cols-[1.5fr_1fr] max-w-[1800px] mx-auto relative z-1">
 	<main
 		class={[
 			"mx-auto md:mx-0 md:pl-16 w-[calc(100%-2.5rem)] sm:w-[calc(100%-4rem)] 2xl:w-200 pt-24 grid grid-flow-row gap-12 pb-12",
@@ -32,16 +32,13 @@
 		]}
 	>
 		<AboutSection />
-		<div class="grid grid-flow-row gap-6">
-			<LanguagesSection />
-			<TechnologiesSection />
-		</div>
+		<LanguagesSection />
+		<TechnologiesSection />
 		<ExperienceSection />
 		<ProjectsSection />
 	</main>
 	<Header />
 
-
-  <MadeWidth />
+	<MadeWidth />
 </div>
 <Footer />

@@ -1,14 +1,11 @@
 <script lang="ts">
-	import { animdelay } from "$utils/delays";
 	import type { Snippet } from "svelte";
 	import type { ClassValue } from "svelte/elements";
-	import type { IDelay } from "$types/anims.types";
 
 	interface IProps {
 		ariaLabel?: string;
 		class?: ClassValue;
 		children: Snippet;
-		animDelay?: IDelay;
 
 		onClick?: () => void;
 		href?: string;
@@ -19,7 +16,6 @@
 		children,
 		class: className,
 		ariaLabel,
-		animDelay,
 		href,
 		onClick,
     isHrefExternal
@@ -33,7 +29,6 @@
 		target="_blank"
 		class={[className, "btn-base btn-md btn-primary"]}
 		aria-label={ariaLabel}
-		use:animdelay={animDelay}
 		onclick={onClick}
 	>
 		{@render children?.()}
@@ -43,7 +38,6 @@
 		type="button"
 		class={[className, "btn-base btn-md btn-primary"]}
 		aria-label={ariaLabel}
-		use:animdelay={animDelay}
 		onclick={onClick}
 	>
 		{@render children?.()}

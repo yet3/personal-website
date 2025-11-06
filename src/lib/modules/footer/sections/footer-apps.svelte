@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { getProjects } from "$ctx/projects-ctx";
+	import { PROJECTS } from "../../../../projects";
 	import FooterLink from "../footer-link.svelte";
 	import FooterSection from "../footer-section.svelte";
 
-	const PROJECTS = getProjects().filter((p) => p.showInFooter);
+	const projects = Object.values(PROJECTS)
 </script>
 
 <FooterSection label="Apps">
 	<ul>
-		{#each PROJECTS as proj}
+		{#each projects as proj}
 			{#if proj.appHref}
 				<li>
 					<FooterLink href={proj.appHref}>

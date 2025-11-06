@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type ISkillKeys, SKILLS } from "$utils/skills";
+	import { type ISkillKey, SKILLS } from "$utils/skills";
 	import type { IProject } from "$types/projects.types";
 	import CvSkill from "./cv-skill.svelte";
 	import CvOpenIcon from "./icons/cv-open-icon.svelte";
@@ -11,7 +11,7 @@
 	const { data }: IProps = $props();
 
 	const skillsData = data.skills.map((key) => {
-		return SKILLS[key as ISkillKeys];
+		return SKILLS[key as ISkillKey];
 	});
 </script>
 

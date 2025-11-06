@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { decode } from "blurhash";
 	import type { ClassValue } from "svelte/elements";
-	import type { IDelay } from "$types/anims.types";
-	import { animdelay } from "$utils/delays";
 
 	interface IProps {
 		hash: string;
@@ -10,10 +8,9 @@
 		class?: ClassValue;
 		width?: string | number;
 		height?: string | number;
-		animDelay?: IDelay;
 	}
 
-	const { hash, class: className, width, height, animDelay }: IProps = $props();
+	const { hash, class: className, width, height }: IProps = $props();
 
 	let canvasEl: HTMLCanvasElement | null = null;
 
@@ -32,10 +29,4 @@
 	});
 </script>
 
-<canvas
-	bind:this={canvasEl}
-	class={className}
-  use:animdelay={animDelay}
-	{width}
-	{height}
-></canvas>
+<canvas bind:this={canvasEl} class={className} {width} {height}></canvas>
