@@ -28,12 +28,6 @@
 	};
 
 	let previewData = $state(APP_DATA.PROJECTS[data.id as IProjectId] ?? def);
-
-	if (typeof window !== "undefined") {
-		$effect(() => {
-			previewData = APP_DATA.PROJECTS[data.id as IProjectId] ?? def;
-		});
-	}
 </script>
 
 <div
