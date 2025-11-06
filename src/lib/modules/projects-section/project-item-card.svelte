@@ -20,7 +20,7 @@
 	>
 		<h3 class="flex space-x-[0.4rem] text-lg sm:text-xl">
 			<HoverZoomLetters class="text-accent -mr-1" text="#" />
-			{#each data.title.split(" ") as word, idx}
+			{#each data.title.split(" ") as word}
 				<HoverZoomLetters text={word} class="font-medium" />{" "}
 			{/each}
 		</h3>
@@ -38,12 +38,20 @@
 		</ul>
 		<div class="flex space-x-2 mt-4 justify-start">
 			{#if data.repoHref}
-				<Button class="size-9 p-0" href={data.repoHref}>
+				<Button
+					class="size-9 p-0"
+					href={data.repoHref}
+					ariaLabel="Open project's github repo (opens in a new tab)"
+				>
 					<GithubIcon class="fill-primary-content size-5" />
 				</Button>
 			{/if}
 			{#if data.appHref}
-				<Button class="text-sm h-9" href={data.appHref}>Try it out!</Button>
+				<Button
+					class="text-sm h-9"
+					href={data.appHref}
+					ariaLabel="Try the app out (opens in a new tab)">Try it out!</Button
+				>
 			{/if}
 		</div>
 	</div>
