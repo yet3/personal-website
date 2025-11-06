@@ -12,6 +12,8 @@ export const SELF_REPO_URL = `${GITHUB_URL}/personal-website`;
 export const CONTACT_EMAIL = "kasperowicz.maksymilian@gmail.com";
 export const CV_PDF_URL = "/cv.pdf";
 
+export const MAIN_SECTION_CN = "main-section"
+
 export enum SectionId {
 	About = "about",
 	Languages = "languages",

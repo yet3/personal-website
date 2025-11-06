@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SECTIONS_TITLES, SectionId } from "$utils/constants";
+	import { MAIN_SECTION_CN, SECTIONS_TITLES, SectionId } from "$utils/constants";
 	import type { Snippet } from "svelte";
 	import type { ClassValue } from "svelte/elements";
 	import HoverZoomLetter from "./effects/hover-zoom-letters.svelte";
@@ -17,7 +17,7 @@
 	const title = $derived(SECTIONS_TITLES[id]);
 </script>
 
-<section {id} aria-label={ariaLabel} class={[className, "main-section"]}>
+<section {id} aria-label={ariaLabel} class={[className, MAIN_SECTION_CN]}>
 	{#if !noTitle}
 		<h2 class="font-medium text-lg mb-1 w-fit origin-left">
 			<HoverZoomLetter text="#" class="text-accent -mr-1.5" />

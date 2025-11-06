@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SECTIONS_TITLES, SectionId } from "$utils/constants";
+	import { MAIN_SECTION_CN, SECTIONS_TITLES, SectionId } from "$utils/constants";
 	import { smoothScrollToEl } from "$utils/smooth-scrool";
 	import { throttle } from "$utils/throttle";
 	import { onMount } from "svelte";
@@ -35,7 +35,7 @@
 		if (blockAutoDetection || isMobile) return;
 
 		const targetY = window.innerHeight * 0.2;
-		const sections = [...document.querySelectorAll(".main-section")];
+		const sections = [...document.querySelectorAll(`.${MAIN_SECTION_CN}`)];
 		const onScroll = throttle(() => {
 			let minDist = Number.POSITIVE_INFINITY;
 			let finalId: string | null = null;
