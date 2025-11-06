@@ -13,10 +13,6 @@ export const handleProjectsData = (): PluginOption => {
 			await optimizeProjectsImages(this.emitFile);
 		},
 		async transform(_, fileName) {
-			if (this.environment.name === "ssr") {
-				return;
-			}
-
 			if (fileName.includes("app-data.svelte.ts")) {
 				try {
 					const projects = await generateProjectsData();
