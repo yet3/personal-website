@@ -11,8 +11,20 @@
 	const { onToggleExpand, data, isOpen }: IProps = $props();
 </script>
 
-{#snippet text(content: string)}
-	{content}
+{#snippet text(content: string, href?: string)}
+	{#if href}
+		<a
+			onclick={(e) => e.stopPropagation()}
+			{href}
+			rel="external noopener noreferrer"
+			target="_blank"
+			class="inline-flex hover:scale-word hover:-translate-y-word transition-transform underline decoration-accent"
+		>
+			{content}
+		</a>
+	{:else}
+		{content}
+	{/if}
 {/snippet}
 
 <button
@@ -23,7 +35,7 @@
 	<h3 class="w-fit font-medium text-sm sm:text-base text-left">
 		{@render text(data.position)}
 		{@render text("-")}
-		{@render text(data.at)}
+		{@render text(data.at, data.website)}
 	</h3>
 
 	<div class="rounded size-6 grid place-items-center bg-base-240 items-center">
