@@ -9,16 +9,16 @@ export default defineConfig({
 	plugins: [sveltekit(), tailwindcss(), handleProjectsData()],
 	server: {
 		fs: {
-			allow: ["static", "cv-output"]
-		}
+			allow: ["static", "cv-output"],
+		},
 	},
 	css: {
 		transformer: "lightningcss",
 		lightningcss: {
-			targets: browserslistToTargets(browserslist(">= 0.25%"))
-		}
+			targets: browserslistToTargets(browserslist(">= 0.25%")),
+		},
 	},
 	build: {
-		cssMinify: "lightningcss"
-	}
+		cssMinify: "lightningcss",
+	},
 });

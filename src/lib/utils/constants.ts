@@ -12,14 +12,14 @@ export const SELF_REPO_URL = `${GITHUB_URL}/personal-website`;
 export const CONTACT_EMAIL = "kasperowicz.maksymilian@gmail.com";
 export const CV_PDF_URL = "/cv.pdf";
 
-export const MAIN_SECTION_CN = "main-section"
+export const MAIN_SECTION_CN = "main-section";
 
 export enum SectionId {
 	About = "about",
 	Languages = "languages",
 	Technologies = "technologies",
 	Experience = "experience",
-	Projects = "projects"
+	Projects = "projects",
 }
 
 export const SECTIONS_TITLES: Record<SectionId, string> = {
@@ -27,5 +27,5 @@ export const SECTIONS_TITLES: Record<SectionId, string> = {
 	[SectionId.Languages]: "languages",
 	[SectionId.Technologies]: "technologies",
 	[SectionId.Experience]: "experience",
-	[SectionId.Projects]: "projects"
+	[SectionId.Projects]: "projects",
 };

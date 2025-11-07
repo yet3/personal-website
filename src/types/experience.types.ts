@@ -1,20 +1,20 @@
 import type { ISkillKey } from "$utils/skills";
 
 export enum ExperiencePosition {
-	"FullStack" = "Full-Stack Developer"
+	FullStack = "Full-Stack Developer",
 }
 
 export enum ExperienceWorkMode {
 	Remote = "Remote",
-	Hybrid = "Hybrid"
+	Hybrid = "Hybrid",
 }
 
 export enum ExperienceLocation {
 	Poland = "Poland",
-	International = "International"
+	International = "International",
 }
 
-export type IExperienceSkills = ISkillKey[]
+export type IExperienceSkills = ISkillKey[];
 
 export interface IExperience {
 	at: string;

@@ -1,5 +1,5 @@
-import { type IMinMax, randomMinMax, randomFloat } from "$utils/random";
-import { Particle } from "./particle";
+import { type IMinMax, randomFloat, randomMinMax } from "$utils/random";
+import type { Particle } from "./particle";
 
 interface IProps {
 	x: number;
@@ -56,9 +56,9 @@ export class ParticleSpawner {
 						new particle({
 							position: {
 								x: this.x + randomFloat(0, this.width),
-								y: this.y + randomFloat(0, this.height)
-							}
-						})
+								y: this.y + randomFloat(0, this.height),
+							},
+						}),
 					);
 				}
 			}

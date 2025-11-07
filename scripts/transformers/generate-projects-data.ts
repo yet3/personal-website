@@ -2,7 +2,7 @@ import { encode as blurHashEncode } from "blurhash";
 import { readdir } from "fs/promises";
 import { join } from "path";
 import sharp from "sharp";
-import { PROJECTS, type IProjectId } from "../../src/projects";
+import { type IProjectId, PROJECTS } from "../../src/projects";
 import type { IProjectsGeneratedData } from "../../src/types/projects.types";
 
 export const generateProjectsData = async () => {
@@ -25,7 +25,7 @@ export const generateProjectsData = async () => {
 							.map((file) => ({
 								png: join(outStaticImagesDir, file),
 								webp: join(outStaticImagesDir, file.replace(".png", ".webp")),
-								avif: join(outStaticImagesDir, file.replace(".png", ".avif"))
+								avif: join(outStaticImagesDir, file.replace(".png", ".avif")),
 							}));
 
 						let blurHash = "KDG+XX0000-:a#IU00~qxv";
@@ -38,29 +38,29 @@ export const generateProjectsData = async () => {
 								.raw()
 								.ensureAlpha();
 							const { data: pixels, info } = await s.toBuffer({
-								resolveWithObject: true
+								resolveWithObject: true,
 							});
 							blurHash = blurHashEncode(
 								new Uint8ClampedArray(pixels),
 								info.width,
 								info.height,
 								5,
-								5
+								5,
 							);
 							console.log(`[${id}] Finished generatring blurhash`);
 						}
 
 						generatedData[id as IProjectId] = {
 							images,
-							blurHash
+							blurHash,
 						};
-            resolve()
+						resolve();
 					} catch (e) {
 						console.log(e);
 						reject(e);
 					}
-				})
-		)
+				}),
+		),
 	);
 
 	return generatedData;

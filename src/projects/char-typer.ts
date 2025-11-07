@@ -10,7 +10,7 @@ const SKILLS: IProjectSkills = [
 	Skill.TailwindCss,
 	Skill.Zustand,
 	Skill.Rsbuild,
-	Skill.Biome
+	Skill.Biome,
 ];
 
 export default defineProject("char-typer", {
@@ -21,6 +21,6 @@ export default defineProject("char-typer", {
 	showInCv: true,
 	skills: SKILLS,
 	contentBlocks: [
-		"Yet another app to train your typing skills, with focus on typing characters instead of words."
-	]
+		"Yet another app to train your typing skills, with focus on typing characters instead of words.",
+	],
 });

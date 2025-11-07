@@ -9,7 +9,7 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		prerender: {
-			entries: ["*"]
+			entries: ["*"],
 		},
 
 		alias: {
@@ -20,9 +20,9 @@ const config = {
 			"$ctx/*": "src/lib/ctx/*",
 			"$types/*": "src/types/*",
 			"$static/*": "static/*",
-			"$scripts/*": "scripts/*"
-		}
-	}
+			"$scripts/*": "scripts/*",
+		},
+	},
 };
 
 export default config;

@@ -13,7 +13,7 @@ export const PROJECTS = Object.freeze({
 	...webDevTools,
 	...charTyper,
 	...coffeeCalculator,
-	...goChat
+	...goChat,
 });
 
 export type IProjectId = keyof typeof PROJECTS;

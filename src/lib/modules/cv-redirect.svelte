@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { goto } from "$app/navigation";
 	import { onMount } from "svelte";
+	import { goto } from "$app/navigation";
 	import Meta from "$common/meta.svelte";
 
 	interface IProps {

@@ -1,4 +1,7 @@
-export const throttle = <T extends (...args: unknown[]) => unknown>(callback: T, dur: number) => {
+export const throttle = <T extends (...args: unknown[]) => unknown>(
+	callback: T,
+	dur: number,
+) => {
 	let lastFunc: NodeJS.Timeout;
 	let lastRan: number;
 
@@ -15,7 +18,7 @@ export const throttle = <T extends (...args: unknown[]) => unknown>(callback: T,
 						lastRan = Date.now();
 					}
 				},
-				dur - (Date.now() - lastRan)
+				dur - (Date.now() - lastRan),
 			);
 		}
 	};

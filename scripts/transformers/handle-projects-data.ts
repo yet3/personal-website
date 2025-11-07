@@ -18,16 +18,16 @@ export const handleProjectsData = (): PluginOption => {
 					const projects = await generateProjectsData();
 
 					const data = JSON.stringify({
-						PROJECTS: projects
+						PROJECTS: projects,
 					});
 
 					return {
-						code: `export const APP_DATA=${data};`
+						code: `export const APP_DATA=${data};`,
 					};
 				} catch (e) {
 					console.log(e);
 				}
 			}
-		}
+		},
 	};
 };

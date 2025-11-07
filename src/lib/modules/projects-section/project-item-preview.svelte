@@ -2,7 +2,7 @@
 	import BlurHash from "$common/blur-hash.svelte";
 	import { APP_DATA } from "$lib/app-data.svelte";
 	import type { IProject, IProjectGeneratedData } from "$types/projects.types";
-	import { type IProjectId } from "../../../projects";
+	import type { IProjectId } from "../../../projects";
 
 	interface IProps {
 		data: IProject;
@@ -27,7 +27,7 @@
 		]
 	};
 
-	let previewData = $state(APP_DATA.PROJECTS[data.id as IProjectId] ?? def);
+	const previewData = $state(APP_DATA.PROJECTS[data.id as IProjectId] ?? def);
 </script>
 
 <div

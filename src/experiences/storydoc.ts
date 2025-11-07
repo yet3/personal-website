@@ -1,10 +1,10 @@
-import { Skill } from "$utils/skills";
 import {
 	ExperienceLocation,
 	ExperiencePosition,
 	ExperienceWorkMode,
-	type IExperienceSkills
+	type IExperienceSkills,
 } from "$types/experience.types";
+import { Skill } from "$utils/skills";
 import { defineExperience } from "../lib/utils/define-experience";
 
 const SKILLS: IExperienceSkills = [
@@ -22,7 +22,7 @@ const SKILLS: IExperienceSkills = [
 	Skill.Webpack,
 	Skill.Openai,
 	Skill.Mixpanel,
-	Skill.Monday
+	Skill.Monday,
 ];
 
 export default defineExperience("Storydoc", {
@@ -34,6 +34,6 @@ export default defineExperience("Storydoc", {
 	contentBlocks: [
 		"Collaborated with an international team of developers, ui/ux/story designers and product managers.",
 		"Worked on an AI-powered presentation SaaS. Implemented features such as a fully interactive WYSIWYG rich text editor, AI integration, new slide components, and PDF generation using Puppeteer. Focused on optimizing the product and was responsible for managing bug fixing.",
-		"Worked on internal tooling for testing/adjusting ai features"
-	]
+		"Worked on internal tooling for testing/adjusting ai features",
+	],
 });

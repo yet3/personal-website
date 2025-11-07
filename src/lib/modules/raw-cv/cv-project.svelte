@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { type ISkillKey, SKILLS } from "$utils/skills";
 	import type { IProject } from "$types/projects.types";
+	import { type ISkillKey, SKILLS } from "$utils/skills";
 	import CvSkill from "./cv-skill.svelte";
 	import CvOpenIcon from "./icons/cv-open-icon.svelte";
 

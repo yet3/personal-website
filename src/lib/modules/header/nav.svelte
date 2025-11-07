@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { onMount } from "svelte";
 	import { MAIN_SECTION_CN, SECTIONS_TITLES, SectionId } from "$utils/constants";
 	import { smoothScrollToEl } from "$utils/smooth-scrool";
 	import { throttle } from "$utils/throttle";
-	import { onMount } from "svelte";
 
 	const items = Object.keys(SECTIONS_TITLES).map((key) => ({
 		id: key,

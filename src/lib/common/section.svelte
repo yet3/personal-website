@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { MAIN_SECTION_CN, SECTIONS_TITLES, SectionId } from "$utils/constants";
 	import type { Snippet } from "svelte";
 	import type { ClassValue } from "svelte/elements";
+	import { MAIN_SECTION_CN, SECTIONS_TITLES, type SectionId } from "$utils/constants";
 	import HoverZoomLetter from "./effects/hover-zoom-letters.svelte";
 
 	interface IProps {

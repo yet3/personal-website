@@ -9,13 +9,18 @@ const IN_PROJECTS_DIR = join(process.cwd(), "static/projects");
 export const optimizeProjectsImages = async (emitFile: Rollup.EmitFile) => {
 	try {
 		const ids = Object.keys(PROJECTS);
-		await Promise.all(ids.map((projectDirName) => handleProject(emitFile, projectDirName)));
+		await Promise.all(
+			ids.map((projectDirName) => handleProject(emitFile, projectDirName)),
+		);
 	} catch (e) {
 		console.log("Error handling projects' images", e);
 	}
 };
 
-const handleProject = async (emitFile: Rollup.EmitFile, projectDirName: string) => {
+const handleProject = async (
+	emitFile: Rollup.EmitFile,
+	projectDirName: string,
+) => {
 	const projectDir = join(IN_PROJECTS_DIR, projectDirName);
 	const inImages = (await readdir(projectDir))
 		.filter((file) => file.endsWith(".png"))
@@ -38,17 +43,17 @@ const handleProject = async (emitFile: Rollup.EmitFile, projectDirName: string) 
 		emitFile({
 			type: "asset",
 			fileName: makeFilePath("png"),
-			source: await sPng.toBuffer()
+			source: await sPng.toBuffer(),
 		});
 		emitFile({
 			type: "asset",
 			fileName: makeFilePath("avif"),
-			source: await sAvif.toBuffer()
+			source: await sAvif.toBuffer(),
 		});
 		emitFile({
 			type: "asset",
 			fileName: makeFilePath("webp"),
-			source: await sWebp.toBuffer()
+			source: await sWebp.toBuffer(),
 		});
 	}
 

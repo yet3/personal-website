@@ -15,17 +15,18 @@ const SKILLS: IProjectSkills = [
 	Skill.Vitest,
 	Skill.Svgo,
 	Skill.Prettier,
-	Skill.Nodejs
+	Skill.Nodejs,
 ];
 
 export default defineProject("figma-svg-to-react", {
 	title: "SVG to React / Native / SolidJS",
-	appHref: "https://www.figma.com/community/plugin/1139659790182545298/svg-to-react-native-solidjs",
+	appHref:
+		"https://www.figma.com/community/plugin/1139659790182545298/svg-to-react-native-solidjs",
 	repoHref: "https://github.com/yet3/figma-svg-to-react",
 	showInFooter: true,
 	showInCv: true,
 	skills: SKILLS,
 	contentBlocks: [
-		"A Figma plugin that lets you easily optimize and transform multiple SVG files into JSX components."
-	]
+		"A Figma plugin that lets you easily optimize and transform multiple SVG files into JSX components.",
+	],
 });

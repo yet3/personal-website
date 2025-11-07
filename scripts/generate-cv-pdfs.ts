@@ -2,7 +2,7 @@
 import { existsSync } from "fs";
 import { mkdir, writeFile } from "fs/promises";
 import { join } from "path";
-import puppeteer, { Browser } from "puppeteer";
+import puppeteer, { type Browser } from "puppeteer";
 import { type PreviewServer, preview } from "vite";
 import { CV_OUTPUT_DIR } from "./consts";
 
@@ -16,7 +16,10 @@ const main = async () => {
 		console.log("Generating cv.pdf and resume.pdf to", CV_OUTPUT_DIR);
 
 		if (!previewUrl) {
-			console.log("Failed to resolve preview url while generating cv.pdf and resume.pdf to", CV_OUTPUT_DIR);
+			console.log(
+				"Failed to resolve preview url while generating cv.pdf and resume.pdf to",
+				CV_OUTPUT_DIR,
+			);
 			return;
 		}
 
@@ -24,7 +27,7 @@ const main = async () => {
 		const page = await browser.newPage();
 
 		await page.goto(join(previewUrl, "raw-cv"), {
-			waitUntil: ["domcontentloaded", "networkidle2"]
+			waitUntil: ["domcontentloaded", "networkidle2"],
 		});
 
 		const pdfData = await page.pdf({
@@ -33,11 +36,11 @@ const main = async () => {
 				top: 0,
 				bottom: 0,
 				left: 0,
-				right: 0
+				right: 0,
 			},
 			scale: 1,
 			format: "a4",
-			displayHeaderFooter: false
+			displayHeaderFooter: false,
 		});
 
 		if (!existsSync(CV_OUTPUT_DIR)) {

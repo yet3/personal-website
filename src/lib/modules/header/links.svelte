@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { CONTACT_EMAIL, CV_PDF_URL, GITHUB_URL } from "$utils/constants";
 	import Button from "$common/button.svelte";
 	import EmailIcon from "$common/icons/email-icon.svelte";
 	import GithubIcon from "$common/icons/github-icon.svelte";
+	import { CONTACT_EMAIL, CV_PDF_URL, GITHUB_URL } from "$utils/constants";
 	import ParticlesSettings from "./particles-settings.svelte";
 </script>
 

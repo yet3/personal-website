@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { smoothScrollToEl } from "$utils/smooth-scrool";
 	import type { IExperience } from "$types/experience.types";
+	import { smoothScrollToEl } from "$utils/smooth-scrool";
 	import ExperienceItemBody from "./experience-item-body.svelte";
 	import ExperienceItemHeader from "./experience-item-header.svelte";
 

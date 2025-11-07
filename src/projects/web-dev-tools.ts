@@ -10,7 +10,7 @@ const SKILLS: IProjectSkills = [
 	Skill.Css,
 	Skill.UnoCss,
 	Skill.Biome,
-	Skill.Mixpanel
+	Skill.Mixpanel,
 ];
 
 export default defineProject("web-dev-tools", {
@@ -18,5 +18,7 @@ export default defineProject("web-dev-tools", {
 	appHref: "https://web-dev-tools-alpha.vercel.app/",
 	showInFooter: true,
 	skills: SKILLS,
-	contentBlocks: ["A collection of useful tools for developers (in-development)."]
+	contentBlocks: [
+		"A collection of useful tools for developers (in-development).",
+	],
 });

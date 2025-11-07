@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { SectionId } from "$utils/constants";
 	import Section from "$common/section.svelte";
 	import SkillBadge from "$common/skill-badge.svelte";
+	import { SectionId } from "$utils/constants";
 
 	const LANGUAGES: { label: string; href: string }[] = [
 		{ label: "Polish", href: "https://wikipedia.org/wiki/Polish_language" },

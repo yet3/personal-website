@@ -1,6 +1,6 @@
 import { load as cheerioLoad } from "cheerio";
 import frontmatter from "front-matter";
-import { readFile, readdir } from "fs/promises";
+import { readdir, readFile } from "fs/promises";
 import { parse as parseMd } from "marked";
 import { join } from "path";
 
@@ -25,7 +25,9 @@ export const loadMdFiles = async (pathOrFiles: string | string[]) => {
 			(filePath) =>
 				/* eslint-disable no-async-promise-executor */
 				new Promise(async (resolve) => {
-					const { attributes, body } = frontmatter(await readFile(filePath, "utf-8"));
+					const { attributes, body } = frontmatter(
+						await readFile(filePath, "utf-8"),
+					);
 
 					const $ = cheerioLoad(await parseMd(body));
 					let totalBlocks = 0;
@@ -33,7 +35,9 @@ export const loadMdFiles = async (pathOrFiles: string | string[]) => {
 						const $p = $(el);
 						const text = $p.text();
 						const words = text.split(/\s+/).filter((word) => word.length > 0);
-						const wrappedWords = words.map((word) => `<span>${word}</span>`).join(" ");
+						const wrappedWords = words
+							.map((word) => `<span>${word}</span>`)
+							.join(" ");
 						$p.html(wrappedWords);
 
 						totalBlocks++;
@@ -44,9 +48,9 @@ export const loadMdFiles = async (pathOrFiles: string | string[]) => {
 						filePath,
 						attributes: (attributes as Record<string, unknown>) ?? {},
 						body: $.html(),
-						totalBlocks
+						totalBlocks,
 					});
-				})
-		)
+				}),
+		),
 	);
 };

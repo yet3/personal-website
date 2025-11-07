@@ -7,6 +7,6 @@ export const loadExperiences = async () => {
 	return items.map(({ attributes, body, totalBlocks }) => ({
 		...(attributes as Omit<IExperience, "html">),
 		html: body,
-		totalBlocks
+		totalBlocks,
 	})) as IExperience[];
 };

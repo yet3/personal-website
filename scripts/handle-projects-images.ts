@@ -8,25 +8,32 @@ const IN_PROJECTS_DIR = join(process.cwd(), "static/projects");
 export const handleProjectsImages = (): PluginOption => {
 	return {
 		name: "handle-projects-images",
-    enforce: "post",
+		enforce: "post",
 		async generateBundle() {
 			if (this.environment.name === "ssr") {
 				return;
 			}
 
 			try {
-				const projects = (await readdir(IN_PROJECTS_DIR)).filter((name) => /^[0-9]/gm.test(name));
+				const projects = (await readdir(IN_PROJECTS_DIR)).filter((name) =>
+					/^[0-9]/gm.test(name),
+				);
 				await Promise.all(
-					projects.map((projectDirName) => handleProject(this.emitFile, projectDirName))
+					projects.map((projectDirName) =>
+						handleProject(this.emitFile, projectDirName),
+					),
 				);
 			} catch (e) {
 				console.log("Error handling projects' images", e);
 			}
-		}
+		},
 	};
 };
 
-const handleProject = async (emitFile: Rollup.EmitFile, projectDirName: string) => {
+const handleProject = async (
+	emitFile: Rollup.EmitFile,
+	projectDirName: string,
+) => {
 	const projectDir = join(IN_PROJECTS_DIR, projectDirName);
 	const inImages = (await readdir(join(projectDir, "images")))
 		.filter((file) => file.endsWith(".png"))
@@ -42,23 +49,27 @@ const handleProject = async (emitFile: Rollup.EmitFile, projectDirName: string) 
 
 		const baseName = basename(inImgSrc);
 		const makeFilePath = (format: string) => {
-			return join(outProjectDir, "images", baseName.replace(".png", `.${format}`));
+			return join(
+				outProjectDir,
+				"images",
+				baseName.replace(".png", `.${format}`),
+			);
 		};
 
 		emitFile({
 			type: "asset",
 			fileName: makeFilePath("png"),
-			source: await sPng.toBuffer()
+			source: await sPng.toBuffer(),
 		});
 		emitFile({
 			type: "asset",
 			fileName: makeFilePath("avif"),
-			source: await sAvif.toBuffer()
+			source: await sAvif.toBuffer(),
 		});
 		emitFile({
 			type: "asset",
 			fileName: makeFilePath("webp"),
-			source: await sWebp.toBuffer()
+			source: await sWebp.toBuffer(),
 		});
 	}
 

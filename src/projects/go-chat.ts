@@ -10,5 +10,5 @@ export default defineProject("go-chat", {
 	imageFit: "contain",
 	imagePosition: "5% 0%",
 	skills: SKILLS,
-	contentBlocks: ["A simple gui tcp chat made in go using raylib and raygui."]
+	contentBlocks: ["A simple gui tcp chat made in go using raylib and raygui."],
 });

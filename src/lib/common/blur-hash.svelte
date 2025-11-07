@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { decode } from "blurhash";
 	import type { ClassValue } from "svelte/elements";
+	import { decode } from "blurhash";
 
 	interface IProps {
 		hash: string;

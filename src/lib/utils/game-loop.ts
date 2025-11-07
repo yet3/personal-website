@@ -42,6 +42,6 @@ export const createGameLoop = ({ onUpdate, onRender, fps }: IProps) => {
 			if (animFrameId != null) {
 				cancelAnimationFrame(animFrameId);
 			}
-		}
+		},
 	};
 };

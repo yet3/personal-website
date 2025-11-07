@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { CONTACT_EMAIL, GITHUB_URL, URL } from "$utils/constants";
 	import type { Snippet } from "svelte";
+	import { CONTACT_EMAIL, GITHUB_URL, URL } from "$utils/constants";
 	import CvEmailIcon from "./icons/cv-email-icon.svelte";
 	import CvGithubIcon from "./icons/cv-github-icon.svelte";
 	import CvOpenIcon from "./icons/cv-open-icon.svelte";

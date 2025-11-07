@@ -1,22 +1,22 @@
+import type { Vec2 } from "$types/math.types";
 import { toRadians } from "$utils/math";
 import { randomFloat, randomInt } from "$utils/random";
-import type { Vec2 } from "$types/math.types";
 import { Particle } from "./particle";
 
 export enum LeafParticle {
-	"A",
-	"B",
-	"C",
-	"D",
-	"E",
-	"F"
+	A,
+	B,
+	C,
+	D,
+	E,
+	F,
 }
 
 export const makeLeafParticle = (type: LeafParticle) => {
 	const scale = randomFloat(0.75, 1.2);
 	const data = DATA[type];
 
-  const dir = new Date().getHours() >= 16 ? -1 : 1;
+	const dir = new Date().getHours() >= 16 ? -1 : 1;
 
 	return class extends Particle {
 		constructor(props: { position: Vec2 }) {
@@ -27,27 +27,31 @@ export const makeLeafParticle = (type: LeafParticle) => {
 				rotation: {
 					x: toRadians(randomFloat(-360, 360)),
 					y: toRadians(randomFloat(-360, 360)),
-					z: toRadians(randomFloat(-360, 360))
+					z: toRadians(randomFloat(-360, 360)),
 				},
 				rotVelocity: {
 					x: toRadians(randomFloat(-60, 60)),
 					y: toRadians(randomFloat(-60, 60)),
-					z: toRadians(randomFloat(-60, 60))
+					z: toRadians(randomFloat(-60, 60)),
 				},
 				scale: {
 					x: scale,
-					y: scale
+					y: scale,
 				},
 				fillColor: data.colors[randomInt(0, data.colors.length)],
-				fillPath: new Path2D(data.path)
+				fillPath: new Path2D(data.path),
 			});
 		}
 	};
 };
 
-const LIGHT_COLORS = ['hsl(348 100% 80%)', 'hsl(348 100% 85%)', 'hsl(348 100% 90%)']
-const DARK_COLORS = ['hsl(348 100% 70%)', 'hsl(348 100% 75%)']
-const ALL_COLORS = [...LIGHT_COLORS, ...DARK_COLORS]
+const LIGHT_COLORS = [
+	"hsl(348 100% 80%)",
+	"hsl(348 100% 85%)",
+	"hsl(348 100% 90%)",
+];
+const DARK_COLORS = ["hsl(348 100% 70%)", "hsl(348 100% 75%)"];
+const ALL_COLORS = [...LIGHT_COLORS, ...DARK_COLORS];
 const DATA: Record<
 	LeafParticle,
 	{
@@ -85,5 +89,5 @@ const DATA: Record<
 		colors: DARK_COLORS,
 		size: [18, 15],
 		path: "M.565 2.36c.885 12.014 10.672 12.818 16.062 11.61.37-.083.658-.383.678-.76.119-2.24-1.776-3.475-2.823-3.829C11.77-2.416 3.325.463 1.08 1.464a.9.9 0 0 0-.515.896",
-	}
+	},
 };

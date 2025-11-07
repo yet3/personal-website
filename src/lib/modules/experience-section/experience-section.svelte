@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { SectionId } from "$utils/constants";
 	import Section from "$common/section.svelte";
+	import { SectionId } from "$utils/constants";
 	import { EXPERIENCES } from "../../../experiences";
 	import ExperienceItem from "./experience-item.svelte";
 

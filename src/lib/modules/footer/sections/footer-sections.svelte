@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SECTIONS_TITLES, SectionId } from "$utils/constants";
+	import { SECTIONS_TITLES, type SectionId } from "$utils/constants";
 	import FooterLink from "../footer-link.svelte";
 	import FooterSection from "../footer-section.svelte";
 

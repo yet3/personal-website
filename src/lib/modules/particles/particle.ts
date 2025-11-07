@@ -1,5 +1,5 @@
-import { toRadians } from "$utils/math";
 import type { Vec2, Vec3 } from "$types/math.types";
+import { toRadians } from "$utils/math";
 import type { ParticleSpawner } from "./particle-spawner";
 
 const GRAVITY = 60;
@@ -78,7 +78,14 @@ export class Particle {
 		const skewY = Math.sin(this.rotation.x) * 0.75;
 		const scaleY = Math.cos(this.rotation.x);
 
-		ctx.transform(scaleX * this.scale.x, skewY, skewX, scaleY * this.scale.y, 0, 0);
+		ctx.transform(
+			scaleX * this.scale.x,
+			skewY,
+			skewX,
+			scaleY * this.scale.y,
+			0,
+			0,
+		);
 		ctx.rotate(this.rotation.z);
 
 		ctx.fillStyle = this.fillColor;

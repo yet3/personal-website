@@ -10,7 +10,7 @@ const SKILLS: IProjectSkills = [
 	Skill.TailwindCss,
 	Skill.Vite,
 	Skill.Biome,
-	Skill.Mixpanel
+	Skill.Mixpanel,
 ];
 
 export default defineProject("fast-svg-optimizer", {
@@ -20,6 +20,6 @@ export default defineProject("fast-svg-optimizer", {
 	showInCv: true,
 	skills: SKILLS,
 	contentBlocks: [
-		"A tool for optimizing SVGs using SVGO. Process multiple SVGs at once, preview the before-and-after, adjust SVGO settings, and batch edit dimensions for all SVGs."
-	]
+		"A tool for optimizing SVGs using SVGO. Process multiple SVGs at once, preview the before-and-after, adjust SVGO settings, and batch edit dimensions for all SVGs.",
+	],
 });

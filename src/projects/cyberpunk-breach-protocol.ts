@@ -10,7 +10,7 @@ const SKILLS: IProjectSkills = [
 	Skill.TailwindCss,
 	Skill.Zustand,
 	Skill.Biome,
-	Skill.Rsbuild
+	Skill.Rsbuild,
 ];
 
 export default defineProject("cyberpunk-breach-protocol", {
@@ -21,6 +21,6 @@ export default defineProject("cyberpunk-breach-protocol", {
 	showInCv: true,
 	skills: SKILLS,
 	contentBlocks: [
-		'A fan recreation of the hacking mini-game "Breach Protocol" from Cyberpunk 2077.'
-	]
+		'A fan recreation of the hacking mini-game "Breach Protocol" from Cyberpunk 2077.',
+	],
 });

@@ -7,7 +7,10 @@ const easing = (p: number): number => {
 	return p < 0.5 ? 2 * p ** 2 : -1 + (4 - 2 * p) * p;
 };
 
-export const smoothScrollToY = (targetY: number, { duration = 250, onFinish }: IOpts) => {
+export const smoothScrollToY = (
+	targetY: number,
+	{ duration = 250, onFinish }: IOpts,
+) => {
 	const startY = window.scrollY;
 	const startTime = performance.now();
 
@@ -35,8 +38,8 @@ export const smoothScrollToY = (targetY: number, { duration = 250, onFinish }: I
 
 export const smoothScrollToEl = (
 	el: HTMLElement,
-	{ offsetY = 0, ...opts }: IOpts & { offsetY?: number }
+	{ offsetY = 0, ...opts }: IOpts & { offsetY?: number },
 ) => {
 	const rect = el.getBoundingClientRect();
 	return smoothScrollToY(rect.y + window.scrollY + offsetY, opts);
-};;
+};

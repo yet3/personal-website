@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { SectionId } from "$utils/constants";
-	import { type ISkill, type ISkillKey, SKILLS } from "$utils/skills";
 	import Section from "$common/section.svelte";
 	import SkillBadgeById from "$common/skill-badge-by-id.svelte";
+	import { SectionId } from "$utils/constants";
+	import { type ISkill, type ISkillKey, SKILLS } from "$utils/skills";
 
 	const techList = Object.keys(SKILLS).filter((id) => {
 		const skill = SKILLS[id as ISkillKey];

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { type Component, onMount } from "svelte";
 	import AboutSection from "$modules/about-section/about-section.svelte";
 	import ExperienceSection from "$modules/experience-section/experience-section.svelte";
 	import Footer from "$modules/footer/footer.svelte";
@@ -7,7 +8,6 @@
 	import MadeWidth from "$modules/made-width.svelte";
 	import ProjectsSection from "$modules/projects-section/projects-section.svelte";
 	import TechnologiesSection from "$modules/technologies-section.svelte";
-	import { type Component, onMount } from "svelte";
 
 	let Particles = $state<Component | null>(null);
 	onMount(async () => {

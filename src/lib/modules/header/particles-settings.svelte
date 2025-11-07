@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { getParticlesSettings } from "$ctx/particles-settings-ctx";
-	import { makeDefaultParitclesSettings } from "$modules/particles/make-default-paritcles-settings";
 	import Button from "$common/button.svelte";
 	import CheryBlossomIcon from "$common/icons/chery-blossom-icon.svelte";
-	import { type IParticlesSettings } from "$types/particles.types";
+	import { getParticlesSettings } from "$ctx/particles-settings-ctx";
+	import { makeDefaultParitclesSettings } from "$modules/particles/make-default-paritcles-settings";
+	import type { IParticlesSettings } from "$types/particles.types";
 
 	let isOpen = $state(false);
 	let containerEl: HTMLElement | null = null;

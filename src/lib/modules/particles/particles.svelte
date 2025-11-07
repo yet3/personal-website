@@ -9,9 +9,9 @@
 
 	let canvas: HTMLCanvasElement | null = null;
 	$effect(() => {
-		if (!settings.isEnabled) return;
+		if (!settings.isEnabled || !canvas) return;
 
-		const ctx = canvas?.getContext("2d");
+		const ctx = canvas.getContext("2d");
 		if (!ctx || !canvas) return;
 
 		const bgColor = getComputedStyle(document.documentElement).getPropertyValue("--color-base-200");
