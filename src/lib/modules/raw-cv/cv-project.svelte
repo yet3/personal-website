@@ -30,7 +30,7 @@
 		</a>
 	</h2>
 	<div class="text-[12.5px] [&>*]:text-justify mt-0.5">
-		{@html data.html}
+		{@html data.contentBlocks}
 	</div>
 
 	<ol class="flex flex-wrap gap-1.5 mt-1">
