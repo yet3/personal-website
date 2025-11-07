@@ -18,14 +18,14 @@
 	<div
 		class="hover:scale-102 hover:-translate-y-1 transition-transform bg-base-200 rounded-lg px-4 py-5 shadow-lg ease-bubble-200 border border-primary/20 delay-100"
 	>
-		<h3 class="flex space-x-[0.4rem] text-lg sm:text-xl">
+		<h3 class="flex space-x-[0.4rem] text-base xs:text-lg sm:text-xl">
 			<HoverZoomLetters class="text-accent -mr-1" text="#" />
 			{#each data.title.split(" ") as word}
 				<HoverZoomLetters text={word} class="font-medium" />{" "}
 			{/each}
 		</h3>
 
-		<div class="mt-2 mb-4">
+		<div class="mt-2 mb-4 text-sm xs:text-base">
 			{@html data.contentBlocks}
 		</div>
 

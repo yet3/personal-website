@@ -13,12 +13,12 @@
 	<HoverZoomLetters
 		text="Maksymilian Kasperowicz"
 		element="h1"
-		class="text-2xl sm:text-3xl font-bold text-right"
+		class="text-xl xs:text-2xl sm:text-3xl font-bold text-right"
 	/>
 	<HoverZoomLetters
 		text="Full-Stack Developer"
 		element="h2"
-		class="text-xl sm:text-2xl font-medium my-1.5 text-right"
+		class="text-lg xs:text-xl sm:text-2xl font-medium my-1.5 text-right"
 	/>
 	<HoverZoomLetters
 		text="I like making stuff, ... and oreos!"

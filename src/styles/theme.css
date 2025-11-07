@@ -2,6 +2,7 @@
 @import "./components/index.css";
 
 @theme {
+  --breakpoint-xs: 450px;
   --breakpoint-2xl: 1400px;
   --breakpoint-2lg: 1100px;
 

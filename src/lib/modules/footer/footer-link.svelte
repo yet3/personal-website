@@ -13,7 +13,7 @@
 	{href}
 	rel="external noopener noreferrer"
 	target="_blank"
-	class="hover:text-accent transition-colors"
+	class="hover:text-accent transition-colors break-all"
 >
 	{@render children()}
 </a>
