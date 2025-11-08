@@ -8,7 +8,7 @@
 </script>
 
 <p
-	class="relative text-sm sm:text-base text-center mb-12 mx-auto px-2 md:px-24 flex flex-wrap justify-center"
+	class="relative text-sm sm:text-base text-center mb-4 mx-auto px-2 md:px-24 flex flex-wrap justify-center"
 >
 	{#each ITEMS as [text, link, href], idx}
 		<a
