@@ -5,6 +5,12 @@
 	import { makeDefaultParitclesSettings } from "$modules/particles/make-default-paritcles-settings";
 	import type { IParticlesSettings } from "$types/particles.types";
 
+	interface IProps {
+		offsetX?: number;
+	}
+
+	const { offsetX = 0 }: IProps = $props();
+
 	let isOpen = $state(false);
 	let containerEl: HTMLElement | null = null;
 
@@ -70,7 +76,8 @@
 
 	{#if isOpen}
 		<aside
-			class="origin-bottom absolute bottom-full -translate-y-2 left-1/2 -translate-x-1/2 bg-base-200 shadow-lg border border-primary/20 rounded-lg text-base-content p-3 w-64 flex flex-col"
+			class="origin-bottom absolute bottom-full left-1/2 bg-base-200 shadow-lg border border-primary/20 rounded-lg text-base-content p-3 w-64 flex flex-col"
+			style="transform: translate(calc(-50% + {offsetX}px), -0.5rem);"
 		>
 			<h3 class="font-medium text-base-content text-center mb-3 text-lg">
 				<span class="text-accent mr-0.5">#</span>particles

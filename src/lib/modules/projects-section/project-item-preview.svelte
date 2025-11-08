@@ -2,14 +2,16 @@
 	import BlurHash from "$common/blur-hash.svelte";
 	import { APP_DATA } from "$lib/app-data.svelte";
 	import type { IProject, IProjectGeneratedData } from "$types/projects.types";
+	import type { ClassValue } from "svelte/elements";
 	import type { IProjectId } from "../../../projects";
 
 	interface IProps {
+		class?: ClassValue;
 		data: IProject;
 	}
 
 	let hasImageLoaded = $state(false);
-	const { data }: IProps = $props();
+	const { data, ...props }: IProps = $props();
 
 	let imgPathBase = $state("");
 	if (import.meta.env.DEV) {
@@ -32,8 +34,9 @@
 
 <div
 	class={[
-		"ease-bubble-105 relative aspect-video rounded-xl shadow-lg duration-400 w-full xl:w-9/10",
-		"bg-base-240"
+		props.class,
+		"w-full xl:w-9/10",
+		"bg-base-240 relative aspect-video rounded-xl shadow-lg"
 	]}
 >
 	<a href={data.appHref || data.repoHref} rel="noopener noreferrer" target="_blank">

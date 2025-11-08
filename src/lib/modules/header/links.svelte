@@ -3,12 +3,20 @@
 	import EmailIcon from "$common/icons/email-icon.svelte";
 	import GithubIcon from "$common/icons/github-icon.svelte";
 	import { CONTACT_EMAIL, CV_PDF_URL, GITHUB_URL } from "$utils/constants";
+	import type { ClassValue } from "svelte/elements";
 	import ParticlesSettings from "./particles-settings.svelte";
+
+	interface IProps {
+		class?: ClassValue;
+		particlesOffsetX?: number;
+	}
+
+	const { particlesOffsetX, ...props }: IProps = $props();
 </script>
 
-<ul class="flex space-x-2 justify-end">
+<ul class={["flex space-x-2 justify-end", props.class]}>
 	<li>
-		<ParticlesSettings />
+		<ParticlesSettings offsetX={particlesOffsetX} />
 	</li>
 	<li>
 		<Button class="size-10 p-2" ariaLabel="Open my github (in a new tab)" href={GITHUB_URL}>

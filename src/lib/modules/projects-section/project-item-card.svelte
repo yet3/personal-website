@@ -4,16 +4,22 @@
 	import GithubIcon from "$common/icons/github-icon.svelte";
 	import SkillBadgeById from "$common/skill-badge-by-id.svelte";
 	import type { IProject } from "$types/projects.types";
+	import type { ClassValue } from "svelte/elements";
 
 	interface IProps {
+		overwriteClass?: ClassValue;
 		data: IProject;
 	}
 
-	const { data }: IProps = $props();
+	const { data, overwriteClass }: IProps = $props();
 </script>
 
 <div
-	class="xl:absolute z-10 top-0 right-0 translate-y-[-2rem] xl:-translate-y-1/2 xl:top-1/2 xl:-right-24 w-full xl:w-128"
+	class={[
+		!overwriteClass &&
+			"xl:absolute z-10 top-0 right-0 -translate-y-8 xl:-translate-y-1/2 xl:top-1/2 xl:-right-24 w-full xl:w-128",
+		overwriteClass
+	]}
 >
 	<div
 		class="hover:scale-102 hover:-translate-y-1 transition-transform bg-base-200 rounded-lg px-4 py-5 shadow-lg ease-bubble-200 border border-primary/20 delay-100"

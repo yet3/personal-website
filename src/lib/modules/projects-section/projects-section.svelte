@@ -8,7 +8,7 @@
 </script>
 
 <Section id={SectionId.Projects} ariaLabel="My pet projects" class="flex flex-col">
-	<ol class="list-none grid gap-12" style="transform: translateX(0%);" aria-label="Pet projects">
+	<ol class="list-none grid gap-12" aria-label="Pet projects">
 		{#each projects as item}
 			<ProjectItem data={item} />
 		{/each}
