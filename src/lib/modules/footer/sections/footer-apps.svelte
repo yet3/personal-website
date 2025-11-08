@@ -3,7 +3,7 @@
 	import FooterLink from "../footer-link.svelte";
 	import FooterSection from "../footer-section.svelte";
 
-	const projects = Object.values(PROJECTS)
+	const projects = Object.values(PROJECTS).filter((p) => p.showInFooter);
 </script>
 
 <FooterSection label="Apps">
