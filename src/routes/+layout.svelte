@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { setParticlesSettings } from "$ctx/particles-settings-ctx";
+	import { type Component, onMount } from "svelte";
 	import { makeDefaultParitclesSettings } from "$modules/particles/make-default-paritcles-settings";
 	import { COVER_IMG, DESCRIPTION, LANGUAGE, LOCALE, TITLE, URL } from "$utils/constants";
 	import "$styles/global.css";
@@ -33,6 +34,16 @@
 		try {
 			const json = JSON.stringify(particlesSettings);
 			localStorage.setItem(PARTICLES_KEY, json);
+		} catch (e) {
+			console.log(e);
+		}
+	});
+
+	let Particles = $state<Component | null>(null);
+	onMount(async () => {
+		try {
+			const comp = await import("$modules/particles/particles.svelte");
+			Particles = comp.default;
 		} catch (e) {
 			console.log(e);
 		}
@@ -75,5 +86,9 @@
 	<Meta name="twitter:description" content={DESCRIPTION} />
 	<Meta name="twitter:image" content={COVER_IMG} />
 </svelte:head>
+
+{#if Particles}
+	<Particles />
+{/if}
 
 {@render children?.()}

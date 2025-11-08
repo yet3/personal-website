@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { type Component, onMount } from "svelte";
 	import AboutSection from "$modules/about-section/about-section.svelte";
 	import ExperienceSection from "$modules/experience-section/experience-section.svelte";
 	import Footer from "$modules/footer/footer.svelte";
@@ -9,20 +8,8 @@
 	import ProjectsSection from "$modules/projects-section/projects-section.svelte";
 	import TechnologiesSection from "$modules/technologies-section.svelte";
 
-	let Particles = $state<Component | null>(null);
-	onMount(async () => {
-		try {
-			const comp = await import("$modules/particles/particles.svelte");
-			Particles = comp.default;
-		} catch (e) {
-			console.log(e);
-		}
-	});
 </script>
 
-{#if Particles}
-	<Particles />
-{/if}
 
 <div class="grid lg:grid-cols-[1.55fr_1fr] max-w-[1800px] mx-auto relative z-1 pb-16 lg:pb-32">
 	<main
