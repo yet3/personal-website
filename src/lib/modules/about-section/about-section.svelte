@@ -30,7 +30,7 @@
 	<p class="mt-3">
 		Previously, I’ve worked on ERP system for small local recycling/manufacturing plant,
 		scheduling/management system for a dental clinic, and an editor/AI generator for
-		presentations/business documents.3
+		presentations/business documents.
 	</p>
 	<p class="mt-3">
 		Outside of programming, I love reading sci-fi, dystopian, and fantasy books. I'm always
