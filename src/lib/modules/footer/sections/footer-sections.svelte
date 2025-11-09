@@ -13,7 +13,7 @@
 	<ul>
 		{#each SECTIONS as sec}
 			<li>
-				<FooterLink href="#{sec.id}">
+				<FooterLink href="/#{sec.id}" asNewTab={false} isExternal={false}>
           #{sec.label}
 				</FooterLink>
 			</li>
