@@ -42,6 +42,10 @@
 	let Particles = $state<Component | null>(null);
 	onMount(async () => {
 		try {
+			if (window.location.pathname.includes("raw-cv")) {
+				return;
+			}
+
 			const comp = await import("$modules/particles/particles.svelte");
 			Particles = comp.default;
 		} catch (e) {
