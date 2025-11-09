@@ -18,8 +18,14 @@
 
 <div class="flex max-md:flex-col relative z-1 pb-4 md:pb-24 flex-1">
 	<main
-		class="w-full flex flex-col px-4 sm:px-8 md:pl-16 md:pr-6 pt-16 pb-12 md:pb-32 max-w-[1500px] min-h-screen mx-auto"
+		class="w-full flex flex-col px-4 sm:px-8 md:pl-16 md:pr-6 pt-8 pb-12 md:pb-32 max-w-[1500px] min-h-screen mx-auto"
 	>
+		<a
+			href="/"
+			rel="noopener noreferrer"
+			class="mb-8 text-lg inline-flex hover:scale-word ease-bubble-200 hover:-translate-y-word transition-transform w-fit"
+			>HOME</a
+		>
 		<h1 class="font-medium text-2xl w-fit origin-left mb-6">
 			<HoverZoomLetters text="#" class="text-accent -mr-2.5" />
 			<HoverZoomLetters text="apps" class="transition-transform" />
@@ -42,10 +48,7 @@
 	</main>
 
 	<div class="mx-auto md:h-screen md:sticky top-0 flex items-end pb-4 pr-4">
-		<Links
-			particlesOffsetX={-110}
-			class="md:flex-col md:space-x-0 md:space-y-2 h-fit"
-		/>
+		<Links particlesOffsetX={-110} class="md:flex-col md:space-x-0 md:space-y-2 h-fit" />
 	</div>
 </div>
 
