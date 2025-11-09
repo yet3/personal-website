@@ -47,7 +47,7 @@
 		</ol>
 	</main>
 
-	<div class="mx-auto md:h-screen md:sticky top-0 flex items-end pb-4 pr-4">
+	<div class="max-md:mx-auto md:h-screen md:sticky top-0 flex items-end pb-4 pr-4">
 		<Links particlesOffsetX={-110} class="md:flex-col md:space-x-0 md:space-y-2 h-fit" />
 	</div>
 </div>
