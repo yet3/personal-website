@@ -17,6 +17,7 @@ export default defineProject("web-dev-tools", {
 	title: "WebDevTools",
 	appHref: "https://web-dev-tools-alpha.vercel.app/",
 	showInFooter: true,
+  showInCv: true,
 	skills: SKILLS,
 	contentBlocks: [
 		"A collection of useful tools for developers (in-development).",

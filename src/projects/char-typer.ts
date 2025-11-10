@@ -18,7 +18,6 @@ export default defineProject("char-typer", {
 	appHref: "https://char-typer.vercel.app/",
 	repoHref: "https://github.com/yet3/char-typer",
 	showInFooter: true,
-	showInCv: true,
 	skills: SKILLS,
 	contentBlocks: [
 		"Yet another app to train your typing skills, with focus on typing characters instead of words.",
