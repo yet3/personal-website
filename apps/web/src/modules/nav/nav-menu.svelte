@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button, { BtnSize } from "$common/button.svelte";
+  import { SELF_REPO_URL } from "@repo/content";
   import { onMount } from "svelte";
 
   interface IOpt {
@@ -22,7 +23,7 @@
     },
     {
       label: "Repo",
-      href: "https://github.com/yet3",
+      href: SELF_REPO_URL,
     },
   ];
 
