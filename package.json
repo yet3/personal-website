@@ -1,5 +1,5 @@
 {
-  "name": "personal-website-4",
+  "name": "personal-website",
   "private": true,
   "scripts": {
     "build": "turbo run build",
