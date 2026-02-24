@@ -37,6 +37,15 @@
         "vite": "^7.3.1",
       },
     },
+    "apps/github-profile": {
+      "name": "github-profile",
+      "version": "0.0.0",
+      "devDependencies": {
+        "@repo/content": "workspace:*",
+        "@repo/lib": "workspace:*",
+        "@types/node": "^25.3.0",
+      },
+    },
     "apps/web": {
       "name": "web",
       "version": "0.0.1",
@@ -72,7 +81,6 @@
         "astro": "^5.17.3",
         "blurhash": "^2.0.5",
         "sharp": "^0.34.5",
-        "vite": "^7.3.1",
       },
     },
     "packages/lib": {
@@ -688,6 +696,8 @@
     "get-stream": ["get-stream@5.2.0", "", { "dependencies": { "pump": "^3.0.0" } }, "sha512-nBF+F1rAZVCu/p7rjzgA+Yb4lfYXrpl7a6VmJrU8wF9I1CKvP/QwPNZHnOlwbTkY6dvtFIzFMSyQXbLoTQPRpA=="],
 
     "get-uri": ["get-uri@6.0.5", "", { "dependencies": { "basic-ftp": "^5.0.2", "data-uri-to-buffer": "^6.0.2", "debug": "^4.3.4" } }, "sha512-b1O07XYq8eRuVzBNgJLstU6FYc1tS6wnMtF1I1D9lE8LxZSOGZ7LhxN54yPP6mGw5f2CkXY2BQUL9Fx41qvcIg=="],
+
+    "github-profile": ["github-profile@workspace:apps/github-profile"],
 
     "github-slugger": ["github-slugger@2.0.0", "", {}, "sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw=="],
 
