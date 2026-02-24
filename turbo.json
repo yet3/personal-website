@@ -2,10 +2,21 @@
   "$schema": "https://turborepo.dev/schema.json",
   "ui": "tui",
   "tasks": {
+    "build:cv": {
+      "dependsOn": ["^build:cv"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["cv-output/**"]
+    },
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".dist/**", "dist/**", "build/**", "cv-output/**", ".svelte-kit/**"]
+      "outputs": [
+        ".dist/**",
+        "dist/**",
+        "build/**",
+        "cv-output/**",
+        ".svelte-kit/**"
+      ]
     },
     "lint": {
       "dependsOn": ["^lint"]
