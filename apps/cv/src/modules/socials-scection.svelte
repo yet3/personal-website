@@ -15,7 +15,7 @@
 </script>
 
 {#snippet info(str: string, Icon: Component, href?: string)}
-  <li class="flex items-center gap-1 [&_svg]:(size-5 fill-primary-200)">
+  <li class="flex items-center gap-1.25 [&_svg]:(size-5 fill-primary-200)">
     <Icon />
     {#if href}
       <a {href} target="_blank">
@@ -30,7 +30,7 @@
 <section>
   <ol
     class={{
-      "grid content-start text-head-info gap-1 font-medium text-primary-400": true,
+      "grid content-start text-head-info gap-1.5 font-medium text-primary-400": true,
     }}
   >
     {@render info(PHONE_NUMBER, PhoneIcon)}
