@@ -1,0 +1,23 @@
+---
+import Section from "$common/section.svelte";
+import Button from "$common/button.svelte";
+import { GITHUB_REPOS_URL } from "@repo/content"
+import ProjectEntry from "./project-entry.astro";
+import { PROJECTS } from "@repo/content/projects"
+
+const projects = Object.values(PROJECTS);
+---
+
+<Section
+  id="projects"
+  ariaLabel="Some of my projects"
+  title="Projects"
+  class="delay-projects-0 "
+>
+  <ul class="grid content-start gap-16">
+    {projects.map((el, idx) => <ProjectEntry idx={idx} project={el} />)}
+  </ul>
+  <Button class="mx-auto mt-12 w-fit" href={GITHUB_REPOS_URL}
+    >Check out more on github</Button
+  >
+</Section>

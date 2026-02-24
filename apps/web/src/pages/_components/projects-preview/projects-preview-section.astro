@@ -1,0 +1,20 @@
+---
+import Button from "$common/button.svelte";
+import Section from "$common/section.svelte";
+import ProjectPreviewEntry from "./project-preview-entry.astro";
+import { PROJECTS } from "@repo/content/projects";
+
+const projects = Object.values(PROJECTS).filter(el => el.isPreviewProject);
+---
+
+<Section
+  id="projects"
+  ariaLabel="Some of my projects"
+  class="delay-proj-prev-0 flex w-full flex-col"
+  title="Projects"
+>
+  <ul class="grid md:grid-cols-2 content-start gap-12 md:gap-4">
+    {projects.map((el, idx) => <ProjectPreviewEntry idx={idx} project={el} />)}
+  </ul>
+  <Button class="mx-auto mt-12 w-48" href="/projects">See more</Button>
+</Section>

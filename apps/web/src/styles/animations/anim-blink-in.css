@@ -1,0 +1,30 @@
+@media (prefers-reduced-motion: no-preference) {
+  .animate-blink-in {
+    animation: anim_blink-in 1.1s var(--delay, 0s) ease 1 forwards;
+    opacity: 0;
+  }
+
+  @anim-step blink_op_0 {
+    opacity: 0;
+  }
+
+  @anim-step blink_op_1 {
+    opacity: 0.3;
+  }
+
+  @anim-step blink_op_2 {
+    opacity: 0.6;
+  }
+
+  @anim-step blink_op_full {
+    opacity: 1;
+  }
+
+  @timed-anim anim_blink-in {
+    blink_op_1: 0.2s;
+    blink_op_0: 0.15s;
+    blink_op_2: 0.2s;
+    blink_op_0: 0.15s, 0.05s;
+    blink_op_full: 0.3s;
+  }
+}

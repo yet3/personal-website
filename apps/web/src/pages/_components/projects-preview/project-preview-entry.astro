@@ -1,0 +1,50 @@
+---
+import PrefixParagraphLines from "$common/prefix-paragraph-lines.svelte";
+import ProjectActions from "$common/project-actions.astro";
+import ProjectImg from "$common/project-img.astro";
+import type { IProject } from "@repo/content"
+
+interface Props {
+  idx: number;
+  project: IProject;
+}
+
+const { idx, project } = Astro.props;
+const images = project.images ?? [];
+
+const mainHref = project.appHref ?? project.repoHref ?? "#";
+---
+
+<li>
+  {
+    images.length > 0 && (
+      <ProjectImg
+        class="animate-center-scale-in"
+        src={images[0].src}
+        href={mainHref}
+        blurhash={images[0].blurhash}
+        delay={`calc(var(--delay-projects-preview) + ${200 + idx * 100}ms)`}
+      />
+    )
+  }
+  <div class="animate-left-scale-in delay-proj-prev-100 mt-1 flex flex-col">
+    <p class="animate-text-glitch-hover delay-0 mb-2 w-fit text-lg font-semibold" data-text={project.title}>{project.title}</p>
+
+    {
+      project.contentBlocks.map((block) => (
+        <PrefixParagraphLines
+          client:visible
+          prefix="// "
+          class="text-primary-300 text-sm"
+          content={block}
+          noEntryAnim
+        />
+      ))
+    }
+    <ProjectActions
+      class="mt-4"
+      appHref={project.appHref}
+      repoHref={project.repoHref}
+    />
+  </div>
+</li>

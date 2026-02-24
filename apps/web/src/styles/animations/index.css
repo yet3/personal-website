@@ -1,0 +1,20 @@
+@import "./anim-blink-in.css";
+@import "./anim-text-glitch.css";
+@import "./anim-text-glitch-in.css";
+@import "./anim-center-scale-in.css";
+@import "./anim-left-scale-in.css";
+@import "./anim-img-glitch-in.css";
+@import "./anim-top-slide-in.css";
+
+:root {
+  --delay-page-in: 0.2s;
+
+  /* home */
+  --delay-about: var(--delay-page-in);
+  --delay-experience: calc(var(--delay-about) + 0.6s);
+  --delay-projects-preview: calc(var(--delay-experience) + 0.6s);
+
+  /* projects */
+  --delay-tech: var(--delay-page-in);
+  --delay-projects: calc(var(--delay-tech) + 0.3s);
+}

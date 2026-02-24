@@ -1,0 +1,39 @@
+@import "@unocss/reset/tailwind-v4.css";
+
+:root {
+  --columns-gap: 32px;
+  --sections-gap: 18px;
+  --skills-gap: 3px;
+
+  --size-h1: 30px;
+  --size-h2: 24px;
+  --size-head-info: 13px;
+
+  --size-skill: 12.5px;
+
+  --size-sec-h1: 16.5px;
+  --size-sec-h2: 15px;
+  --size-sec-h3: 13px;
+  --size-content: 13.4px;
+}
+
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: black;
+}
+
+body {
+  width: 21cm;
+  height: 29.7cm;
+  padding: 36px 32px 0px;
+
+  background-color: white;
+  color: var(--colors-primary-DEFAULT);
+
+  /* zoom: 0.75; */
+}
+
+.main-grid {
+  --uno: "grid grid-cols-[1fr_0.7fr] gap-sections";
+}

@@ -1,0 +1,38 @@
+---
+import Button, { BtnSize } from "$common/button.svelte";
+import PrefixParagraphLines from "$common/prefix-paragraph-lines.svelte";
+import Section from "$common/section.svelte";
+import AboutHeading from "./about-heading.svelte";
+import { GITHUB_URL, SELF_DESCIRPTION } from "@repo/content";
+
+const paragraphs = SELF_DESCIRPTION.FULL.split("\n");
+---
+
+<Section
+  id="about"
+  ariaLabel="About me"
+  class="flex w-full flex-col items-center"
+>
+  <AboutHeading />
+
+  {
+    paragraphs.map((p, idx) => (
+      <PrefixParagraphLines
+        client:load
+        prefix="// "
+        class="mt-4"
+        delay={`calc(var(--delay-about) + ${100 + idx * 50}ms)`}
+        content={p}
+      />
+    ))
+  }
+
+  <div class="mt-12 flex items-center justify-center gap-4">
+    <Button class="delay-about-450" size={BtnSize.Base} href={GITHUB_URL}
+      >Github</Button
+    >
+    <Button class="delay-about-400" size={BtnSize.Base} href="/cv.pdf"
+      >Resumé</Button
+    >
+  </div>
+</Section>

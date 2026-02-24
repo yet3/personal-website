@@ -1,0 +1,20 @@
+---
+import Button, { BtnSize } from "$common/button.svelte";
+import BaseLayout from "$layouts/base-layout.astro";
+---
+
+<BaseLayout>
+  <main class="flex min-h-screen w-full flex-col items-center justify-center">
+    <h2
+      class="animate-text-glitch-in xs:text-5xl delay-page-0 text-4xl font-semibold sm:text-7xl"
+      data-text={"404"}
+    >
+      404 | Not Found
+    </h2>
+    <Button
+      class="delay-page-100 xs:mt-12 mt-8 sm:mt-16"
+      size={BtnSize.Base}
+      href="/">Home page</Button
+    >
+  </main>
+</BaseLayout>

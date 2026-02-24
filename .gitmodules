@@ -1,0 +1,3 @@
+[submodule "github-profile"]
+  path = ./apps/github-profile
+  url = https://github.com/yet3/yet3.git

@@ -1,0 +1,22 @@
+---
+import BaseLayout from "$layouts/base-layout.astro";
+import Nav from "$modules/nav/nav.astro";
+import Footer from "$modules/footer/footer.astro";
+import DecorationLines from "$modules/decorations/decoration-lines.astro";
+import TechSection from "./_components/tech-section.svelte";
+import ProjectsSection from "./_components/projects/projects-section.astro";
+---
+
+<BaseLayout>
+  <DecorationLines />
+
+  <Nav />
+  <main
+    class="w-content max-xs:px-4 mx-auto grid min-h-screen content-start gap-14 pt-[calc(var(--spacing-nav)+3rem)] pb-32"
+  >
+    <TechSection />
+    <ProjectsSection />
+  </main>
+
+  <Footer />
+</BaseLayout>

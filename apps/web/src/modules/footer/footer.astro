@@ -1,0 +1,15 @@
+---
+import { FULL_NAME } from "@repo/content";
+---
+
+<footer class="py-2 text-center text-gray-700">
+  © <span id="footer-current-year">{new Date().getUTCFullYear()}</span>
+  {FULL_NAME}. All Rights Reserved.
+</footer>
+
+<script>
+  const yearSpan = document.querySelector("#footer-current-year");
+  if (yearSpan) {
+    yearSpan.innerHTML = new Date().getUTCFullYear().toString();
+  }
+</script>

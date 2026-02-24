@@ -1,0 +1,39 @@
+<div
+  aria-hidden="true"
+  class="pointer-events-none fixed top-0 left-[calc((100%-var(--content-width))/2)] z-99 flex h-screen w-48 -translate-x-full max-md:hidden"
+>
+  <div class="delay-page-200 animate-lines h-full w-px bg-gray-300"></div>
+  <div class="delay-page-300 animate-lines ml-5 h-full w-px bg-gray-300"></div>
+  <div class="delay-page-400 animate-lines ml-8 h-full w-px bg-gray-300"></div>
+</div>
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-lines {
+      animation: anim_lines_in var(--duration_anim_lines_in) var(--delay, 0s)
+        ease infinite forwards;
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    @anim-step step_0 {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    @anim-step step_1 {
+      opacity: 1;
+    }
+
+    @anim-step step_2 {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+
+    @timed-anim anim_lines_in {
+      step_0: 0s;
+      step_2: 1.75s, 7s;
+      step_0: 1.75s, 4s;
+    }
+  }
+</style>

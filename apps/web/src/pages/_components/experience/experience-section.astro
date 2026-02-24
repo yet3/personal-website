@@ -1,0 +1,22 @@
+---
+import Section from "$common/section.svelte";
+import ExperienceEntry from "./experience-entry.astro";
+import { EXPERIENCE } from "@repo/content"
+
+const experiences = Object.values(EXPERIENCE);
+---
+
+<Section
+  id="experience"
+  ariaLabel="My experience"
+  title="Experience"
+  class="delay-experience-0 flex w-full flex-col"
+>
+  <ol class="grid content-start gap-6 md:gap-4">
+    {
+      experiences.map((exp, idx) => (
+        <ExperienceEntry idx={idx} experience={exp} />
+      ))
+    }
+  </ol>
+</Section>

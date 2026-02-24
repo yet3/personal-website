@@ -1,0 +1,57 @@
+@media (prefers-reduced-motion: no-preference) {
+  .animate-text-glitch {
+    position: relative;
+    &::after {
+      content: attr(data-text);
+      top: 0;
+      left: 0;
+      position: absolute;
+      width: inherit;
+      height: 100%;
+      background-color: var(--colors-base-DEFAULT);
+      animation: anim_text_glitch var(--duration_anim_text_glitch)
+        var(--delay, 0s) ease 1 forwards;
+    }
+  }
+
+  .animate-text-glitch-hover:hover {
+    position: relative;
+    &::after {
+      content: attr(data-text);
+      top: 0;
+      left: 0;
+      position: absolute;
+      width: inherit;
+      height: 100%;
+      background-color: var(--colors-base-DEFAULT);
+      animation: anim_text_glitch var(--duration_anim_text_glitch)
+        var(--delay, 0s) ease 1 forwards;
+    }
+  }
+
+  @anim-step clip_base {
+    clip-path: rect(35% 100% 35% 0%);
+    transform: scaleX(1) translate(-2%, 0%);
+  }
+
+  @anim-step clip_start {
+    clip-path: rect(55% 100% 80% 0%);
+    transform: scaleX(0.98) translate(-2%, 0%);
+  }
+
+  @anim-step clip_top {
+    clip-path: rect(12% 100% 42% 0%);
+    transform: scaleX(0.92) translate(2%, 0%);
+  }
+
+  @anim-step clip_bottom {
+    clip-path: rect(95% 100% 95% 0%);
+    transform: scaleX(0.91) translate(-2%, 0%);
+  }
+
+  @timed-anim anim_text_glitch {
+    clip_start: 0.1s, 0.05s;
+    clip_top: 0.15s;
+    clip_bottom: 0.1s;
+  }
+}

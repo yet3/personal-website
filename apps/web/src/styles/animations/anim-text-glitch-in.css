@@ -1,0 +1,62 @@
+@media (prefers-reduced-motion: no-preference) {
+  .animate-text-glitch-in {
+    position: relative;
+    animation: anim_text_skew_in var(--duration_anim_text_skew_in)
+      var(--delay, 0s) ease 1 forwards;
+    opacity: 0;
+
+    &::after {
+      content: attr(data-text);
+      top: 0;
+      left: 0;
+      position: absolute;
+      width: inherit;
+      height: 100%;
+      background-color: var(--colors-base-DEFAULT);
+
+      --dur: var(--duration_anim_text_glitch);
+      animation:
+        anim_text_glitch var(--dur) calc(var(--delay) + 0.3s) ease 1 forwards,
+        anim_text_glitch var(--dur) calc(var(--delay) + var(--dur) + 0.9s) ease
+          1 forwards reverse;
+    }
+  }
+
+  /* Skew animation */
+
+  @anim-step skew_base {
+    opacity: 1;
+    transform: skew(0deg, 0deg) scale(1, 1);
+  }
+
+  @anim-step skew_start {
+    opacity: 1;
+    transform: skew(-83deg, 0deg) scale(1, 1.2);
+  }
+
+  @anim-step skew_left_big {
+    opacity: 1;
+    transform: skew(84deg, 1deg) scale(1, 1);
+  }
+
+  @anim-step skew_left_small {
+    opacity: 1;
+    transform: skew(-14deg, 0deg) scale(1, 1);
+  }
+
+  @anim-step skew_right_small {
+    opacity: 1;
+    transform: skew(13deg, 0deg) scale(1, 1);
+  }
+
+  @timed-anim anim_text_skew_in {
+    skew_start: 0s, 0.04s;
+    skew_base: 0.04s, 0.2s;
+    skew_right_small: 0.04s;
+    skew_base: 0.03s, 0.25s;
+    skew_left_small: 0.04s;
+    skew_left_big: 0.03s;
+    skew_left_small: 0.04s;
+    skew_base: 0.03s;
+  }
+}

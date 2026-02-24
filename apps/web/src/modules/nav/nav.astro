@@ -1,0 +1,15 @@
+---
+import NavMenu from "./nav-menu.svelte";
+import Svg from "/public/favicons/favicon.svg";
+---
+
+<header
+  class="bg-base/60 h-nav fixed top-0 left-1/2 z-50 grid w-full -translate-x-1/2 grid-cols-[auto_auto] items-center justify-between px-4 backdrop-blur-[32px] sm:justify-center sm:gap-24 md:gap-48"
+>
+  <h1>
+    <a href="/" aria-label="go to the home-page" rel="noreferrer noopener">
+      <Svg class="[--fav-bg-fill:transparent;] size-10" />
+    </a>
+  </h1>
+  <NavMenu client:load />
+</header>

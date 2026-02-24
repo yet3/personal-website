@@ -1,0 +1,25 @@
+---
+import BaseLayout from "$layouts/base-layout.astro";
+import Nav from "$modules/nav/nav.astro";
+import Footer from "$modules/footer/footer.astro";
+import DecorationLines from "$modules/decorations/decoration-lines.astro";
+import AboutSection from "./_components/about/about-section.astro";
+import ExperienceSection from "./_components/experience/experience-section.astro";
+import ProjectsPreviewSection from "./_components/projects-preview/projects-preview-section.astro";
+---
+
+<BaseLayout>
+
+  <DecorationLines />
+
+  <Nav />
+  <main
+    class="w-content max-x545:px-4 mx-auto grid min-h-screen content-start gap-14 pt-[calc(var(--spacing-nav)+3rem)] pb-32"
+  >
+    <AboutSection />
+    <ExperienceSection />
+    <ProjectsPreviewSection />
+  </main>
+
+  <Footer />
+</BaseLayout>

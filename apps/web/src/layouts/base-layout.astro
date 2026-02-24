@@ -1,0 +1,68 @@
+---
+import { Font } from "astro:assets";
+import "virtual:uno.css";
+import "$styles/index.css";
+import { FULL_NAME, SELF_DESCIRPTION } from "@repo/content";
+
+export const TITLE = FULL_NAME;
+export const DESCRIPTION = SELF_DESCIRPTION.THIRD_PERSON_SHORT;
+
+export const LANGUAGE = "English";
+export const LOCALE = "en_US";
+export const URL = "https://www.maxkasperowicz.com/";
+export const COVER_IMG = "/cover.png";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <Font cssVariable="--font-primary" preload />
+
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicons/favicon-16x16.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <title>{TITLE}</title>
+    <meta name="title" content={TITLE} />
+    <meta name="description" content={DESCRIPTION} />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content={LANGUAGE} />
+    <meta name="image" content={COVER_IMG} />
+    <!--  -->
+    <meta name="og:site_name" content={TITLE} />
+    <meta name="og:locale" content={LOCALE} />
+    <meta name="og:type" content="website" />
+    <meta name="og:title" content={TITLE} />
+    <meta name="og:url" content={URL} />
+    <meta name="og:image" content={COVER_IMG} />
+    <meta name="og:description" content={DESCRIPTION} />
+    <!--  -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={TITLE} />
+    <meta name="twitter:description" content={DESCRIPTION} />
+    <meta name="twitter:image" content={COVER_IMG} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

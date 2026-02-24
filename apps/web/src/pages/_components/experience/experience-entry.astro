@@ -1,0 +1,39 @@
+---
+import Link from "$common/link.svelte";
+import PrefixParagraphLines from "$common/prefix-paragraph-lines.svelte";
+import { type IExperience } from "@repo/content"
+import ExperienceMoreBtn from "./experience-more-btn.svelte";
+import ExperienceDates from "./experience-dates.svelte";
+
+interface Props {
+  idx: number;
+  experience: IExperience;
+}
+
+const { idx, experience: data } = Astro.props;
+---
+
+<li class="grid items-center gap-4 md:grid-cols-[1fr_auto]">
+  <div
+    class="animate-left-scale-in flex w-full flex-col"
+    style={`--delay: calc(var(--delay-experience) + 100ms + ${idx * 100}ms)`}
+  >
+    <ExperienceDates dates={data.dates} class="text-xs md:text-sm" />
+    <div class="mt-1 font-semibold flex max-2xs:flex-col w-full">
+      {data.position}
+      <div class="ml-28 max-2xs:mt-1 2xs:ml-1">
+        <span class="mr-0.5">//</span>
+        <Link href={data.website} content={data.at} />
+      </div>
+    </div>
+    <div class="text-sm">
+      <PrefixParagraphLines
+        client:visible
+        prefix="// "
+        content={data.description}
+        noEntryAnim
+      />
+    </div>
+  </div>
+  <ExperienceMoreBtn experience={data} client:visible />
+</li>

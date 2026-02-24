@@ -1,0 +1,20 @@
+@media (prefers-reduced-motion: no-preference) {
+  .animate-left-scale-in {
+    animation: anim_left_scale_in 0.2s var(--delay, 0s) ease 1 forwards;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  @keyframes anim_left_scale_in {
+    from {
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    to {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+}

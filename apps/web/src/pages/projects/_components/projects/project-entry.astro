@@ -1,0 +1,81 @@
+---
+import PrefixParagraphLines from "$common/prefix-paragraph-lines.svelte";
+import type { IProject } from "@repo/content"
+import SkillBadgeById from "$common/skill-badge-by-id.svelte";
+import ProjectImg from "$common/project-img.astro";
+import ProjectActions from "$common/project-actions.astro";
+
+interface Props {
+  idx: number;
+  project: IProject;
+}
+
+const { idx, project } = Astro.props;
+const images = project.images ?? [];
+
+const imgOnEnd = idx % 2 === 0;
+const mainHref = project.appHref ?? project.repoHref ?? "#";
+
+const makeDelay = (delay: number = 0) => {
+  return `calc(var(--delay-projects) + ${200 + delay + idx * 150}ms)`;
+};
+---
+
+<li
+  class:list={{
+    "grid items-center gap-4 max-md:(max-w-128 mx-auto)": true,
+    "md:grid-cols-[1fr_0.8fr]": imgOnEnd,
+    "md:grid-cols-[0.8fr_1fr]": !imgOnEnd,
+  }}
+  style={{ "--delay": makeDelay() }}
+>
+  <div class="animate-left-scale-in">
+    <p
+      class="animate-text-glitch-hover text-lg font-semibold delay-0"
+      data-text={project.title}
+    >
+      {project.title}
+    </p>
+    <div>
+      {
+        project.contentBlocks.map((block) => (
+          <PrefixParagraphLines
+            client:visible
+            prefix="// "
+            class="text-primary-300 text-md"
+            content={block}
+            noEntryAnim
+          />
+        ))
+      }
+    </div>
+    <ul class="mt-3 -mr-2 flex flex-wrap">
+      {
+        project.skills.map((skillId) => (
+          <li class="mr-2 mb-2 flex items-center">
+            <SkillBadgeById id={skillId} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class:list={{ "max-md:order-first": true, "md:order-first": !imgOnEnd }}>
+    {
+      images.length > 0 && (
+        <ProjectImg
+          class="animate-center-scale-in mx-auto"
+          src={images[0].src}
+          href={mainHref}
+          blurhash={images[0].blurhash}
+          delay={makeDelay(100)}
+        />
+      )
+    }
+    <ProjectActions
+      class="mt-4"
+      appHref={project.appHref}
+      repoHref={project.repoHref}
+      delay={makeDelay(200)}
+    />
+  </div>
+</li>

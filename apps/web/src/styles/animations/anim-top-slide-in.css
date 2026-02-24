@@ -1,0 +1,18 @@
+@media (prefers-reduced-motion: no-preference) {
+  .animate-top-slide-in {
+    --anim-in-from: -10px;
+    animation: anim_top_slide_in 0.25s var(--delay, 0s) ease 1 forwards;
+    opacity: 0;
+  }
+
+  @keyframes anim_top_slide_in {
+    from {
+      opacity: 0;
+      transform: translateY(var(--anim-in-from, -3%));
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
