@@ -53,7 +53,7 @@
     prefixClass = "",
     lineContentClass = "",
     noEntryAnim = false,
-    delay = '0ms',
+    delay = "0ms",
   }: Props = $props();
 
   let el: HTMLDivElement | null = null;
@@ -163,48 +163,36 @@
 <style>
   @media (prefers-reduced-motion: no-preference) {
     .p-line-anim {
-      animation: anim_p_in var(--duration_anim_p_in) var(--delay, 0s) ease 1
+      animation: anim-p-in var(--duration-anim-p-in) var(--delay, 0s) ease 1
         forwards;
       opacity: 0;
       transform: scaleX(1);
       transform-origin: left center;
     }
 
-    @anim-step step_in_1 {
-      opacity: 0;
-      transform: scaleX(0);
-    }
-
-    @anim-step step_in_2 {
-      opacity: 1;
-      transform: scaleX(0.4);
-    }
-
-    @anim-step step_in_3 {
-      opacity: 0;
-    }
-
-    @anim-step step_in_4 {
-      opacity: 0.4;
-    }
-
-    @anim-step step_in_5 {
-      opacity: 0;
-      transform: scaleX(1);
-    }
-
-    @anim-step step_in_6 {
-      opacity: 1;
-      transform: scaleX(1);
-    }
-
-    @timed-anim anim_p_in {
-      step_in_1: 0s;
-      step_in_2: 0.05s;
-      step_in_3: 0.1s;
-      step_in_4: 0.05s;
-      step_in_5: 0.05s;
-      step_in_6: 0.1s;
+    @anim anim-p-in {
+      @step 0s {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      @step 0.05s {
+        opacity: 1;
+        transform: scaleX(0.4);
+      }
+      @step 0.1s {
+        opacity: 0;
+      }
+      @step 0.05s {
+        opacity: 0.4;
+      }
+      @step 0.05s {
+        opacity: 0;
+        transform: scaleX(1);
+      }
+      @step 0.1s {
+        opacity: 1;
+        transform: scaleX(1);
+      }
     }
   }
 </style>

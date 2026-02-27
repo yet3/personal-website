@@ -10,30 +10,24 @@
 <style>
   @media (prefers-reduced-motion: no-preference) {
     .animate-lines {
-      animation: anim_lines_in var(--duration_anim_lines_in) var(--delay, 0s)
+      animation: anim-lines-in var(--duration-anim-lines-in) var(--delay, 0s)
         ease infinite forwards;
       opacity: 0;
       transform: translateX(100px);
     }
 
-    @anim-step step_0 {
+    @anim-step step-0 {
       opacity: 0;
       transform: translateX(100px);
     }
 
-    @anim-step step_1 {
-      opacity: 1;
-    }
-
-    @anim-step step_2 {
-      opacity: 1;
-      transform: translateX(0px);
-    }
-
-    @timed-anim anim_lines_in {
-      step_0: 0s;
-      step_2: 1.75s, 7s;
-      step_0: 1.75s, 4s;
+    @anim anim-lines-in {
+      @use-step step-0, 0s;
+      @step 1.75s, 7s {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+      @use-step step-0, 1.75s, 4s;
     }
   }
 </style>

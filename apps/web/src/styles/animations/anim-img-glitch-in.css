@@ -2,7 +2,7 @@
   .animate-img-glitch-in {
     img {
       opacity: 0;
-      animation: anim_img_glitch_3_in var(--duration_anim_img_glitch_3_in) 0.3s
+      animation: anim-img-glitch-3-in var(--duration-anim-img-glitch-3-in) 0.3s
         ease 1 forwards;
     }
 
@@ -17,7 +17,7 @@
       z-index: 90;
 
       opacity: 0;
-      animation: anim_img_glitch_1_in var(--duration_anim_img_glitch_1_in) 0.35s
+      animation: anim-img-glitch-1-in var(--duration-anim-img-glitch-1-in) 0.35s
         ease 1 forwards;
     }
 
@@ -32,17 +32,16 @@
       z-index: 90;
 
       opacity: 0;
-      animation:
-        anim_img_glitch_2_in var(--duration_anim_img_glitch_2_in) 0.3s ease 1
-          forwards;
+      animation: anim-img-glitch-2-in var(--duration-anim-img-glitch-2-in) 0.3s
+        ease 1 forwards;
     }
   }
 
-  @anim-step line_1_none {
+  @anim-step line-1-none {
     opacity: 0;
   }
 
-  @anim-step line_1_1 {
+  @anim-step line-1-1 {
     opacity: 1;
     top: 70%;
     left: -2%;
@@ -50,7 +49,7 @@
     height: 40px;
   }
 
-  @anim-step line_1_1_2 {
+  @anim-step line-1-1-2 {
     opacity: 1;
     top: 68%;
     left: -2%;
@@ -58,7 +57,7 @@
     height: 40px;
   }
 
-  @anim-step line_1_2 {
+  @anim-step line-1-2 {
     opacity: 1;
     top: 10%;
     left: 62%;
@@ -66,7 +65,7 @@
     height: 30px;
   }
 
-  @anim-step line_1_2_2 {
+  @anim-step line-1-2-2 {
     opacity: 1;
     top: 10%;
     left: 60%;
@@ -74,24 +73,23 @@
     height: 30px;
   }
 
-  @timed-anim anim_img_glitch_1_in {
-    line_1_1: 0.04s;
-    line_1_1_2: 0.05s;
-    line_1_1: 0.05s, 0.03s;
-    /* line_1_none: 0.01s, 0.05s; */
-    line_1_2: 0.01s;
-    line_1_2_2: 0.05s;
-    line_1_2: 0.05s, 0.03s;
-    line_1_none: 0.01s, 0.05s;
+  @anim anim-img-glitch-1-in {
+    @use-step line-1-1, 0.04s;
+    @use-step line-1-1-2, 0.05s;
+    @use-step line-1-1, 0.05s, 0.03s;
+    @use-step line-1-2, 0.01s;
+    @use-step line-1-2-2, 0.05s;
+    @use-step line-1-2, 0.05s, 0.03s;
+    @use-step line-1-none, 0.01s, 0.05s;
   }
 
   /* as */
 
-  @anim-step line_2_none {
+  @anim-step line-2-none {
     opacity: 0;
   }
 
-  @anim-step line_2_1 {
+  @anim-step line-2-1 {
     opacity: 1;
     top: 25%;
     left: 10%;
@@ -99,7 +97,7 @@
     height: 12px;
   }
 
-  @anim-step line_2_1_2 {
+  @anim-step line-2-1-2 {
     opacity: 1;
     top: 25%;
     left: 12%;
@@ -107,7 +105,7 @@
     height: 12px;
   }
 
-  @anim-step line_2_2 {
+  @anim-step line-2-2 {
     opacity: 1;
     top: 55%;
     left: -2%;
@@ -115,7 +113,7 @@
     height: 8px;
   }
 
-  @anim-step line_2_2_2 {
+  @anim-step line-2-2-2 {
     opacity: 1;
     top: 88%;
     left: -2%;
@@ -123,24 +121,21 @@
     height: 8px;
   }
 
-  @timed-anim anim_img_glitch_2_in {
-    line_2_1: 0.04s;
-    line_2_1_2: 0.05s;
-    line_2_1: 0.05, 0.03s;
-    /* line_2_none: 0.01s, 0.05s; */
-    line_2_2: 0.01s;
-    line_2_2_2: 0.04s;
-    line_2_2: 0.04s, 0.03s;
-    line_2_none: 0.01s, 0.05s;
+  @anim anim-img-glitch-2-in {
+    @use-step line-2-1, 0.04s;
+    @use-step line-2-1-2, 0.05s;
+    @use-step line-2-1, 0.05, 0.03s;
+    @use-step line-2-2, 0.01s;
+    @use-step line-2-2-2, 0.04s;
+    @use-step line-2-2, 0.04s, 0.03s;
+    @use-step line-2-none, 0.01s, 0.05s;
   }
 
   /*  skew */
 
-  @anim-step img_1 {
-    opacity: 1;
-  }
-
-  @timed-anim anim_img_glitch_3_in {
-    img_1: 0.06s;
+  @anim anim-img-glitch-3-in {
+    @step 0.06s {
+      opacity: 1;
+    }
   }
 }

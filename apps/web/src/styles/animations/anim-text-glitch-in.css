@@ -1,7 +1,7 @@
 @media (prefers-reduced-motion: no-preference) {
   .animate-text-glitch-in {
     position: relative;
-    animation: anim_text_skew_in var(--duration_anim_text_skew_in)
+    animation: anim-text-skew-in var(--duration-anim-text-skew-in)
       var(--delay, 0s) ease 1 forwards;
     opacity: 0;
 
@@ -14,49 +14,49 @@
       height: 100%;
       background-color: var(--colors-base-DEFAULT);
 
-      --dur: var(--duration_anim_text_glitch);
+      --dur: var(--duration-anim-text-glitch);
       animation:
-        anim_text_glitch var(--dur) calc(var(--delay) + 0.3s) ease 1 forwards,
-        anim_text_glitch var(--dur) calc(var(--delay) + var(--dur) + 0.9s) ease
+        anim-text-glitch var(--dur) calc(var(--delay) + 0.3s) ease 1 forwards,
+        anim-text-glitch var(--dur) calc(var(--delay) + var(--dur) + 0.9s) ease
           1 forwards reverse;
     }
   }
 
   /* Skew animation */
 
-  @anim-step skew_base {
+  @anim-step skew-base {
     opacity: 1;
     transform: skew(0deg, 0deg) scale(1, 1);
   }
 
-  @anim-step skew_start {
+  @anim-step skew-start {
     opacity: 1;
     transform: skew(-83deg, 0deg) scale(1, 1.2);
   }
 
-  @anim-step skew_left_big {
+  @anim-step skew-left-big {
     opacity: 1;
     transform: skew(84deg, 1deg) scale(1, 1);
   }
 
-  @anim-step skew_left_small {
+  @anim-step skew-left-small {
     opacity: 1;
     transform: skew(-14deg, 0deg) scale(1, 1);
   }
 
-  @anim-step skew_right_small {
+  @anim-step skew-right-small {
     opacity: 1;
     transform: skew(13deg, 0deg) scale(1, 1);
   }
 
-  @timed-anim anim_text_skew_in {
-    skew_start: 0s, 0.04s;
-    skew_base: 0.04s, 0.2s;
-    skew_right_small: 0.04s;
-    skew_base: 0.03s, 0.25s;
-    skew_left_small: 0.04s;
-    skew_left_big: 0.03s;
-    skew_left_small: 0.04s;
-    skew_base: 0.03s;
+  @anim anim-text-skew-in {
+    @use-step skew-start, 0s, 0.04s;
+    @use-step skew-base, 0.04s, 0.2s;
+    @use-step skew-right-small, 0.04s;
+    @use-step skew-base, 0.03s, 0.25s;
+    @use-step skew-left-small, 0.04s;
+    @use-step skew-left-big, 0.03s;
+    @use-step skew-left-small, 0.04s;
+    @use-step skew-base, 0.03s;
   }
 }

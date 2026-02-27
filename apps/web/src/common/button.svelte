@@ -142,7 +142,7 @@
     button,
     a {
       opacity: 0;
-      animation: anim_btn_in var(--duration_anim_btn_in) var(--delay, 0s) ease 1
+      animation: anim-btn-in var(--duration-anim-btn-in) var(--delay, 0s) ease 1
         forwards;
       transform: scaleY(0);
     }
@@ -167,99 +167,69 @@
     }
 
     .fake-btn {
-      animation: anim_btn_hover var(--duration_anim_btn_hover) ease 1;
+      animation: anim-btn-hover var(--duration-anim-btn-hover) ease 1;
     }
   }
 
-  @anim-step step_hover_base {
-    opacity: 0;
-    clip-path: rect(100% 100% 100% 0%);
-    transform: translate(0, 0) scale(1, 1);
-  }
-
-  @anim-step step_hover_1 {
+  @anim-step step-hover-1 {
     opacity: 1;
     clip-path: rect(80% 100% 100% 0%);
     transform: translate(-8%, 0%) scale(1.2, 1);
   }
 
-  @anim-step step_hover_2 {
+  @anim-step step-hover-2 {
     opacity: 1;
     clip-path: rect(80% 100% 100% 0%);
     transform: translate(8%, 0%) scale(1.1, 1);
   }
 
-  @anim-step step_hover_3 {
+  @anim-step step-hover-3 {
     opacity: 1;
     clip-path: rect(80% 100% 100% 0%);
     transform: translate(0%, 0%) scale(1, 1);
   }
 
-  @anim-step step_hover_4 {
-    opacity: 1;
-    clip-path: rect(38% 100% 52% 0%);
-    transform: translate(8%, 0%) scale(1, 1);
-  }
-
-  @anim-step step_hover_5 {
-    opacity: 1;
-    clip-path: rect(20% 70% 50% 0%);
-    transform: translate(-4%, -8%) scale(1, 1);
-  }
-
-  @anim-step step_hover_6 {
-    opacity: 1;
-    clip-path: rect(0% 100% 0% 0%);
-    transform: translate(0%, 0%) scale(1, 1);
-  }
-
-  @timed-anim anim_btn_hover {
-    step_hover_2: 0.035s, 0.03s;
-    step_hover_3: 0.035s;
-    step_hover_1: 0.035s;
-    step_hover_3: 0.035s;
+  @anim anim-btn-hover {
+    @use-step step-hover-2, 0.035s, 0.03s;
+    @use-step step-hover-3, 0.035s;
+    @use-step step-hover-1, 0.035s;
+    @use-step step-hover-3, 0.035s;
     /* // */
-    step_hover_4: 0.02s, 0.04s;
-    step_hover_6: 0.04s, 1s;
-    /* step_hover_5: 0.04s, 0.02s; */
-    /* step_hover_6: 0.04s, 1s; */
+    @step 0.02s, 0.04s {
+      opacity: 1;
+      clip-path: rect(38% 100% 52% 0%);
+      transform: translate(8%, 0%) scale(1, 1);
+    }
+    @step 0.04s, 1s {
+      opacity: 1;
+      clip-path: rect(0% 100% 0% 0%);
+      transform: translate(0%, 0%) scale(1, 1);
+    }
   }
 
   /* In animation */
 
-  @anim-step step_in_1 {
-    opacity: 1;
-    transform: scaleY(0);
-  }
-
-  @anim-step step_in_2 {
-    opacity: 0;
-  }
-
-  @anim-step step_in_3 {
-    opacity: 0.4;
-  }
-
-  @anim-step step_in_4 {
-    opacity: 0;
-    transform: scaleY(1);
-  }
-
-  @anim-step step_in_5 {
-    opacity: 0.7;
-  }
-
-  @anim-step step_in_6 {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-
-  @timed-anim anim_btn_in {
-    step_in_1: 0s;
-    step_in_2: 0.06s;
-    step_in_3: 0.12s;
-    step_in_4: 0.06s;
-    step_in_5: 0.06s;
-    step_in_6: 0.12s;
+  @anim anim-btn-in {
+    @step 0s {
+      opacity: 1;
+      transform: scaleY(0);
+    }
+    @step 0.06s {
+      opacity: 0;
+    }
+    @step 0.12s {
+      opacity: 0.4;
+    }
+    @step 0.06s {
+      opacity: 0;
+      transform: scaleY(1);
+    }
+    @step 0.06s {
+      opacity: 0.7;
+    }
+    @step 0.12s {
+      opacity: 1;
+      transform: scaleY(1);
+    }
   }
 </style>

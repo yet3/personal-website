@@ -1,12 +1,12 @@
 @media (prefers-reduced-motion: no-preference) {
   .animate-center-scale-in {
-    animation: anim_center_scale_in 0.2s var(--delay, 0s) ease 1 forwards;
+    animation: anim-center-scale-in 0.2s var(--delay, 0s) ease 1 forwards;
     opacity: 0;
     transform: scaleY(0);
     transform-origin: center;
   }
 
-  @keyframes anim_center_scale_in {
+  @keyframes anim-center-scale-in {
     from {
       opacity: 0;
       transform: scaleY(0);

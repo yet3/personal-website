@@ -4,8 +4,9 @@ import fg from "fast-glob";
 import UnoCSS from "unocss/vite";
 
 import svelte from "@astrojs/svelte";
+import timedAnim from "@yet3/lightningcss-timed-anim-plugin";
+import { composeVisitors } from "lightningcss";
 import path from "node:path";
-import { pluginAtRules, pluginVisitor } from "./lightningcss-plugin";
 
 // https://astro.build/config
 export default defineConfig({
@@ -49,10 +50,11 @@ export default defineConfig({
       transformer: "lightningcss",
       lightningcss: {
         customAtRules: {
-          ...pluginAtRules,
+          ...timedAnim.customAtRules,
+          // ...pluginAtRules,
         },
         //
-        visitor: pluginVisitor(),
+        visitor: composeVisitors([timedAnim.visitor()]),
       },
     },
   },

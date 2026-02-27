@@ -8,7 +8,7 @@
 {/snippet}
 
 <h2
-  class="delay-about-0 xs:text-4xl relative mx-auto flex flex-col text-3xl font-semibold mb-6"
+  class="delay-about-0 xs:text-4xl relative mx-auto mb-6 flex flex-col text-3xl font-semibold"
 >
   {@render content()}
 
@@ -24,7 +24,7 @@
   @media (prefers-reduced-motion: no-preference) {
     h2 {
       opacity: 0;
-      animation: anim_about_header_in var(--duration_anim_about_header_in)
+      animation: anim-about-header-in var(--duration-anim-about-header-in)
         var(--delay, 0s) ease 1 forwards;
     }
 
@@ -37,85 +37,95 @@
       z-index: 10;
 
       animation:
-        anim_about_header_idle_in var(--duration_anim_about_header_idle_in) 0.4s
+        anim-about-header-idle-in var(--duration-anim-about-header-idle-in) 0.4s
           ease 1 forwards,
-        anim_about_header_idle_in var(--duration_anim_about_header_idle_in) 1.1s
+        anim-about-header-idle-in var(--duration-anim-about-header-idle-in) 1.1s
           ease 1 forwards reverse,
-        anim_about_header_idle var(--duration_anim_about_header_idle) 5s ease
+        anim-about-header-idle var(--duration-anim-about-header-idle) 5s ease
           infinite forwards alternate;
     }
 
     /* In animation  */
 
-    @anim-step step_in_base {
+    @anim-step step-in-base {
       opacity: 1;
       transform: skew(0deg, 0deg) scale(1, 1);
     }
 
-    @anim-step step_in_start {
+    @anim-step step-in-start {
       opacity: 1;
       transform: skew(88deg, 0deg) scale(1, 1.2);
     }
 
-    @anim-step step_in_left_big {
+    @anim-step step-in-left-big {
       opacity: 1;
       transform: skew(-82deg, 1deg) scale(1, 1);
     }
 
-    @anim-step step_in_left_small {
+    @anim-step step-in-left-small {
       opacity: 1;
       transform: skew(-12deg, 0deg) scale(1, 1);
     }
 
-    @anim-step step_in_right_small {
+    @anim-step step-in-right-small {
       opacity: 1;
       transform: skew(8deg, 0deg) scale(1, 1);
     }
 
-    @timed-anim anim_about_header_in {
-      step_in_start: 0s, 0.04s;
-      step_in_base: 0.04s, 0.2s;
-      step_in_left_small: 0.04s;
-      step_in_base: 0.03s, 0.25s;
-      step_in_right_small: 0.04s;
-      step_in_left_big: 0.03s;
-      step_in_left_small: 0.04s;
-      step_in_base: 0.03s;
+    @anim anim-about-header-in {
+      @use-step step-in-start, 0s, 0.04s;
+      @use-step step-in-base, 0.04s, 0.2s;
+      @use-step step-in-left-small, 0.04s;
+      @use-step step-in-base, 0.03s, 0.25s;
+      @use-step step-in-right-small, 0.04s;
+      @use-step step-in-left-big, 0.03s;
+      @use-step step-in-left-small, 0.04s;
+      @use-step step-in-base, 0.03s;
     }
 
     /* Idle animation */
 
-    @anim-step step_idle_base {
+    @anim-step step-idle-base {
       clip-path: rect(35% 100% 35% 0%);
       transform: scaleX(1) translate(-20px, 0%);
     }
 
-    @anim-step step_idle_start {
+    @anim-step step-idle-start {
       clip-path: rect(55% 100% 80% 0%);
       transform: scaleX(0.98) translate(-20px, 0%);
     }
 
-    @anim-step step_idle_top {
+    @anim-step step-idle-top {
       clip-path: rect(12% 100% 42% 0%);
       transform: scaleX(0.92) translate(-20px, 0%);
     }
 
-    @anim-step step_idle_bottom {
+    @anim-step step-idle-bottom {
       clip-path: rect(95% 100% 95% 0%);
       transform: scaleX(0.91) translate(-20px, 0%);
     }
 
-    @timed-anim anim_about_header_idle_in {
-      step_idle_start: 0.1s, 0.05s;
-      step_idle_top: 0.15s;
-      step_idle_bottom: 0.1s;
+    @anim anim-about-header-idle-in {
+      @step 0.1s, 0.05s {
+        clip-path: rect(55% 100% 80% 0%);
+        transform: scaleX(0.98) translate(-20px, 0%);
+      }
+      @step 0.15s {
+        clip-path: rect(12% 100% 42% 0%);
+        transform: scaleX(0.92) translate(-20px, 0%);
+      }
+      @step 0.1s {
+        clip-path: rect(95% 100% 95% 0%);
+        transform: scaleX(0.91) translate(-20px, 0%);
+      }
     }
 
-    @timed-anim anim_about_header_idle {
-      step_idle_start: 0.1s, 0.05s;
-      step_idle_top: 0.15s;
-      step_idle_bottom: 0.15s;
-      step_idle_base: 0.1s, 5s;
+    @anim anim-about-header-idle {
+      @use-anim anim-about-header-idle-in;
+      @step 0.1s, 5s {
+        clip-path: rect(35% 100% 35% 0%);
+        transform: scaleX(1) translate(-20px, 0%);
+      }
     }
   }
 </style>

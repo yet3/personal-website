@@ -93,12 +93,12 @@
 <style>
   @media (prefers-reduced-motion: no-preference) {
     .dailog-crust {
-      animation: anim_dialog_crust_in 0.25s ease 1 forwards;
+      animation: anim-dialog-crust-in 0.25s ease 1 forwards;
       opacity: 0;
     }
 
     section {
-      animation: anim_left_scale_in 0.25s 0.22s ease 1 forwards;
+      animation: anim-left-scale-in 0.25s 0.22s ease 1 forwards;
       opacity: 1 !important;
       transform: scaleX(0);
       transform-origin: left;
@@ -106,12 +106,12 @@
 
     .anim-content-in {
       --anim-in-from: -10px;
-      animation: anim_top_slide_in 0.25s calc(var(--delay, 0s) + 0.25s + 0.15s)
+      animation: anim-top-slide-in 0.25s calc(var(--delay, 0s) + 0.25s + 0.15s)
         ease 1 forwards;
       opacity: 0;
     }
 
-    @keyframes anim_dialog_crust_in {
+    @keyframes anim-dialog-crust-in {
       from {
         opacity: 0;
         transform: translateX(-25%);
