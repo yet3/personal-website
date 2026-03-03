@@ -81,4 +81,3 @@ export default defineConfig({
   integrations: [svelte()],
 });
 
-// TODO: clean up redirects
