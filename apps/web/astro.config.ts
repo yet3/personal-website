@@ -51,7 +51,6 @@ export default defineConfig({
       lightningcss: {
         customAtRules: {
           ...timedAnim.customAtRules,
-          // ...pluginAtRules,
         },
         //
         visitor: composeVisitors([timedAnim.visitor()]),
@@ -70,7 +69,7 @@ export default defineConfig({
     fonts: [
       {
         provider: fontProviders.google(),
-        name: "Montserrat",
+        name: "Lilex",
         cssVariable: "--font-primary",
         styles: ["normal", "italic"],
         subsets: ["latin"],
