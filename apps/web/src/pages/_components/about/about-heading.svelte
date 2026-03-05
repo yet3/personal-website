@@ -4,7 +4,7 @@
 
 {#snippet content()}
   <span>{FIRST_NAME}</span>
-  <span class="xs:ml-28 mt-3 ml-20">// {LAST_NAME}</span>
+  <span class="xs:ml-28 mt-3 ml-20"><span class="mr-1.5">//</span>{LAST_NAME}</span>
 {/snippet}
 
 <h2
