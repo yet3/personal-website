@@ -32,9 +32,11 @@ export default defineExperience("STREBER SOFT", {
   position: ExperiencePosition.FullStack,
   workMode: ExperienceWorkMode.Remote,
   location: ExperienceLocation.Poland,
-  website: "https://www.owg.pl/ceidg/streber_soft_grzegorz_florek_9,74,817199,8171996068",
+  website:
+    "https://www.owg.pl/ceidg/streber_soft_grzegorz_florek_9,74,817199,8171996068",
   skills: SKILLS,
-  description: "This is a description",
+  description:
+    "Full-stack development of ERP systems and business apps across manufacturing and healthcare, spanning web, desktop, and mobile platforms.",
   contentBlocks: [
     "Collaborated with senior developers/dev-ops/product managers on ERP systems for manufacturing plants (plastic recycling and metal production).",
     "Developed and maintained web, desktop, and mobile apps for production, quality, and shift management, including PDF/XLSX report generation.",

@@ -36,7 +36,8 @@ export default defineExperience("Storydoc", {
   location: ExperienceLocation.International,
   website: "https://www.storydoc.com/",
   skills: SKILLS,
-  description: "This is a description",
+  description:
+    "Full-stack development of an AI-powered presentation SaaS, contributing core features, performance optimization, and internal tooling within a global team.",
   contentBlocks: [
     "Collaborated with a global team (developers, UI/UX/story designers, product managers) to build an AI-powered presentation SaaS.",
     "Developed core features: interactive WYSIWYG rich text editor, AI integrations, custom slide components, and PDF generation (using Puppeteer).",
