@@ -60,9 +60,11 @@
           <span
             class="max-xs:flex-col mt-1 flex w-full text-lg font-semibold sm:text-xl"
           >
-            {data.position}
-            <div class="max-xs:mt-1 xs:ml-1 ml-24">
-              <span class="ml-1">//</span>
+            <span class="max-xs:order-last">
+              {data.position}
+            </span>
+            <div class="max-xs:(my-1) xs:ml-1">
+              <span class="ml-1 max-xs:hidden">//</span>
               <Link href={data.website} content={data.at} />
             </div>
           </span>
