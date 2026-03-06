@@ -37,7 +37,7 @@
     <button
       type="button"
       onclick={() => dialogEl?.close()}
-      class="border-primary bg-base animate-center-scale-in max-h-inherit absolute top-4 right-4 z-10 grid size-8 cursor-pointer place-items-center border delay-450"
+      class="border-primary bg-base animate-center-scale-in max-h-inherit absolute top-4 right-4 z-10 grid size-8 cursor-pointer place-items-center border delay-450 select-none"
     >
       X
     </button>
