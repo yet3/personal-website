@@ -62,7 +62,7 @@
           >
             {data.position}
             <div class="max-xs:mt-1 xs:ml-1 ml-24">
-              <span class="mr-0.5">//</span>
+              <span class="ml-1">//</span>
               <Link href={data.website} content={data.at} />
             </div>
           </span>
