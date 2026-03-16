@@ -1,9 +1,9 @@
 ---
-import PrefixParagraphLines from "$common/prefix-paragraph-lines.svelte";
 import type { IProject } from "@repo/content/projects";
 import SkillBadgeById from "$common/skill-badge-by-id.svelte";
 import ProjectImg from "$common/project-img.astro";
 import ProjectActions from "$common/project-actions.astro";
+import CommentParagraph from "$common/comment-paragraph.svelte";
 
 interface Props {
   idx: number;
@@ -39,13 +39,9 @@ const makeDelay = (delay: number = 0) => {
     <div class="mt-1 mb-1">
       {
         project.contentBlocks.map((block) => (
-          <PrefixParagraphLines
-            client:visible
-            prefix="// "
-            class="text-primary-300 text-md"
-            content={block}
-            noEntryAnim
-          />
+          <CommentParagraph class="text-primary-300">
+            {block}
+          </CommentParagraph>
         ))
       }
     </div>

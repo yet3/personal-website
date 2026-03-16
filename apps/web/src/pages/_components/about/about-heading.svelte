@@ -4,7 +4,9 @@
 
 {#snippet content()}
   <span>{FIRST_NAME}</span>
-  <span class="xs:ml-28 mt-3 ml-20"><span class="mr-1.5">//</span>{LAST_NAME}</span>
+  <span class="xs:ml-28 mt-3 ml-20"
+    ><span class="mr-1.5">//</span>{LAST_NAME}</span
+  >
 {/snippet}
 
 <h2
@@ -26,6 +28,7 @@
       opacity: 0;
       animation: anim-about-header-in var(--duration-anim-about-header-in)
         var(--delay, 0s) ease 1 forwards;
+      will-change: transform;
     }
 
     h2 div {
@@ -35,7 +38,7 @@
       padding: 0px 20px;
       width: calc(100% + 40px);
       z-index: 10;
-
+      will-change: transform;
       animation:
         anim-about-header-idle-in var(--duration-anim-about-header-idle-in) 0.4s
           ease 1 forwards,

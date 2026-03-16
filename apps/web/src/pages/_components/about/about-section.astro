@@ -1,6 +1,6 @@
 ---
 import Button, { BtnSize } from "$common/button.svelte";
-import PrefixParagraphLines from "$common/prefix-paragraph-lines.svelte";
+import CommentParagraph from "$common/comment-paragraph.svelte";
 import Section from "$common/section.svelte";
 import AboutHeading from "./about-heading.svelte";
 import { GITHUB_URL, SELF_DESCIRPTION } from "@repo/content";
@@ -17,13 +17,12 @@ const paragraphs = SELF_DESCIRPTION.FULL.split("\n");
 
   {
     paragraphs.map((p, idx) => (
-      <PrefixParagraphLines
-        client:load
-        prefix="// "
-        class="mt-4"
+      <CommentParagraph
+        class="line-anim mt-4 will-change-transform backface-hidden"
         delay={`calc(var(--delay-about) + ${100 + idx * 50}ms)`}
-        content={p}
-      />
+      >
+        {p}
+      </CommentParagraph>
     ))
   }
 
