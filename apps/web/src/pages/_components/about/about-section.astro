@@ -18,7 +18,7 @@ const paragraphs = SELF_DESCIRPTION.FULL.split("\n");
   {
     paragraphs.map((p, idx) => (
       <CommentParagraph
-        class="line-anim mt-4 will-change-transform backface-hidden"
+        class="animate-left-scale-glitch-in mt-4 will-change-transform backface-hidden"
         delay={`calc(var(--delay-about) + ${100 + idx * 50}ms)`}
       >
         {p}

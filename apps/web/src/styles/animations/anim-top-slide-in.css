@@ -15,36 +15,4 @@
       transform: translateY(0);
     }
   }
-  .line-anim {
-    animation: anim-p-in var(--duration-anim-p-in) var(--delay, 0s) ease 1
-      forwards;
-    opacity: 0;
-    transform: scaleX(1);
-    transform-origin: left center;
-  }
-
-  @anim anim-p-in {
-    @step 0s {
-      opacity: 0;
-      transform: scaleX(0);
-    }
-    @step 0.05s {
-      opacity: 1;
-      transform: scaleX(0.4);
-    }
-    @step 0.1s {
-      opacity: 0;
-    }
-    @step 0.05s {
-      opacity: 0.4;
-    }
-    @step 0.05s {
-      opacity: 0;
-      transform: scaleX(1);
-    }
-    @step 0.1s {
-      opacity: 1;
-      transform: scaleX(1);
-    }
-  }
 }
