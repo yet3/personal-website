@@ -13,39 +13,48 @@ const { idx, project } = Astro.props;
 const images = project.images ?? [];
 
 const mainHref = project.appHref ?? project.repoHref ?? "#";
+
+const makeDelay = (num = 0) => {
+  return `calc(var(--delay-projects-preview) + ${num + idx * 100}ms)`;
+};
+const makeDelayStyle = (num = 0) => {
+  return `--delay: ${makeDelay(num)}`;
+};
 ---
 
 <li>
+  <p
+    class="animate-top-slide-in delay-proj-prev mb-1 w-full text-center text-lg font-medium"
+    data-text={project.title}
+    style={makeDelayStyle(idx * 100)}
+  >
+    {project.title}
+  </p>
   {
     images.length > 0 && (
       <ProjectImg
-        class="animate-center-scale-in will-change-transform"
+        class="animate-center-scale-in"
         src={images[0].src}
         href={mainHref}
         blurhash={images[0].blurhash}
-        delay={`calc(var(--delay-projects-preview) + ${200 + idx * 100}ms)`}
+        delay={makeDelay(150)}
       />
     )
   }
-  <div class="animate-left-scale-in delay-proj-prev-100 mt-1 flex flex-col">
-    <p
-      class="animate-text-glitch-hover mb-2 w-fit text-lg font-semibold delay-0"
-      data-text={project.title}
-    >
-      {project.title}
-    </p>
-
-    {
-      project.contentBlocks.map((block) => (
-        <CommentParagraph class="text-primary-300 text-sm">
-          {block}
-        </CommentParagraph>
-      ))
-    }
-    <ProjectActions
-      class="mt-4"
-      appHref={project.appHref}
-      repoHref={project.repoHref}
-    />
-  </div>
+  {
+    project.contentBlocks.map((block, i) => (
+      <p
+        class="text-primary-300 animate-top-slide-in text-justify text-sm mt-2 mx-auto w-95%"
+        style={makeDelayStyle(250 + i * 50)}
+      >
+        {block}
+      </p>
+    ))
+  }
+  <ProjectActions
+    class="mt-4"
+    delay={makeDelay(350)}
+    appHref={project.appHref}
+    repoHref={project.repoHref}
+  />
 </li>
