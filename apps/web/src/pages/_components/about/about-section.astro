@@ -3,7 +3,7 @@ import Button, { BtnSize } from "$common/button.svelte";
 import CommentParagraph from "$common/comment-paragraph.svelte";
 import Section from "$common/section.svelte";
 import AboutHeading from "./about-heading.svelte";
-import { GITHUB_URL, SELF_DESCIRPTION } from "@repo/content";
+import { SELF_DESCIRPTION } from "@repo/content";
 
 const paragraphs = SELF_DESCIRPTION.FULL.split("\n");
 ---
@@ -27,8 +27,8 @@ const paragraphs = SELF_DESCIRPTION.FULL.split("\n");
   }
 
   <div class="mt-12 flex items-center justify-center gap-4">
-    <Button class="delay-about-450" size={BtnSize.Base} href={GITHUB_URL}
-      >Github</Button
+    <Button class="delay-about-400" size={BtnSize.Base} href="/projects"
+      >Projects</Button
     >
     <Button class="delay-about-400" size={BtnSize.Base} href="/cv.pdf"
       >Resumé</Button
