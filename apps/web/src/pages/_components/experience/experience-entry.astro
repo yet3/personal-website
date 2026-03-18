@@ -12,7 +12,7 @@ interface Props {
 const { idx, experience: data } = Astro.props;
 ---
 
-<li class="grid items-center gap-4 md:grid-cols-[1fr_auto]">
+<li class="grid items-center gap-4 sm:grid-cols-[1fr_auto]">
   <div
     class="animate-top-slide-in flex w-full flex-col"
     style={`--delay: calc(var(--delay-experience) + 100ms + ${idx * 100}ms)`}
