@@ -18,11 +18,8 @@ const { idx, experience: data } = Astro.props;
     style={`--delay: calc(var(--delay-experience) + 100ms + ${idx * 100}ms)`}
   >
     <ExperienceDates dates={data.dates} class="text-xs md:text-sm" />
-    <div class="max-2xs:flex-col mt-1 flex w-full font-semibold">
-      <span class="max-xs:order-last">
-        {data.position}
-      </span>
-      <span class="mx-1">//</span>
+    <div class="mt-1 flex w-full flex-wrap font-semibold max-2xs:flex-col">
+      <span>{data.position}<span class="mx-1">//</span></span>
       <MdLink href={data.website} content={data.at} short />
     </div>
   </div>
