@@ -1,12 +1,29 @@
 ---
 import Section from "$common/section.svelte";
+import { CodepenIcon, GithubIcon, EmailIcon } from "@repo/lib/icons";
+import MdLink from "$common/md-link.svelte";
+import { EMAIL, GITHUB_URL, GITHUB, CODEPEN_URL, CODEPEN } from "@repo/content";
 ---
 
 <Section
   id="find-me"
   ariaLabel="Find me"
   title="Find me"
-  class="delay-experience-0 flex w-full flex-col"
+  class="delay-find-me-0 flex w-full flex-col"
 >
-  Find me
+  <ul class="grid content-start gap-2">
+    <li>
+      <MdLink icon={GithubIcon} href={GITHUB_URL} content={GITHUB} />
+    </li>
+    <li>
+      <MdLink icon={CodepenIcon} href={CODEPEN_URL} content={CODEPEN} />
+    </li>
+    <li>
+      <MdLink
+        icon={EmailIcon}
+        href=`mailto:${EMAIL}`
+        content={EMAIL.replace("@gmail.com", "")}
+      />
+    </li>
+  </ul>
 </Section>

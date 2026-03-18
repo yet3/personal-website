@@ -56,8 +56,8 @@ export const UNO_CONFIG = defineConfig({
           500: "oklch(0.95 0 0)",
         },
         accent: {
-          DEFAULT: "oklch(0.2 0 0)",
-          100: "oklch(0.2 0 0)",
+          DEFAULT: "oklch(0.6836 0.155875 63.0359)",
+          100: "oklch(0.6836 0.155875 63.0359)",
         },
       },
     };
