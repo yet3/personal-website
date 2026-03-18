@@ -14,7 +14,7 @@
   --delay-about: var(--delay-page-in);
   --delay-experience: calc(var(--delay-about) + 0.6s);
   --delay-find-me: calc(var(--delay-experience) + 0.6s);
-  --delay-projects-preview: calc(var(--delay-find-me) + 0.6s);
+  --delay-projects-preview: calc(var(--delay-find-me) + 0.3s);
 
   /* projects */
   --delay-tech: var(--delay-page-in);

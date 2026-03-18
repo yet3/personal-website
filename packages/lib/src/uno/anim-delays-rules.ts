@@ -34,6 +34,13 @@ export const animDelaysRules: Rule<Theme>[] = [
       { autocomplete: "delay-experience-<num>" },
     ],
     [
+      /^delay-find-me-(\d+)$/,
+      ([, d]) => ({
+        "--delay": `calc(var(--delay-find-me) + ${d}ms)`,
+      }),
+      { autocomplete: "delay-find-me-<num>" },
+    ],
+    [
       /^delay-proj-prev-(\d+)$/,
       ([, d]) => ({
         "--delay": `calc(var(--delay-projects-preview) + ${d}ms)`,
