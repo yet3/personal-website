@@ -3,9 +3,11 @@
     href: string;
     content: string;
     icon?: any;
+
+    short?: boolean;
   }
 
-  const { href, icon: Icon, content }: IProps = $props();
+  const { href, short, icon: Icon, content }: IProps = $props();
 
   const rel = $derived.by(() => {
     const tmp = ["noreferrer", "noopener"];
@@ -22,5 +24,7 @@
   {/if}
   [
   <span class="text-accent">{content}</span>
-  ]<span class="max-md:hidden">({href})</span>
+  ]{#if !short}
+    <span class="max-md:hidden">({href})</span>
+  {/if}
 </a>

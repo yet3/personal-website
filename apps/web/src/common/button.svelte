@@ -27,6 +27,8 @@
     size?: BtnSize;
     label?: string;
 
+    delay?: string;
+
     href?: string;
     onClick?: () => void;
 
@@ -42,6 +44,7 @@
     kind = BtnKind.Solid,
     variant = BtnVariant.Primary,
     children,
+    delay,
     ariaLabel,
     ...props
   }: IProps = $props();
@@ -126,12 +129,18 @@
     rel={rel.join(" ")}
     onclick={onClick}
     target={href.startsWith("http") ? "_blank" : undefined}
+    style={delay ? `--delay: ${delay}` : undefined}
   >
     {@render lab()}{@render content()}
     {@render fakeBtn()}
   </a>
 {:else}
-  <button type="button" class={containerClass} onclick={onClick}>
+  <button
+    type="button"
+    class={containerClass}
+    onclick={onClick}
+    style={delay ? `--delay: ${delay}` : undefined}
+  >
     {@render lab()}{@render content()}
     {@render fakeBtn()}
   </button>
@@ -217,10 +226,10 @@
     @step 0.06s {
       opacity: 0;
     }
-    @step 0.12s {
-      opacity: 0.4;
-    }
     @step 0.06s {
+      opacity: 0.5;
+    }
+    @step 0.09s {
       opacity: 0;
       transform: scaleY(1);
     }

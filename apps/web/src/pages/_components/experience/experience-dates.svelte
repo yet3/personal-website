@@ -15,9 +15,6 @@
         <span>{"<"}</span>
         {formatExperienceDates(date[0], date[1])}
         <span>{">"}</span>
-        {#if idx < dates.length - 1}
-          <span class="mr-[1ch]">,</span>
-        {/if}
       </li>
     {/each}
   </ol>

@@ -7,9 +7,10 @@
 
   interface IProps {
     experience: IExperience;
+    idx: number;
   }
 
-  const { experience: data }: IProps = $props();
+  const { experience: data, idx }: IProps = $props();
 
   let dialogEl: HTMLDialogElement | null = null;
 </script>
@@ -18,7 +19,7 @@
   kind={BtnKind.Outline}
   size={BtnSize.Sm}
   label="dialog"
-  class="delay-experience-150"
+  delay={`calc(var(--delay-experience) + 200ms + ${idx * 100}ms)`}
   onClick={() => {
     dialogEl?.showModal();
   }}>Read more</Button
@@ -64,7 +65,7 @@
               {data.position}
             </span>
             <div class="max-xs:(my-1) xs:ml-1">
-              <span class="ml-1 max-xs:hidden">//</span>
+              <span class="max-xs:hidden ml-1">//</span>
               <Link href={data.website} content={data.at} />
             </div>
           </span>
