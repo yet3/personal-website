@@ -17,7 +17,10 @@ const imgOnEnd = idx % 2 === 0;
 const mainHref = project.appHref ?? project.repoHref ?? "#";
 
 const makeDelay = (delay: number = 0) => {
-  return `calc(var(--delay-projects) + ${200 + delay + idx * 150}ms)`;
+  return `calc(var(--delay-projects) + ${200 + delay + idx * 200}ms)`;
+};
+const makeDelayStyle = (delay: number = 0) => {
+  return `--delay: ${makeDelay(delay)};`;
 };
 ---
 
@@ -27,25 +30,26 @@ const makeDelay = (delay: number = 0) => {
     "md:grid-cols-[1fr_0.8fr]": imgOnEnd,
     "md:grid-cols-[0.8fr_1fr]": !imgOnEnd,
   }}
-  style={{ "--delay": makeDelay() }}
 >
-  <div class="animate-left-scale-in">
+  <div>
     <p
-      class="animate-text-glitch-hover text-lg font-semibold delay-0"
+      class="animate-top-slide-in animate-text-glitch-hover text-lg font-semibold"
       data-text={project.title}
+      style={makeDelayStyle()}
     >
       {project.title}
     </p>
-    <div class="mt-1 mb-1">
+    <div class="animate-top-slide-in mt-1 mb-1" style={makeDelayStyle(100)}>
       {
         project.contentBlocks.map((block) => (
-          <CommentParagraph class="text-primary-300">
-            {block}
-          </CommentParagraph>
+          <CommentParagraph class="text-primary-300">{block}</CommentParagraph>
         ))
       }
     </div>
-    <ul class="mt-3 -mr-2 flex flex-wrap">
+    <ul
+      class="animate-top-slide-in mt-3 -mr-2 flex flex-wrap"
+      style={makeDelayStyle(200)}
+    >
       {
         project.skills.map((skillId) => (
           <li class="mr-2 mb-2 flex items-center">
@@ -63,7 +67,7 @@ const makeDelay = (delay: number = 0) => {
           src={images[0].src}
           href={mainHref}
           blurhash={images[0].blurhash}
-          delay={makeDelay(100)}
+          delay={makeDelay(200)}
         />
       )
     }
@@ -71,7 +75,7 @@ const makeDelay = (delay: number = 0) => {
       class="mt-4"
       appHref={project.appHref}
       repoHref={project.repoHref}
-      delay={makeDelay(200)}
+      delay={makeDelay(300)}
     />
   </div>
 </li>
