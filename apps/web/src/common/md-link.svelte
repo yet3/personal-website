@@ -22,5 +22,5 @@
   {/if}
   [
   <span class="text-accent">{content}</span>
-  ]({href})
+  ]<span class="max-md:hidden">({href})</span>
 </a>
