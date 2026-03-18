@@ -1,6 +1,6 @@
 <script lang="ts">
   import Button, { BtnKind, BtnSize } from "$common/button.svelte";
-  import Link from "$common/link.svelte";
+  import MdLink from "$common/md-link.svelte";
   import SkillBadgeById from "$common/skill-badge-by-id.svelte";
   import ExperienceDates from "./experience-dates.svelte";
   import type { IExperience } from "@repo/content";
@@ -59,15 +59,10 @@
             class="md:text-md inline-flex text-sm"
           />
           <span
-            class="max-xs:flex-col mt-1 flex w-full text-lg font-semibold sm:text-xl"
+            class="max-2xs:flex-col mt-1 flex flex-wrap w-full text-lg font-semibold sm:text-xl"
           >
-            <span class="max-xs:order-last">
-              {data.position}
-            </span>
-            <div class="max-xs:(my-1) xs:ml-1">
-              <span class="max-xs:hidden ml-1">//</span>
-              <Link href={data.website} content={data.at} />
-            </div>
+            <span>{data.position}<span class="mx-1">//</span></span>
+            <MdLink href={data.website} content={data.at} short />
           </span>
         </div>
         <ol class="anim-content-in mt-2 grid content-start gap-1 delay-50">
