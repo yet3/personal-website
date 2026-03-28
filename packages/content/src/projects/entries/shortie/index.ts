@@ -8,6 +8,7 @@ const SKILLS: IProjectSkills = [Skill.Rust];
 export default defineProject("shortie", {
   title: "Shortie (Text expander)",
   repoHref: "https://github.com/yet3/shortie",
+  showInCv: true,
   skills: SKILLS,
   images: await getProjectImages(__dirname),
   contentBlocks: ["A very simple text expander made in rust"],
