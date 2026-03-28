@@ -7,11 +7,13 @@ import fastSvgOptimizer from "./entries/fast-svg-optimizer";
 import figmaSvgToReact from "./entries/figma-svg-to-react";
 import goChat from "./entries/go-chat";
 import webDevTools from "./entries/web-dev-tools";
+import shortie from "./entries/shortie";
 
 export const PROJECTS = Object.freeze({
   ...cyberpunkBreachProtocol,
   ...figmaSvgToReact,
   ...fastSvgOptimizer,
+  ...shortie,
   ...webDevTools,
   ...charTyper,
   ...coffeeCalculator,

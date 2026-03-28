@@ -67,6 +67,12 @@ export const SKILLS = Object.freeze({
     showInCv: true,
     category: SkillCategory.Lang,
   },
+  Rust: {
+    label: "Rust",
+    href: "https://rust-lang.org/",
+    showInCv: false,
+    category: SkillCategory.Lang,
+  },
   React: {
     label: "React",
     href: "https://react.dev/",
