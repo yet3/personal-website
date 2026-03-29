@@ -41,20 +41,16 @@
 
         <ol class="text-content grid content-start gap-1">
           {#each exp.contentBlocks as block}
-            <li class="content-block">{block}</li>
+            <li class="content-block grid grid-cols-[auto_1fr] gap-1 ml-1.5">
+              <span>-</span>
+              <p>
+
+              {block}
+              </p>
+            </li>
           {/each}
         </ol>
       </li>
     {/each}
   </ul>
 </Section>
-
-<style>
-  .content-block {
-    --uno: "ml-4.5 relative";
-    &::before {
-      content: "";
-      --uno: "absolute right-full mr-1.5 top-2 size-1.5 bg-secondary-300 rounded-full";
-    }
-  }
-</style>
