@@ -35,7 +35,7 @@
 {/snippet}
 
 <Section title="Skills">
-  <ul class="flex flex-wrap gap-2">
+  <ul class="flex flex-wrap gap-4">
     {@render section("Programming Languages", SkillCategory.Lang)}
     {@render section("Databases", SkillCategory.Database)}
     {@render section("Frameworks & Libraries", SkillCategory.Lib)}

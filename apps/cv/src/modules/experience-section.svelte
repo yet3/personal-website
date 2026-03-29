@@ -10,7 +10,7 @@
 </script>
 
 <Section title="Experience">
-  <ul class="grid content-start gap-4">
+  <ul class="grid content-start gap-8">
     {#each [...experience].reverse() as exp}
       <li>
         <ol class="text-sec-h3 text-secondary grid content-start gap-1 mb-1">

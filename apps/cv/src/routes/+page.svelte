@@ -26,7 +26,7 @@
     <SocialsScection />
   </div>
 
-  <div class="main-grid mt-6">
+  <div class="main-grid mt-8">
     <div class="grid content-start gap-sections">
       <AboutSection />
       <ExperienceSection experience={data.experience} />
