@@ -9,11 +9,9 @@
     WEBSITE_URL,
   } from "@repo/content";
   import PhoneIcon from "$common/icons/phone-icon.svelte";
-  // import EmailIcon from "$common/icons/email-icon.svelte";
   import WebsiteIcon from "$common/icons/website-icon.svelte";
-  // import GithubIcon from "$common/icons/github-icon.svelte";
 
-  import { CodepenIcon, GithubIcon, EmailIcon } from "@repo/lib/icons";
+  import { GithubIcon, EmailIcon } from "@repo/lib/icons";
 </script>
 
 {#snippet info(str: string, Icon: Component, href?: string)}
