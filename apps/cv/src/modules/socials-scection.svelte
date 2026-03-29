@@ -9,13 +9,15 @@
     WEBSITE_URL,
   } from "@repo/content";
   import PhoneIcon from "$common/icons/phone-icon.svelte";
-  import EmailIcon from "$common/icons/email-icon.svelte";
+  // import EmailIcon from "$common/icons/email-icon.svelte";
   import WebsiteIcon from "$common/icons/website-icon.svelte";
-  import GithubIcon from "$common/icons/github-icon.svelte";
+  // import GithubIcon from "$common/icons/github-icon.svelte";
+
+  import { CodepenIcon, GithubIcon, EmailIcon } from "@repo/lib/icons";
 </script>
 
 {#snippet info(str: string, Icon: Component, href?: string)}
-  <li class="flex items-center gap-1.25 [&_svg]:(size-5 fill-primary-200)">
+  <li class="flex items-center gap-1.25 [&_svg]:(size-5)">
     <Icon />
     {#if href}
       <a {href} target="_blank">
