@@ -27,16 +27,19 @@
           <span class="mr-1">
             {exp.position}
           </span>
-          <span class="mr-1">
-            {#if exp.isFreelance}
-              for
-            {:else}
-              at
-            {/if}
+          <span class="mr-1.5 ml-0.25">
+            <!-- {#if exp.isFreelance} -->
+            <!--   for -->
+            <!-- {:else} -->
+            <!--   at -->
+            <!-- {/if} -->
+            //
           </span>
-          <a href={exp.website} target="_blank" class="font-semibold">
+          <span class="font-medium">[</span>
+          <a href={exp.website} target="_blank" class="font-medium text-accent">
             {exp.at}
           </a>
+          <span class="font-medium">]</span>
         </div>
 
         <ol class="text-content grid content-start gap-1">
