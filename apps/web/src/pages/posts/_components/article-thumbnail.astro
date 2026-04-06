@@ -1,0 +1,32 @@
+---
+import { join } from "node:path";
+
+interface Props {
+  thumbnail: string;
+  fileUrl: string;
+  class: string;
+  delay?: string;
+}
+
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  "../_posts/*/assets/*.{jpg,jpeg,png,gif,webp}",
+  { eager: true },
+);
+
+const {
+  thumbnail,
+  fileUrl,
+  class: className,
+  delay = "0ms",
+}: Props = Astro.props;
+
+const getImg =
+  allImages[`../${join(fileUrl.replace("/posts/", ""), "..", thumbnail)}`];
+---
+
+<div
+  class:list={["aspect-ratio-video w-full bg-black", className]}
+  style={{ "--delay": delay }}
+>
+  <img class="size-full" src={getImg.default.src} />
+</div>

@@ -1,0 +1,80 @@
+---
+import BaseLayout from "$layouts/base-layout.astro";
+import Nav from "$modules/nav/nav.astro";
+import Footer from "$modules/footer/footer.astro";
+import DecorationLines from "$modules/decorations/decoration-lines.astro";
+import Section from "$common/section.svelte";
+import type { MarkdownInstance } from "astro";
+import ArticleThumbnail from "./_components/article-thumbnail.astro";
+
+export interface PostFrontmatter {
+  id: string;
+  pathname: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  tags: string[];
+  postedAt: number;
+}
+
+const posts = Object.values(
+  import.meta.glob<MarkdownInstance<PostFrontmatter>>("./_posts/**/*.md", {
+    eager: true,
+  }),
+);
+
+const makeDelay = (idx: number, delay: number) => {
+  return `calc(var(--delay-posts) + ${delay + idx * 200}ms)`;
+};
+const makeDelayStyle = (idx: number, delay: number = 0) => {
+  return `--delay: ${makeDelay(idx, delay)};`;
+};
+---
+
+<BaseLayout>
+  <DecorationLines />
+
+  <Nav />
+
+  <main
+    class="w-content max-x545:px-4 mx-auto grid min-h-screen content-start gap-14 pt-[calc(var(--spacing-nav)+3rem)] pb-32"
+  >
+    <Section
+      id="posts"
+      ariaLabel="My posts"
+      title="Posts"
+      class="delay-posts-0"
+    >
+      <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+        {
+          posts.map((post, idx) => (
+            <li>
+              <a href={`/posts/${post.frontmatter.pathname}`}>
+                <p
+                  class="animate-top-slide-in delay-proj-prev mb-1 w-full text-center text-lg font-medium"
+                  style={makeDelayStyle(idx, 50)}
+                >
+                  {post.frontmatter.title}
+                </p>
+                <ArticleThumbnail
+                  class="animate-center-scale-in"
+                  thumbnail={post.frontmatter.thumbnail}
+                  fileUrl={post.url ?? ""}
+                  delay={makeDelay(idx, 100)}
+                />
+                <p
+                  class="text-primary-300 animate-top-slide-in w-95% mx-auto mt-2 text-justify text-sm"
+                  style={makeDelayStyle(idx, 150)}
+                >
+                  {post.frontmatter.description}
+                </p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
+  </main>
+
+  <Footer />
+</BaseLayout>

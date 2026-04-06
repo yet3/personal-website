@@ -18,6 +18,10 @@
       href: "/projects",
     },
     {
+      label: "Posts",
+      href: "/posts",
+    },
+    {
       label: "Resume",
       href: "/cv.pdf",
     },
@@ -45,17 +49,17 @@
 </script>
 
 <nav bind:this={menuEl}>
-  <Button size={BtnSize.Sm} class="sm:hidden" onClick={() => (isOpen = !isOpen)}
+  <Button size={BtnSize.Sm} class="md:hidden" onClick={() => (isOpen = !isOpen)}
     >MENU</Button
   >
 
   <ul
     class={{
-      "grid items-center gap-4 max-sm:justify-center sm:gap-8": true,
-      "grid-flow-row sm:grid-flow-col-dense": true,
-      "max-sm:(grid bg-base clip-ribbon-0-0-45 border-primary ribbon-border-br-1 ribbon-border-primary py-2) absolute top-full right-1 w-48 border":
+      "grid items-center gap-4 max-md:justify-center md:gap-8": true,
+      "grid-flow-row md:grid-flow-col-dense": true,
+      "max-md:(grid bg-base clip-ribbon-0-0-45 border-primary ribbon-border-br-1 ribbon-border-primary py-2) absolute top-full right-1 w-48 border":
         isOpen,
-      "max-sm:hidden": !isOpen,
+      "max-md:hidden": !isOpen,
     }}
   >
     {#each OPTIONS as el}

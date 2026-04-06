@@ -1,0 +1,155 @@
+---
+import BaseLayout from "$layouts/base-layout.astro";
+import Nav from "$modules/nav/nav.astro";
+import Footer from "$modules/footer/footer.astro";
+import DecorationLines from "$modules/decorations/decoration-lines.astro";
+import type { MarkdownInstance } from "astro";
+import type { PostFrontmatter } from "./index.astro";
+import SkillBadge from "$common/skill-badge.svelte";
+import ArticleThumbnail from "./_components/article-thumbnail.astro";
+import CommentParagraph from "$common/comment-paragraph.svelte";
+
+export function getStaticPaths() {
+  const posts = Object.values(
+    import.meta.glob<MarkdownInstance<PostFrontmatter>>("./_posts/**/*.md", {
+      eager: true,
+    }),
+  );
+
+  return posts.map((el) => ({
+    params: {
+      pathname: el.frontmatter.pathname,
+    },
+    props: { post: el, file: el.file, url: el.url ?? "" },
+  }));
+}
+
+const { post, url } = Astro.props;
+
+const MONTH_YEAR_FORMAT = new Intl.DateTimeFormat("en-UK", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+});
+const date = MONTH_YEAR_FORMAT.format(new Date(Number(post.frontmatter.postedAt)));
+console.log(new Date().getTime(), post.frontmatter.postedAt)
+---
+
+<!-- text-accent -->
+<BaseLayout>
+  <DecorationLines />
+  <Nav />
+
+  <main
+    class="w-content max-x545:px-4 mx-auto min-h-screen pt-[calc(var(--spacing-nav)+3rem)] pb-32"
+  >
+    <div class="flex flex-col">
+      <span class="text-secondary text-sm">id: {post.frontmatter.id}</span>
+      <span class="text-secondary text-sm">{"<"}{date}{">"}</span>
+    </div>
+    <h2 class="text-3xl font-semibold">
+      {post.frontmatter.title}
+    </h2>
+    <p class="mt-2">
+      <CommentParagraph class="text-primary-300">
+        {post.frontmatter.description}
+      </CommentParagraph>
+    </p>
+
+    <ul class="mt-3 flex flex-wrap gap-1" aria-label="Article's tags">
+      {
+        post.frontmatter.tags.map((tag) => (
+          <li class="bg-primary">
+            <SkillBadge label={tag} />
+          </li>
+        ))
+      }
+    </ul>
+
+    <ArticleThumbnail
+      class="mt-4"
+      thumbnail={post.frontmatter.thumbnail}
+      fileUrl={url}
+    />
+
+    <div class="post-content">
+      <post.Content />
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  .post-content {
+    --uno: "text-primary text-md";
+
+    ul + h2,
+    p + h2 {
+      --uno: "mt-8";
+    }
+
+    p + ul,
+    p + ol,
+    ul + p,
+    ol + p,
+    p + p {
+      --uno: "mt-4";
+    }
+
+    p + pre {
+      --uno: "mt-2";
+    }
+
+    pre + p {
+      --uno: "mt-4";
+    }
+
+    ul {
+      --uno: "ml-6";
+      li {
+        &::marker {
+          content: "- ";
+        }
+      }
+    }
+
+    ol,
+    ul {
+      --uno: "grid content-start gap-0.5";
+      li {
+        --uno: "marker:text-secondary-200";
+      }
+    }
+
+    ol {
+      --uno: "ml-10";
+      list-style-type: decimal-leading-zero;
+    }
+
+    h2 {
+      --uno: "text-2xl font-semibold -translate-x-1 mb-1";
+
+      &::before {
+        content: ":";
+      }
+    }
+
+    pre {
+      --uno: "p-4";
+    }
+
+    a {
+      --uno: "text-accent";
+
+      &::before {
+        --uno: "text-secondary";
+        content: "[";
+      }
+      &::after {
+        --uno: "text-secondary";
+        content: "]";
+      }
+    }
+  }
+</style>

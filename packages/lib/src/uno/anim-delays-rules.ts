@@ -64,4 +64,14 @@ export const animDelaysRules: Rule<Theme>[] = [
       }),
       { autocomplete: "delay-projects-<num>" },
     ],
+    //
+    //
+    // Posts
+    [
+      /^delay-posts-(\d+)$/,
+      ([, d]) => ({
+        "--delay": `calc(var(--delay-posts) + ${d}ms)`,
+      }),
+      { autocomplete: "delay-posts-<num>" },
+    ],
 ]
