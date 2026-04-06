@@ -20,7 +20,7 @@ export const JOB_TITLE = "Full-Stack Developer";
 
 export const SELF_DESCIRPTION = {
   THIRD_PERSON_SHORT: `${FULL_NAME} is a full-stack developer from Poland that loves creating highly interactive applications, useful tools or just fun projects`,
-  SHORT: `I'm a developer from Poland who enjoys building highly interactive applications, whether they're practical tools or just fun projects. Outside of programming, I love reading sci-fi and fantasy books. I'm always listening to something, and I enjoy both coffee and tea.`,
+  SHORT: `I'm a developer from Poland who enjoys building highly interactive applications, whether they're practical tools or just fun projects. Outside of programming, I love reading sci-fi and fantasy books and I'm always listening to something.`,
   FULL: [
     "I'm a developer from Poland who enjoys building highly interactive applications, whether they're practical tools or just fun projects. I particularly enjoy working on visual/text text editors. Recently, I’ve been exploring other languages like Go, Rust and Zig, doing recreational programming and playing around with SDL3.",
     "Previously, I’ve worked on ERP system for small local recycling/manufacturing plant, scheduling/management system for a dental clinic, and an editor/AI generator for presentations/pitch decks.",
