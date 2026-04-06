@@ -4,13 +4,23 @@ import "virtual:uno.css";
 import "$styles/index.css";
 import { FULL_NAME, SELF_DESCIRPTION } from "@repo/content";
 
-export const TITLE = FULL_NAME;
-export const DESCRIPTION = SELF_DESCIRPTION.THIRD_PERSON_SHORT;
+interface Props {
+  title?: string;
+  description?: string;
+}
 
-export const LANGUAGE = "English";
-export const LOCALE = "en_US";
-export const URL = "https://www.maxkasperowicz.com/";
-export const COVER_IMG = "/cover.png";
+const { title, description } = Astro.props;
+
+const titleParts: string[] = [FULL_NAME];
+if (title) titleParts.unshift(title);
+
+const TITLE = titleParts.join(" | ");
+const DESCRIPTION = description ?? SELF_DESCIRPTION.THIRD_PERSON_SHORT;
+
+const LANGUAGE = "English";
+const LOCALE = "en_US";
+const URL = "https://www.maxkasperowicz.com/";
+const COVER_IMG = "/cover.png";
 ---
 
 <!doctype html>
@@ -20,7 +30,6 @@ export const COVER_IMG = "/cover.png";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <Font cssVariable="--font-primary" preload />
-
 
     <link
       rel="apple-touch-icon"

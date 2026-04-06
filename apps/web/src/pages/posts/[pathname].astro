@@ -36,7 +36,7 @@ console.log(new Date().getTime(), post.frontmatter.postedAt)
 ---
 
 <!-- text-accent -->
-<BaseLayout>
+<BaseLayout title={post.frontmatter.title} description={post.frontmatter.description}>
   <DecorationLines />
   <Nav />
 
@@ -150,6 +150,10 @@ console.log(new Date().getTime(), post.frontmatter.postedAt)
         --uno: "text-secondary";
         content: "]";
       }
+    }
+
+    br + * {
+      --uno: "mt-2";
     }
   }
 </style>
