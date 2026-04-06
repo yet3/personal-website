@@ -4,7 +4,7 @@ pathname: pixelated-canvas
 title: Pixelated Canvas
 description: A implementation guide of pixelation effect with HTML Canvas
 thumbnail: ./assets/thumbnail.gif
-postedAt: 1775492619187 
+postedAt: 1775492619187
 tags:
   - canvas
   - javascript
@@ -55,6 +55,7 @@ Then, we scale it down (for example by: `5`), the higher the scale the higher th
 ctx.scale(1 / SCALE, 1 / SCALE);
 ctx.drawImage(canvas, 0, 0);
 ```
+
 ![First scale](./assets/first_scale.png)
 
 Then, we do the same thing again, but this time we scale it up by the same value as we scaled it down by (we used 5 earlier), basically we're resetting the scale.
@@ -64,6 +65,7 @@ The first time we drew the canvas it was drawn with its own dimensions (384x216)
 ctx.scale(SCALE, SCALE); // we could also do ctx.resetTransform() here instead
 ctx.drawImage(canvas, 0, 0, canvas.width * SCALE, canvas.height * SCALE);
 ```
+
 ![First scale](./assets/stretched.png)
 
 And that's it, anything we draw before this code will be pixelated. If we want to then render something at higher resolution, we just re-enable image smoothing and draw afterward.
@@ -106,7 +108,9 @@ ctx.rotate(Math.PI / 4);
 ctx.fillRect(-50, -50, 100, 100);
 ```
 
-Here's what we should get
+<br>
+
+Here's what we should get. You can see inspect it more closely on [Codepen](https://codepen.io/editor/yet-3/pen/019d5ed5-4219-76d1-8bf4-99fb64d002f8)
 ![First scale](./assets/result.png)
 
 ## Summary
