@@ -3,6 +3,7 @@ export enum SkillCategory {
   "Lib" = "libs_and_frameworkds",
   "Tools" = "tools_and_platforms",
   "Database" = "database",
+  "Exploring" = "exploring"
 }
 
 export interface ISkill {
@@ -65,13 +66,13 @@ export const SKILLS = Object.freeze({
     label: "Go",
     href: "https://go.dev/",
     showInCv: true,
-    category: SkillCategory.Lang,
+    category: SkillCategory.Exploring,
   },
   Rust: {
     label: "Rust",
     href: "https://rust-lang.org/",
-    showInCv: false,
-    category: SkillCategory.Lang,
+    showInCv: true,
+    category: SkillCategory.Exploring,
   },
   React: {
     label: "React",

@@ -15,6 +15,7 @@
       [SkillCategory.Database]: [],
       [SkillCategory.Lib]: [],
       [SkillCategory.Tools]: [],
+      [SkillCategory.Exploring]: [],
     };
     for (const skill of skills) {
       tmp[skill.category].push(skill);
@@ -40,5 +41,6 @@
     {@render section("Databases", SkillCategory.Database)}
     {@render section("Frameworks & Libraries", SkillCategory.Lib)}
     {@render section("Tools & Platforms", SkillCategory.Tools)}
+    {@render section("Exploring", SkillCategory.Exploring)}
   </ul>
 </Section>
