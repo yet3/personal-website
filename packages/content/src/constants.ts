@@ -24,6 +24,6 @@ export const SELF_DESCIRPTION = {
   FULL: [
     "I'm a developer from Poland who enjoys building highly interactive applications, whether they're practical tools or just fun projects. I particularly enjoy working on visual/text text editors. Recently, I’ve been exploring other languages like Go, Rust and Zig, doing recreational programming and playing around with SDL3.",
     "Previously, I’ve worked on ERP system for small local recycling/manufacturing plant, scheduling/management system for a dental clinic, and an editor/AI generator for presentations/pitch decks.",
-    "Outside of programming, I love reading sci-fi and fantasy books. I'm always listening to something I also enjoy both coffee and tea.",
+    "Outside of programming, I love reading sci-fi and fantasy books. I'm always listening to something and I also enjoy both coffee and tea.",
   ].join("\n"),
 };
