@@ -13,7 +13,7 @@
   class={["text-primary relative gap-1 overflow-hidden", className]}
   style="--delay: {delay}"
 >
-  <div class="absolute top-0 left-0 h-full">
+  <div class="absolute top-0 left-0 h-full pointer-events-none">
     <svg width="100%" height="100%">
       <defs>
         <pattern
