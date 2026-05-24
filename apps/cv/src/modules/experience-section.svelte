@@ -36,9 +36,12 @@
             //
           </span>
           <span class="font-medium">[</span>
-          <a href={exp.website} target="_blank" class="font-medium text-accent">
+          <!-- <a href={exp.website} target="_blank" class="font-medium text-accent"> -->
+          <!--   {exp.at} -->
+          <!-- </a> -->
+          <span class="font-medium text-accent">
             {exp.at}
-          </a>
+          </span>
           <span class="font-medium">]</span>
         </div>
 
