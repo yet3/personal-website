@@ -32,7 +32,6 @@ const MONTH_YEAR_FORMAT = new Intl.DateTimeFormat("en-UK", {
   year: "numeric",
 });
 const date = MONTH_YEAR_FORMAT.format(new Date(Number(post.frontmatter.postedAt)));
-console.log(new Date().getTime(), post.frontmatter.postedAt)
 ---
 
 <!-- text-accent -->
