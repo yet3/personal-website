@@ -47,7 +47,7 @@ const makeDelayStyle = (idx: number, delay: number = 0) => {
     >
       <ul class="mt-6 grid gap-4 sm:grid-cols-2">
         {
-          posts.map((post, idx) => (
+          [...posts].reverse().map((post, idx) => (
             <li>
               <a href={`/posts/${post.frontmatter.pathname}`}>
                 <p
