@@ -11,7 +11,7 @@ export const CODEPEN = "codepen.io/yet-3";
 export const CODEPEN_URL = "https://codepen.io/yet-3";
 
 export const EMAIL = "kasperowicz.maksymilian@gmail.com";
-export const PHONE_NUMBER = "(+48) 530 663 183";
+export const PHONE_NUMBER = "+48 530 663 183";
 export const WEBSITE = "maxkasperowicz.com";
 export const WEBSITE_URL = "https://www.maxkasperowicz.com/";
 export const PROJECTS_URL = "https://www.maxkasperowicz.com/projects";
