@@ -18,7 +18,6 @@ export default defineProject("web-dev-tools", {
   title: "WebDevTools",
   appHref: "https://web-dev-tools-alpha.vercel.app/",
   showInFooter: true,
-  showInCv: true,
   skills: SKILLS,
   images: await getProjectImages(__dirname),
   contentBlocks: ["A collection of useful tools for developers."],
