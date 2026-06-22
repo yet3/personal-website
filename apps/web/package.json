@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && cp ../cv/cv-output/cv.pdf ./dist",
+    "build": "astro build && cp ../cv/cv-output/Maksymilian_Kasperowicz_CV.pdf ./dist",
     "preview": "astro preview",
     "astro": "astro"
   },
