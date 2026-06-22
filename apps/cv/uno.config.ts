@@ -34,6 +34,14 @@ export default mergeConfigs([
             "sec-h1": makeSize("size-sec-h1"),
             "sec-h2": makeSize("size-sec-h2"),
             "sec-h3": makeSize("size-sec-h3"),
+            //
+            "resume-name": makeSize("size-resume-name"),
+            "resume-subname": makeSize("size-resume-subname"),
+            //
+            "resume-heading": makeSize("size-resume-heading"),
+            "resume-title": makeSize("size-resume-title", "1.3"),
+            "resume-body": makeSize("size-resume-body", "1.3"),
+            "resume-meta": makeSize("size-resume-meta"),
           },
         };
       },

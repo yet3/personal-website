@@ -19,7 +19,6 @@ export default defineConfig({
         }
       },
     },
-    
   ],
   css: {
     transformer: "lightningcss",

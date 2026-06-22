@@ -5,7 +5,6 @@
   import { FULL_NAME } from "@repo/content";
   import HeaderSection from "$modules/header-section.svelte";
   import AboutSection from "$modules/about-section.svelte";
-  import LanguagesSection from "$modules/languages-section.svelte";
   import SkillsSection from "$modules/skills-section.svelte";
   import PetProjectsSection from "$modules/pet-projects-section.svelte";
   import ExperienceSection from "$modules/experience-section.svelte";
@@ -20,22 +19,14 @@
   <title>{TITLE}</title>
 </svelte:head>
 
-<main class="flex flex-col">
-  <div class="main-grid">
-    <HeaderSection />
-    <SocialsScection />
-  </div>
+<main class="flex flex-col gap-4">
+  <HeaderSection />
+  <SocialsScection />
 
-  <div class="main-grid mt-8">
-    <div class="grid content-start gap-sections">
-      <AboutSection />
-      <ExperienceSection experience={data.experience} />
-    </div>
+  <AboutSection />
+  <SkillsSection skills={data.skills}/>
 
-    <div class="grid content-start gap-sections">
-      <LanguagesSection />
-      <SkillsSection skills={data.skills} />
-      <PetProjectsSection projects={data.projects} />
-    </div>
-  </div>
+  <ExperienceSection experience={data.experience} />
+
+  <PetProjectsSection projects={data.projects} />
 </main>

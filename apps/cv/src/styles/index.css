@@ -1,12 +1,13 @@
 @import "@unocss/reset/tailwind-v4.css";
+@import "./font.css";
 
 :root {
   --columns-gap: 32px;
   --sections-gap: 20px;
   --skills-gap: 3px;
 
-  --size-h1: 30px;
-  --size-h2: 24px;
+  --size-h1: 26px;
+  --size-h2: 18px;
   --size-head-info: 13px;
 
   --size-skill: 11px;
@@ -15,18 +16,38 @@
   --size-sec-h2: 15px;
   --size-sec-h3: 11.5px;
   --size-content: 12.5px;
+
+
+  --size-resume-name: 20pt;     /* name/header */
+  --size-resume-subname: 14pt;     
+
+  --size-resume-heading: 13pt;  /* section headings */
+  --size-resume-title: 11pt;    /* job titles/companies */
+  --size-resume-body: 10pt;     /* body/bullet text */
+  --size-resume-meta: 9pt;      /* dates, contact info */
 }
 
 html,
 body {
+  /* font-family: "IBM Plex Sans", sans-serif; */
   font-family: "Montserrat", sans-serif;
   background-color: black;
+}
+
+/* Inter, IBM Plex Sans, or Source Sans 3  */
+body,
+* {
+  font-variant-ligatures: none;
+  font-feature-settings:
+    "liga" 0,
+    "clig" 0,
+    "dlig" 0;
 }
 
 body {
   width: 21cm;
   height: 29.7cm;
-  padding: 36px 32px 0px;
+  padding: 24px;
 
   background-color: white;
   color: var(--colors-primary-DEFAULT);

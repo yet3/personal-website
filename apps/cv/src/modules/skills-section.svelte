@@ -1,7 +1,6 @@
 <script lang="ts">
   import Section from "$common/section.svelte";
-  import SkillBadge, { SkillBadeSize } from "$common/skill-badge.svelte";
-  import { SkillCategory, type ISkill } from "@repo/content";
+  import { CvSkillCategory, type ISkill } from "@repo/content";
 
   interface IProps {
     skills: ISkill[];
@@ -10,37 +9,37 @@
   const { skills }: IProps = $props();
 
   const subSections = $derived.by(() => {
-    const tmp: Record<SkillCategory, ISkill[]> = {
-      [SkillCategory.Lang]: [],
-      [SkillCategory.Database]: [],
-      [SkillCategory.Lib]: [],
-      [SkillCategory.Tools]: [],
-      [SkillCategory.Exploring]: [],
+    const tmp: Record<CvSkillCategory, ISkill[]> = {
+      [CvSkillCategory.Lang]: [],
+      [CvSkillCategory.Core]: [],
+      [CvSkillCategory.Exploring]: [],
+      [CvSkillCategory.Other]: [],
     };
     for (const skill of skills) {
-      tmp[skill.category].push(skill);
+      if (skill.cvCategory) {
+        tmp[skill.cvCategory].push(skill);
+      }
     }
     return tmp;
   });
 </script>
 
-{#snippet section(title: string, category: SkillCategory)}
-  <li>
-    <p class="font-medium text-sec-h2 mb-1">{title}</p>
-    <ul class="flex flex-wrap gap-skills">
-      {#each subSections[category] as skill}
-        <SkillBadge label={skill.label} size={SkillBadeSize.Sm} />
-      {/each}
-    </ul>
+{#snippet section(title: string, category: CvSkillCategory)}
+  <li class="text-resume-body flex">
+    <p class="leading-[1.5]">
+      <b>{title}: </b>
+      <span>
+        {subSections[category].map((el) => el.label).join(", ")}
+      </span>
+    </p>
   </li>
 {/snippet}
 
 <Section title="Skills">
-  <ul class="flex flex-wrap gap-4">
-    {@render section("Programming Languages", SkillCategory.Lang)}
-    {@render section("Databases", SkillCategory.Database)}
-    {@render section("Frameworks & Libraries", SkillCategory.Lib)}
-    {@render section("Tools & Platforms", SkillCategory.Tools)}
-    {@render section("Exploring", SkillCategory.Exploring)}
+  <ul class="flex flex-col gap-0.25">
+    {@render section("Languages", CvSkillCategory.Lang)}
+    {@render section("Core", CvSkillCategory.Core)}
+    {@render section("Also working with", CvSkillCategory.Other)}
+    {@render section("Exploring", CvSkillCategory.Exploring)}
   </ul>
 </Section>

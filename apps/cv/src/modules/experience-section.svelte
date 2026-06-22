@@ -10,49 +10,37 @@
 </script>
 
 <Section title="Experience">
-  <ul class="grid content-start gap-8">
+  <ul class="grid content-start gap-2">
     {#each [...experience].reverse() as exp}
       <li>
-        <ol class="text-sec-h3 text-secondary grid content-start gap-1 mb-1">
-          {#each exp.dates as date, idx}
-            <li class="inline-flex">
-              {formatExperienceDates(date[0], date[1])}
-              {#if idx < exp.dates.length - 1}
-                <span>,</span>
-              {/if}
-            </li>
-          {/each}
-        </ol>
-        <div class="flex items-center text-sec-h2 font-medium mb-2">
-          <span class="mr-1">
-            {exp.position}
-          </span>
-          <span class="mr-1.5 ml-0.25">
-            <!-- {#if exp.isFreelance} -->
-            <!--   for -->
-            <!-- {:else} -->
-            <!--   at -->
-            <!-- {/if} -->
-            //
-          </span>
-          <span class="font-medium">[</span>
-          <!-- <a href={exp.website} target="_blank" class="font-medium text-accent"> -->
-          <!--   {exp.at} -->
-          <!-- </a> -->
-          <span class="font-medium text-accent">
-            {exp.at}
-          </span>
-          <span class="font-medium">]</span>
+        <div class="flex items-center mb-1">
+          <h3 class="flex items-center text-resume-title">
+            <span class="font-semibold">
+              {exp.position}
+            </span>
+            <span class="whitespace-pre">{" - "}</span>
+            <span class="italic">
+              {exp.at}
+            </span>
+          </h3>
+          <ol class="text-resume-meta text-secondary flex items-center ml-auto text-right">
+            {#each exp.dates as date, idx}
+              <li class="inline-flex">
+                {formatExperienceDates(date[0], date[1])}
+                {#if idx < exp.dates.length - 1}
+                  <span class="whitespace-pre">{" & "}</span>
+                {/if}
+              </li>
+            {/each}
+          </ol>
         </div>
 
-        <ol class="text-content grid content-start gap-1">
+        <ol
+          class="text-resume-body grid content-start gap-1 list-disc marker:text-secondary pl-4"
+        >
           {#each exp.contentBlocks as block}
-            <li class="content-block grid grid-cols-[auto_1fr] gap-1 ml-1.5">
-              <span>-</span>
-              <p>
-
+            <li>
               {block}
-              </p>
             </li>
           {/each}
         </ol>

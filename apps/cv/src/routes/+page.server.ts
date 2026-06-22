@@ -5,7 +5,7 @@ import type { PageLoad } from "./$types";
 export const load: PageLoad = async () => {
   return {
     experience: Object.values(EXPERIENCE),
-    skills: Object.values(SKILLS).filter((el) => (el as ISkill).showInCv),
+    skills: Object.values(SKILLS).filter((el) => (el as ISkill).cvCategory),
     projects: Object.values(PROJECTS).filter((el) => (el as IProject).showInCv),
   };
 };

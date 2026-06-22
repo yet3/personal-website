@@ -4,7 +4,7 @@
   import { FULL_NAME, JOB_TITLE } from "@repo/content";
 </script>
 
-<section>
-  <h1 class="font-semibold text-h1">{FULL_NAME}</h1>
-  <h2 class="font-semibold text-h2 mt-3 text-primary-200">{JOB_TITLE}</h2>
+<section class="flex items-center font-semibold text-resume-name">
+  <h1 class="font-semibold text-resume-name">{FULL_NAME}</h1>
+  <h2 class="ml-auto font-medium italic text-resume-subname text-secondary">{JOB_TITLE}</h2>
 </section>

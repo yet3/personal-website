@@ -18,71 +18,80 @@ let previewServer: PreviewServer | null = null;
 let browser: Browser | null = null;
 
 const main = async () => {
-	try {
-		previewServer = await preview();
-		const previewUrl = previewServer.resolvedUrls?.local[0];
-		console.log("Generating cv.pdf to", CV_OUTPUT_DIR);
+  try {
+    previewServer = await preview();
+    const previewUrl = previewServer.resolvedUrls?.local[0];
+    console.log("Generating cv.pdf to", CV_OUTPUT_DIR);
 
-		if (!previewUrl) {
-			console.log(
-				"Failed to resolve preview url while generating cv.pdf to",
-				CV_OUTPUT_DIR,
-			);
-			return;
-		}
+    if (!previewUrl) {
+      console.log(
+        "Failed to resolve preview url while generating cv.pdf to",
+        CV_OUTPUT_DIR,
+      );
+      return;
+    }
 
-		browser = await puppeteer.launch();
-		const page = await browser.newPage();
+    browser = await puppeteer.launch({
+      headless: true,
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--no-zygote",
+      ],
+    });
+    const page = await browser.newPage();
 
-		await page.goto(previewUrl, {
-			waitUntil: ["domcontentloaded", "networkidle2"],
-		});
+    await page.goto(previewUrl, {
+      waitUntil: ["domcontentloaded", "networkidle2"],
+    });
 
-		const pdfData = await page.pdf({
-			printBackground: true,
-			margin: {
-				top: 0,
-				bottom: 0,
-				left: 0,
-				right: 0,
-			},
-			scale: 1,
-			format: "a4",
-			displayHeaderFooter: false,
-		});
+    const pdfData = await page.pdf({
+      printBackground: true,
+      margin: {
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+      },
+      scale: 1,
+      format: "a4",
+      displayHeaderFooter: false,
+    });
 
-		if (!existsSync(CV_OUTPUT_DIR)) {
-			await mkdir(CV_OUTPUT_DIR);
-		}
+    if (!existsSync(CV_OUTPUT_DIR)) {
+      await mkdir(CV_OUTPUT_DIR);
+    }
 
-		await Promise.all([writeFile(CV_PATH, pdfData)]);
+    await Promise.all([writeFile(CV_PATH, pdfData)]);
 
-		try {
-			console.log("Started optimizing pdf with ghostscript");
-			await runCmd(
-				`gs -sDEVICE=pdfwrite -dCompatibilityLevel=2 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${CV_COMPRSSED_PATH} ${CV_PATH}`,
-			);
+    try {
+      console.log("Started optimizing pdf with ghostscript");
+      await runCmd(
+        `gs -sDEVICE=pdfwrite -dCompatibilityLevel=2 -dPDFSETTINGS=/prepress -dEmbedAllFonts=true -dSubsetFonts=false -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${CV_COMPRSSED_PATH} ${CV_PATH}`,
+      );
 
-			await runCmd(`mv -f ${CV_COMPRSSED_PATH} ${CV_PATH}`);
+      await runCmd(`mv -f ${CV_COMPRSSED_PATH} ${CV_PATH}`);
 
-			console.log("Finished optimizing pdf with ghostscript");
-		} catch (e) {
-			console.log(e);
-		}
+      console.log("Finished optimizing pdf with ghostscript");
+    } catch (e) {
+      console.log(e);
+    }
 
-		console.log("Finished generating cv.pdf to", CV_OUTPUT_DIR);
-	} catch (e) {
-		console.log(e);
-	} finally {
-		await browser?.close();
-		await previewServer?.close();
-	}
+    console.log("Finished generating cv.pdf to", CV_OUTPUT_DIR);
+  } catch (e) {
+    console.log(e);
+  } finally {
+    await browser?.close();
+    await previewServer?.close();
+  }
 };
 
 await main();
 
 process.on("SIGINT", () => {
-	browser?.close();
-	previewServer?.close();
-	process.exit(0);
+  browser?.close();
+  previewServer?.close();
+  process.exit(0);
 });
