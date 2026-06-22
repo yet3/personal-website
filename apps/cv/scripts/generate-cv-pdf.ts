@@ -6,10 +6,12 @@ import { join } from "node:path";
 import { promisify } from "node:util";
 import puppeteer, { type Browser } from "puppeteer";
 import { type PreviewServer, preview } from "vite";
+import { CV_PDF_BASENAME } from "@repo/content";
 
 const CV_OUTPUT_DIR = "./cv-output";
 
 const CV_PATH = join(CV_OUTPUT_DIR, "cv.pdf");
+const FINAL_CV_PATH = join(CV_OUTPUT_DIR, CV_PDF_BASENAME);
 const CV_COMPRSSED_PATH = join(CV_OUTPUT_DIR, "cv_compressed.pdf");
 
 const runCmd = promisify(exec);
@@ -21,11 +23,11 @@ const main = async () => {
   try {
     previewServer = await preview();
     const previewUrl = previewServer.resolvedUrls?.local[0];
-    console.log("Generating cv.pdf to", CV_OUTPUT_DIR);
+    console.log("Generating CV to", CV_OUTPUT_DIR);
 
     if (!previewUrl) {
       console.log(
-        "Failed to resolve preview url while generating cv.pdf to",
+        "Failed to resolve preview url while generating CV to",
         CV_OUTPUT_DIR,
       );
       return;
@@ -72,14 +74,16 @@ const main = async () => {
         `gs -sDEVICE=pdfwrite -dCompatibilityLevel=2 -dPDFSETTINGS=/prepress -dEmbedAllFonts=true -dSubsetFonts=false -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${CV_COMPRSSED_PATH} ${CV_PATH}`,
       );
 
-      await runCmd(`mv -f ${CV_COMPRSSED_PATH} ${CV_PATH}`);
+      await runCmd(`rm -f ${CV_PATH}`);
+      await runCmd(`mv -f ${CV_COMPRSSED_PATH} ${FINAL_CV_PATH}`);
+      console.log((await runCmd(`pdffonts ${FINAL_CV_PATH}`)).stdout);
 
       console.log("Finished optimizing pdf with ghostscript");
     } catch (e) {
       console.log(e);
     }
 
-    console.log("Finished generating cv.pdf to", CV_OUTPUT_DIR);
+    console.log("Finished generating CV to", FINAL_CV_PATH);
   } catch (e) {
     console.log(e);
   } finally {

@@ -7,6 +7,7 @@ export const GITHUB_URL = "https://github.com/yet3";
 export const GITHUB_REPOS_URL = `${GITHUB_URL}?tab=repositories`;
 export const SELF_REPO_URL = "https://github.com/yet3/personal-website";
 
+export const CV_PDF_BASENAME = "Maksymilian_Kasperowicz_CV.pdf";
 export const CODEPEN = "codepen.io/yet-3";
 export const CODEPEN_URL = "https://codepen.io/yet-3";
 

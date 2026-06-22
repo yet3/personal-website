@@ -1,6 +1,6 @@
 <script lang="ts">
   import Button, { BtnSize } from "$common/button.svelte";
-  import { SELF_REPO_URL } from "@repo/content";
+  import { CV_PDF_BASENAME, SELF_REPO_URL } from "@repo/content";
   import { onMount } from "svelte";
 
   interface IOpt {
@@ -23,7 +23,7 @@
     },
     {
       label: "Resume",
-      href: "/cv.pdf",
+      href: `/${CV_PDF_BASENAME}`,
     },
     {
       label: "Repo",

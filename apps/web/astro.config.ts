@@ -7,6 +7,7 @@ import svelte from "@astrojs/svelte";
 import timedAnim from "@yet3/lightningcss-timed-anim-plugin";
 import { composeVisitors } from "lightningcss";
 import path from "node:path";
+import { CV_PDF_BASENAME } from "../../packages/content/src";
 
 // https://astro.build/config
 export default defineConfig({
@@ -60,9 +61,9 @@ export default defineConfig({
 
   output: "static",
   redirects: {
-    "/cv": "/cv.pdf",
-    "/resume": "/cv.pdf",
-    "/resume.pdf": "/cv.pdf",
+    "/cv": `/${CV_PDF_BASENAME}`,
+    "/resume": `/${CV_PDF_BASENAME}`,
+    "/resume.pdf": `/${CV_PDF_BASENAME}`,
     "/experience": "/#experience",
   },
   experimental: {
@@ -80,4 +81,3 @@ export default defineConfig({
 
   integrations: [svelte()],
 });
-
