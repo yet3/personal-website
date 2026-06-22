@@ -3,6 +3,7 @@ import { Font } from "astro:assets";
 import "virtual:uno.css";
 import "$styles/index.css";
 import { FULL_NAME, SELF_DESCIRPTION } from "@repo/content";
+import {version} from "../../package.json"
 
 interface Props {
   title?: string;
@@ -73,5 +74,7 @@ const COVER_IMG = "/cover.png";
   </head>
   <body>
     <slot />
+    <div class="max-lg:hidden fixed bottom-2 right-6 text-sm delay-page-800 animate-blink-in">[ _VER {version} ]</div>
   </body>
+
 </html>
