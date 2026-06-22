@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "^25.3.0",
-    "@yet3/lightningcss-timed-anim-plugin": "^1.0.1",
+    "@yet3/lightningcss-timed-anim-plugin": "^1.0.2",
     "fast-glob": "^3.3.3",
     "lightningcss": "^1.31.1",
     "prettier-plugin-astro": "^0.14.1",

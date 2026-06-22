@@ -39,7 +39,7 @@
     },
     "apps/web": {
       "name": "web",
-      "version": "0.0.1",
+      "version": "1.2.7",
       "dependencies": {
         "@astrojs/check": "^0.9.6",
         "@astrojs/svelte": "^7.2.5",
@@ -54,7 +54,7 @@
       },
       "devDependencies": {
         "@types/node": "^25.3.0",
-        "@yet3/lightningcss-timed-anim-plugin": "^1.0.1",
+        "@yet3/lightningcss-timed-anim-plugin": "^1.0.2",
         "fast-glob": "^3.3.3",
         "lightningcss": "^1.31.1",
         "prettier-plugin-astro": "^0.14.1",
@@ -492,7 +492,7 @@
 
     "@vscode/l10n": ["@vscode/l10n@0.0.18", "", {}, "sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ=="],
 
-    "@yet3/lightningcss-timed-anim-plugin": ["@yet3/lightningcss-timed-anim-plugin@1.0.1", "", { "peerDependencies": { "lightningcss": "^1.31.1" } }, "sha512-kgTLQ4eudxNcIJebxaMutuKib3PN3F1Ww4QOYSf/Aru+0Yp/vo9k8DtEVmXQOJV+kF19+5XHg4aY5PPwz7R86w=="],
+    "@yet3/lightningcss-timed-anim-plugin": ["@yet3/lightningcss-timed-anim-plugin@1.0.2", "", { "peerDependencies": { "lightningcss": "^1.31.1" } }, "sha512-ukn8CcPrsF/6vMrqSl3LU6xTmkkhYo0XBgVqDY2MCyvmFImW80YELtQE9SC1fqNg4E916QZBQFbQHkXo1D6MEQ=="],
 
     "acorn": ["acorn@8.17.0", "", { "bin": { "acorn": "bin/acorn" } }, "sha512-xRQbDb9BnwDafYNn6Vwl839DYVjqXYb1XVGtWAZ1kcDc6iwAL4hg3B1dZlRiuENFeO2H53gFG3in621AdERVAg=="],
 
