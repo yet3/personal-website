@@ -2,22 +2,6 @@
 @import "./font.css";
 
 :root {
-  --columns-gap: 32px;
-  --sections-gap: 20px;
-  --skills-gap: 3px;
-
-  --size-h1: 26px;
-  --size-h2: 18px;
-  --size-head-info: 13px;
-
-  --size-skill: 11px;
-
-  --size-sec-h1: 16.5px;
-  --size-sec-h2: 15px;
-  --size-sec-h3: 11.5px;
-  --size-content: 12.5px;
-
-
   --size-resume-name: 20pt;     /* name/header */
   --size-resume-subname: 14pt;     
 
