@@ -50,9 +50,9 @@
 >
   <ul class="grid gap-4 sm:grid-cols-2">
     {@render section("Programming Languages", SkillCategory.Lang, 0)}
-    {@render section("Exploring", SkillCategory.Exploring, 4)}
+    {@render section("Exploring", SkillCategory.Exploring, 1)}
     {@render section("Frameworks & Libraries", SkillCategory.Lib, 2)}
     {@render section("Tools & Platforms", SkillCategory.Tools, 3)}
-    {@render section("Databases", SkillCategory.Database, 1)}
+    {@render section("Databases", SkillCategory.Database, 4)}
   </ul>
 </Section>
