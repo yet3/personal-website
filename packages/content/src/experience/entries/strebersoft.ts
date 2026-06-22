@@ -38,9 +38,9 @@ export default defineExperience("STREBER SOFT", {
   description:
     "Full-stack development of ERP systems and business apps across manufacturing and healthcare, spanning web, desktop, and mobile platforms.",
   contentBlocks: [
-    "Collaborated with senior developers/dev-ops/product managers on ERP systems for manufacturing plants (plastic recycling and metal production).",
-    "Developed and maintained web, desktop, and mobile apps for production, quality, and shift management, including PDF/XLSX report generation.",
+    "Built ERP systems for plastic recycling and metal production plants, partnering with a senior developer who covered DevOps and product.",
+    "Maintained web, desktop, and mobile apps for production, quality, and shift management, including PDF and XLSX report generation.",
     "Extended ERP functionality for a metal manufacturing plant, focusing on product ordering and user-driven feature improvements.",
-    "Built a responsive appointment scheduling web app for a doctor, featuring a flexible schedule manager, PDF generation, and automated email notifications.",
+    "Developed a responsive scheduling web app for a doctor's practice, with a flexible schedule manager, PDF generation, and automated email notifications.",
   ],
 });

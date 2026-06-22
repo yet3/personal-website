@@ -39,9 +39,9 @@ export default defineExperience("Storydoc", {
   description:
     "Full-stack development of an AI-powered presentation SaaS, contributing core features, performance optimization, and internal tooling within a global team.",
   contentBlocks: [
-    "Collaborated with a global team (developers, UI/UX/story designers, product managers) to build an AI-powered presentation SaaS.",
-    "Developed core features: interactive WYSIWYG rich text editor, AI integrations, custom slide components, and PDF generation (using Puppeteer).",
-    "Optimized product performance and led bug triage/fixing efforts.",
-    "Built internal tools to test and refine AI-driven functionalities.",
+    "Worked with a global team of developers, designers, and product managers to build an AI-powered presentation SaaS platform.",
+    "Delivered core product features, including an interactive WYSIWYG rich text editor, AI integrations, custom slide components, and PDF generation with Puppeteer.",
+    "Improved product performance and led bug-fixing efforts.",
+    "Created internal tools to test and refine AI-driven functionality."
   ],
 });
