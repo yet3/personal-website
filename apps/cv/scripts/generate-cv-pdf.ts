@@ -6,7 +6,14 @@ import { join } from "node:path";
 import { promisify } from "node:util";
 import puppeteer, { type Browser } from "puppeteer";
 import { type PreviewServer, preview } from "vite";
-import { CV_PDF_BASENAME } from "@repo/content";
+import {
+  CV_PDF_BASENAME,
+  CvSkillCategory,
+  FULL_NAME,
+  JOB_TITLE,
+  SKILLS,
+} from "@repo/content";
+import { run } from "node:test";
 
 const CV_OUTPUT_DIR = "./cv-output";
 
@@ -76,7 +83,18 @@ const main = async () => {
 
       await runCmd(`rm -f ${CV_PATH}`);
       await runCmd(`mv -f ${CV_COMPRSSED_PATH} ${FINAL_CV_PATH}`);
-      console.log((await runCmd(`pdffonts ${FINAL_CV_PATH}`)).stdout);
+
+      const LANGS_STR = Object.values(SKILLS)
+        .filter((el) => el.cvCategory === CvSkillCategory.Lang)
+        .map((el) => el.label)
+        .join(", ");
+      const CORE_SKILLS_STR = Object.values(SKILLS)
+        .filter((el) => el.cvCategory === CvSkillCategory.Core)
+        .map((el) => el.label)
+        .join(", ");
+      await runCmd(
+        `exiftool -overwrite_original -Author="${FULL_NAME}" -Title="CV - ${FULL_NAME}" -Subject="CV - ${FULL_NAME} - ${JOB_TITLE}" -Keywords="${JOB_TITLE}, ${LANGS_STR}, ${CORE_SKILLS_STR}" -CreatorTool="Chrome" ${FINAL_CV_PATH}`,
+      );
 
       console.log("Finished optimizing pdf with ghostscript");
     } catch (e) {
@@ -84,6 +102,9 @@ const main = async () => {
     }
 
     console.log("Finished generating CV to", FINAL_CV_PATH);
+
+    console.log((await runCmd(`pdffonts ${FINAL_CV_PATH}`)).stdout);
+    console.log((await runCmd(`exiftool ${FINAL_CV_PATH}`)).stdout);
   } catch (e) {
     console.log(e);
   } finally {
