@@ -3,201 +3,218 @@ export enum SkillCategory {
   "Lib" = "libs_and_frameworkds",
   "Tools" = "tools_and_platforms",
   "Database" = "database",
-  "Exploring" = "exploring"
+  "Exploring" = "exploring",
+}
+
+export enum CvSkillCategory {
+  Lang = "language",
+  Core = "Core",
+  Other = "Other",
+  Exploring = "exploring",
 }
 
 export interface ISkill {
   label: string;
   href?: string;
-  showInCv?: boolean;
-  category: SkillCategory;
+  category?: SkillCategory;
+  cvCategory?: CvSkillCategory;
 }
 
-export const SKILLS = Object.freeze({
+export const SKILLS: Record<string, ISkill> = Object.freeze({
+  Polish: {
+    label: "Polish",
+    cvCategory: CvSkillCategory.Lang,
+    category: SkillCategory.Lang,
+  },
+  English: {
+    label: "English",
+    cvCategory: CvSkillCategory.Lang,
+    category: SkillCategory.Lang,
+  },
   JavaScript: {
     label: "JavaScript",
     href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    showInCv: true,
     category: SkillCategory.Lang,
   },
   TypesSript: {
     label: "TypeScript",
     href: "https://www.typescriptlang.org/",
-    showInCv: true,
     category: SkillCategory.Lang,
+  },
+  "JS/TS": {
+    label: "JavaScript/TypeScript",
+    cvCategory: CvSkillCategory.Core,
   },
   Css: {
     label: "CSS",
     href: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-    showInCv: true,
     category: SkillCategory.Lang,
   },
   Scss: {
     label: "SCSS",
     href: "https://sass-lang.com/",
-    showInCv: true,
     category: SkillCategory.Lang,
   },
   Html: {
     label: "HTML",
     href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-    showInCv: true,
     category: SkillCategory.Lang,
+  },
+  HtmlCss: {
+    label: "HTML/CSS",
+    cvCategory: CvSkillCategory.Core,
   },
   StyledComponents: {
     label: "Styled Components",
     href: "https://styled-components.com/",
-    showInCv: true,
     category: SkillCategory.Lib,
   },
   TailwindCss: {
     label: "TailwindCSS",
     href: "https://tailwindcss.com/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Lib,
   },
   UnoCss: {
     label: "UnoCSS",
     href: "https://unocss.dev/",
-    showInCv: false,
     category: SkillCategory.Lib,
   },
   Go: {
     label: "Go",
     href: "https://go.dev/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Exploring,
     category: SkillCategory.Exploring,
   },
   Rust: {
     label: "Rust",
     href: "https://rust-lang.org/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Exploring,
     category: SkillCategory.Exploring,
   },
   React: {
     label: "React",
     href: "https://react.dev/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Core,
     category: SkillCategory.Lib,
   },
   ReactNative: {
     label: "React Native",
     href: "https://reactnative.dev/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Core,
     category: SkillCategory.Lib,
   },
   Expo: {
     label: "Expo",
     href: "https://expo.dev/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Tools,
   },
   Electron: {
     label: "Electron",
     href: "https://www.electronjs.org/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Lib,
   },
   Solidjs: {
-    label: "Solidjs",
+    label: "SolidJS",
     href: "https://www.solidjs.com/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Lib,
   },
   Svelte: {
     label: "Svelte",
     href: "https://svelte.dev/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Lib,
   },
   Astro: {
     label: "Astro",
     href: "https://astro.build/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Lib,
   },
   Nextjs: {
     label: "Next.js",
     href: "https://nextjs.org/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Core,
     category: SkillCategory.Lib,
   },
   SolidStart: {
     label: "SolidStart",
     href: "https://start.solidjs.com/",
-    showInCv: false,
     category: SkillCategory.Lib,
   },
   Vitest: {
     label: "Vitest",
     href: "https://vitest.dev/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Tools,
   },
   Puppeteer: {
     label: "Puppeteer",
     href: "https://pptr.dev/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Lib,
   },
   Nodejs: {
     label: "Node.js",
     href: "https://nodejs.org/en",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Core,
     category: SkillCategory.Tools,
   },
   Express: {
     label: "Express",
     href: "https://expressjs.com/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Core,
     category: SkillCategory.Lib,
   },
   PostgreSql: {
     label: "PostgreSQL",
     href: "https://www.postgresql.org/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Core,
     category: SkillCategory.Database,
   },
   Sqlite: {
     label: "SQLite",
     href: "https://www.sqlite.org/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Database,
   },
   Mongodb: {
     label: "MongoDB",
     href: "https://www.mongodb.com/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Core,
     category: SkillCategory.Database,
   },
   Vite: {
     label: "Vite",
     href: "https://vite.dev/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Tools,
   },
   Supabase: {
     label: "Supabase",
     href: "https://supabase.com/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Tools,
   },
   Firebase: {
     label: "Firebase",
     href: "https://firebase.google.com/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Tools,
   },
   Webpack: {
     label: "Webpack",
     href: "https://webpack.js.org/",
-    showInCv: false,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Tools,
   },
   Rsbuild: {
     label: "Rsbuild",
     href: "https://rsbuild.dev/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Tools,
   },
   Pnpm: {
@@ -223,67 +240,63 @@ export const SKILLS = Object.freeze({
   Vercel: {
     label: "Vercel",
     href: "https://vercel.com/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Tools,
   },
   Git: {
     label: "Git",
     href: "https://git-scm.com/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Core,
     category: SkillCategory.Tools,
   },
   GitHub: {
     label: "GitHub",
     href: "https://github.com/",
-    showInCv: true,
     category: SkillCategory.Tools,
   },
   Figma: {
     label: "Figma",
     href: "https://www.figma.com/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Tools,
   },
   Zustand: {
     label: "Zustand",
     href: "https://zustand-demo.pmnd.rs/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Lib,
   },
   Openai: {
     label: "OpenAI",
     href: "https://openai.com/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Tools,
   },
   Mixpanel: {
     label: "Mixpanel",
     href: "https://mixpanel.com/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Tools,
   },
   Monday: {
     label: "Monday",
     href: "https://monday.com/",
-    showInCv: false,
     category: SkillCategory.Tools,
   },
   ClickUp: {
     label: "ClickUp",
     href: "https://clickup.com/",
-    showInCv: false,
     category: SkillCategory.Tools,
   },
   Turborepo: {
     label: "Turborepo",
     href: "https://turborepo.com/",
-    showInCv: true,
+    cvCategory: CvSkillCategory.Other,
     category: SkillCategory.Tools,
   },
   Svgo: {
     label: "SVGO",
     href: "https://github.com/svg/svgo",
-    showInCv: false,
     category: SkillCategory.Tools,
   },
   Raylib: {
@@ -294,13 +307,11 @@ export const SKILLS = Object.freeze({
   Raygui: {
     label: "RayGUI",
     href: "https://github.com/raysan5/raygui",
-    showInCv: false,
     category: SkillCategory.Lib,
   },
   SerwerSms: {
     label: "SerwerSMS",
     href: "https://serwersms.pl/",
-    showInCv: false,
     category: SkillCategory.Tools,
   },
 } satisfies Record<string, ISkill>);

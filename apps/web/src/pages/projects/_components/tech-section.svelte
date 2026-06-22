@@ -3,7 +3,7 @@
   import SkillBadge from "$common/skill-badge.svelte";
   import { SkillCategory, SKILLS, type ISkill } from "@repo/content";
 
-  const skills = Object.values(SKILLS).filter((el) => (el as ISkill).showInCv);
+  const skills = Object.values(SKILLS).filter((el) => (el as ISkill).category);
 
   const subSections = $derived.by(() => {
     const tmp: Record<SkillCategory, ISkill[]> = {
@@ -13,8 +13,11 @@
       [SkillCategory.Tools]: [],
       [SkillCategory.Exploring]: [],
     };
+
     for (const skill of skills) {
-      tmp[skill.category].push(skill);
+      if (skill.category) {
+        tmp[skill.category].push(skill);
+      }
     }
     return tmp;
   });
@@ -28,8 +31,8 @@
     >
       {title}
     </p>
-    <ul class="animate-top-slide-in flex flex-wrap gap-2"
-
+    <ul
+      class="animate-top-slide-in flex flex-wrap gap-2"
       style="--delay: calc(var(--delay-tech) + {150 + idx * 50}ms)"
     >
       {#each subSections[category] as sk}
@@ -47,9 +50,9 @@
 >
   <ul class="grid gap-4 sm:grid-cols-2">
     {@render section("Programming Languages", SkillCategory.Lang, 0)}
-    {@render section("Databases", SkillCategory.Database, 1)}
+    {@render section("Exploring", SkillCategory.Exploring, 4)}
     {@render section("Frameworks & Libraries", SkillCategory.Lib, 2)}
     {@render section("Tools & Platforms", SkillCategory.Tools, 3)}
-    {@render section("Exploring", SkillCategory.Exploring, 4)}
+    {@render section("Databases", SkillCategory.Database, 1)}
   </ul>
 </Section>
