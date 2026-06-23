@@ -19,14 +19,16 @@
   <title>{TITLE}</title>
 </svelte:head>
 
-<main class="flex flex-col gap-4">
+<main class="flex flex-col gap-3.5">
   <HeaderSection />
   <SocialsScection />
 
-  <AboutSection />
-  <SkillsSection skills={data.skills}/>
+  <div class="flex flex-col gap-4">
+    <AboutSection />
+    <SkillsSection skills={data.skills} />
 
-  <ExperienceSection experience={data.experience} />
+    <ExperienceSection experience={data.experience} />
 
-  <PetProjectsSection projects={data.projects} />
+    <PetProjectsSection projects={data.projects} />
+  </div>
 </main>

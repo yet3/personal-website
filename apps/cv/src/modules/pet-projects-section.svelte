@@ -20,7 +20,7 @@
         >
           {project.title}
         </a>
-        <p class="text-resume-body mt-1.5">{project.contentBlocks}</p>
+        <p class="text-resume-body mt-1">{project.contentBlocks}</p>
       </li>
     {/each}
   </ul>
