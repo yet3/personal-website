@@ -12,7 +12,7 @@
 {#snippet info(str: string, href?: string, withDivider: boolean = true)}
   <li class="flex items-center gap-1.25 [&_svg]:(size-5)">
     {#if href}
-      <a {href} target="_blank" class="underline underline-accent">
+      <a {href} target="new" class="underline underline-accent block">
         {str}
       </a>
     {:else}

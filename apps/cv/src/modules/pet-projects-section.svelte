@@ -15,12 +15,12 @@
       <li>
         <a
           href={project.appHref ?? project.repoHref}
-          class="text-resume-title font-semibold underline underline-accent"
-          target="_blank"
+          target="new"
+          class="text-resume-title font-semibold underline underline-accent block"
         >
           {project.title}
         </a>
-        <p class="text-resume-body">{project.contentBlocks}</p>
+        <p class="text-resume-body mt-1.5">{project.contentBlocks}</p>
       </li>
     {/each}
   </ul>
