@@ -4,10 +4,10 @@
 
 <Section title="Summary">
   <p class="text-resume-body text-justify leading-[1.5]">
-    Developer from Poland focused on crafting highly interactive applications
-    using TypeScript, React, and Node. I have a track record of shipping
-    end-to-end solutions ranging from AI tools to complex ERPs across the SaaS,
-    dental, and manufacturing sectors. I collaborate easily with designers, PMs,
-    and DevOps to solve real problems.
+    Developer based in Poland working mainly with TypeScript, React, and Node,
+    building highly interactive applications. Over the years I've shipped
+    end-to-end products in SaaS, dental, and manufacturing, including AI tools
+    and large ERP systems. Comfortable working closely with designers, PMs, and
+    DevOps to get real problems solved.
   </p>
 </Section>
