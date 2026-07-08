@@ -36,7 +36,7 @@
 {/snippet}
 
 <Section title="Skills">
-  <ul class="flex flex-col gap-0.25">
+  <ul class="flex flex-col gap-0.5">
     {@render section("Languages", CvSkillCategory.Lang)}
     {@render section("Core", CvSkillCategory.Core)}
     {@render section("Other", CvSkillCategory.Other)}

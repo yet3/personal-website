@@ -10,7 +10,7 @@
 </script>
 
 <Section title="Projects">
-  <ul class="grid content-start gap-2">
+  <ul class="grid content-start gap-2.5">
     {#each projects as project}
       <li>
         <a
