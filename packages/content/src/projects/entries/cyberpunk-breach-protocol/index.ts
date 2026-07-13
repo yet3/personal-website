@@ -15,7 +15,7 @@ const SKILLS: IProjectSkills = [
 ];
 
 export default defineProject("cyberpunk-breach-protocol", {
-  title: "Cyberpunk breach protocol",
+  title: "Cyberpunk Breach Protocol",
   appHref:
     "https://cyberpunk2077-breach-protocol-git-main-yet3s-projects.vercel.app/",
   repoHref: "https://github.com/yet3/cyberpunk2077-breach-protocol",
@@ -28,4 +28,3 @@ export default defineProject("cyberpunk-breach-protocol", {
     'A fan recreation of the hacking mini-game "Breach Protocol" from Cyberpunk 2077.',
   ],
 });
-
